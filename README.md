@@ -2,6 +2,40 @@
 
 **Production-simulated RAG + agentic migration intelligence platform for version-safe developer change decisions.**
 
+<p>
+  <a href="https://sidharthkriplani.github.io/devpulse_platform/">
+    <img alt="Live Dashboard" src="https://img.shields.io/badge/Live%20Dashboard-GitHub%20Pages-2ea44f?style=for-the-badge&logo=githubpages&logoColor=white">
+  </a>
+  <img alt="PRD Status" src="https://img.shields.io/badge/PRD%20v3.5-PASS-brightgreen?style=for-the-badge">
+  <img alt="RAG" src="https://img.shields.io/badge/RAG-Version%20Safe-2563eb?style=for-the-badge">
+  <img alt="Agentic" src="https://img.shields.io/badge/Agentic-Orchestration-7c3aed?style=for-the-badge">
+  <img alt="Evidence" src="https://img.shields.io/badge/Evidence-70%20Artifacts-f59e0b?style=for-the-badge">
+</p>
+
+<p>
+  <img alt="Python" src="https://img.shields.io/badge/Python-3.11-3776ab?style=flat-square&logo=python&logoColor=white">
+  <img alt="Static Dashboard" src="https://img.shields.io/badge/Dashboard-Static%20HTML-orange?style=flat-square">
+  <img alt="Wrong Version Rate" src="https://img.shields.io/badge/Wrong--Version%20Rate-0.0-brightgreen?style=flat-square">
+  <img alt="Hybrid Recall" src="https://img.shields.io/badge/Hybrid%20Recall%405-0.94-blue?style=flat-square">
+  <img alt="Conflict Macro F1" src="https://img.shields.io/badge/Conflict%20Macro%20F1-0.966-purple?style=flat-square">
+  <img alt="Backtest" src="https://img.shields.io/badge/37--Day%20Backtest-2479%20Queries-teal?style=flat-square">
+</p>
+
+---
+
+## At a Glance
+
+| Layer | What it proves |
+|---|---|
+| **Version-safe RAG** | Hard version filtering, zero wrong-version answer rate, citation-backed synthesis |
+| **Deterministic conflict detection** | Stale, contradictory, deprecated, and cross-source conflict handling |
+| **Agentic Goal Mode** | Bounded task planning, recovery, escalation, and final migration decisioning |
+| **Repo-aware analysis** | Local repository scan, dependency usage mapping, risky callsite detection |
+| **Patch + PR simulation** | Reviewer-safe patch diff, test simulation, triage, checklist, rollback plan |
+| **Evidence dashboard** | Public visual dashboard summarizing 70 generated artifacts |
+
+---
+
 DevPulse helps engineering teams reason about dependency migrations by combining version-aware retrieval, deterministic conflict detection, LLM-last synthesis boundaries, agentic migration planning, repo-aware callsite analysis, patch proposal simulation, test/triage simulation, and a static evidence dashboard.
 
 ## Live Dashboard
