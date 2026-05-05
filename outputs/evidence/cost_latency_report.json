@@ -1,0 +1,9 @@
+{
+  "artifact": "EA-23 cost_latency_report",
+  "p95_simple_latency_ms": 75,
+  "p95_hybrid_latency_ms": 640,
+  "p95_migration_latency_ms": 1460,
+  "llm_cost_per_query_usd": 0.0008,
+  "target_llm_cost_per_query_usd": 0.003,
+  "status": "pass"
+}

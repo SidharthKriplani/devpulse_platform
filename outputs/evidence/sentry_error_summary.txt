@@ -1,0 +1,5 @@
+EA-22 sentry_error_summary
+note=production-simulated error summary, not live Sentry integration
+error_categories=vector_store_unavailable,llm_timeout,ungrounded_api
+critical_unhandled_errors=0
+status=pass

@@ -1,0 +1,12 @@
+EA-24 devpulse_demo_report
+
+=== DevPulse Query Mode Demo ===
+Status: pass
+Evidence artifacts EA-01 to EA-24: present
+Failure scenarios F-01 to F-10: represented
+Version correctness: wrong_version_answer_rate = 0.0
+Conflict detection: 9/9 conflict types covered in deterministic scenario catalog
+Migration verdicts: SAFE, RISKY, BLOCKED
+LLM-last: synthesis suppressed for BLOCKED verdicts
+Citation assembly: programmatic citations from chunk metadata
+Truth boundary: production-simulated, not production SaaS

@@ -1,0 +1,14 @@
+{
+  "artifact": "EA-05 version_coverage_matrix",
+  "matrix": {
+    "v2": {
+      "reference": 3
+    },
+    "v3": {
+      "reference": 4,
+      "migration_guide": 1,
+      "changelog": 1
+    }
+  },
+  "status": "pass"
+}

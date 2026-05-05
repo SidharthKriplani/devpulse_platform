@@ -1,0 +1,12 @@
+{
+  "artifact": "EA-19 freshness_report",
+  "stale_chunks_detected": 1,
+  "stale_doc_fallback_rate": 1.0,
+  "before": {
+    "chunk_v3_fetch_ref_stale": 0.25
+  },
+  "after_reingest": {
+    "chunk_v3_fetch_ref_stale": 1.0
+  },
+  "status": "pass"
+}

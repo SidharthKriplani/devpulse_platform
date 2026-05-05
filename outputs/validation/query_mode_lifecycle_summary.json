@@ -1,0 +1,13 @@
+{
+  "artifact": "query_mode_lifecycle_summary",
+  "status": "pass",
+  "evidence_artifact_count": 24,
+  "failure_scenario_count": 10,
+  "wrong_version_answer_rate": 0.0,
+  "verdicts_seen": [
+    "SAFE",
+    "RISKY",
+    "BLOCKED"
+  ],
+  "evidence_statement": "DevPulse Query Mode lifecycle generated EA-01 to EA-24 and F-01 to F-10 as production-simulated executable evidence."
+}

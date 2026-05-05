@@ -1,0 +1,15 @@
+{
+  "artifact": "EA-21 langfuse_trace_export",
+  "note": "production-simulated trace export, not live Langfuse integration",
+  "spans": [
+    {
+      "span_id": "span_synth_001",
+      "query_id": "query_21ddd2cbeb7f",
+      "model": "simulated_llm_last_synthesizer",
+      "tokens": 220,
+      "latency_ms": 430,
+      "prompt_hash": "prompt_hash_demo_001"
+    }
+  ],
+  "status": "pass"
+}

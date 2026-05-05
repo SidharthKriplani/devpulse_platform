@@ -1,0 +1,8 @@
+{
+  "artifact": "EA-13 synthesis_grounding_report",
+  "synthesis_calls": 3,
+  "average_grounding_rate": 0.983,
+  "ungrounded_api_injections": 3,
+  "fallback_events_logged": 3,
+  "status": "pass"
+}

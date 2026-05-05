@@ -1,0 +1,6 @@
+EA-20 embedding_swap_log
+old_index=embedding_index_v1
+new_index=embedding_index_v2
+blue_green_swap=true
+query_downtime_seconds=0
+status=pass

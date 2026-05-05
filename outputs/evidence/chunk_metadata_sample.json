@@ -1,0 +1,142 @@
+{
+  "artifact": "EA-02 chunk_metadata_sample",
+  "sample_count": 9,
+  "chunks": [
+    {
+      "chunk_id": "chunk_v2_auth_ref",
+      "source_url": "docs/reference/v2/authenticate",
+      "doc_type": "reference",
+      "version_tag": "v2",
+      "section_title": "authenticate() reference v2",
+      "content": "In v2, authenticate(api_key) accepts an API key string and returns a session token.",
+      "api_names": [
+        "authenticate"
+      ],
+      "change_type": "current",
+      "has_deprecation": false,
+      "replacement_api": null,
+      "freshness_score": 1.0
+    },
+    {
+      "chunk_id": "chunk_v3_auth_ref",
+      "source_url": "docs/reference/v3/authenticate",
+      "doc_type": "reference",
+      "version_tag": "v3",
+      "section_title": "authenticate() reference v3",
+      "content": "In v3, authenticate(client_id, client_secret) replaces api_key authentication and returns an OAuth session.",
+      "api_names": [
+        "authenticate"
+      ],
+      "change_type": "modified",
+      "has_deprecation": false,
+      "replacement_api": null,
+      "freshness_score": 1.0
+    },
+    {
+      "chunk_id": "chunk_v3_migration_auth",
+      "source_url": "docs/migration/v2-to-v3/authenticate",
+      "doc_type": "migration_guide",
+      "version_tag": "v3",
+      "section_title": "Migrating authenticate() from v2 to v3",
+      "content": "When migrating from v2 to v3, replace authenticate(api_key) with authenticate(client_id, client_secret).",
+      "api_names": [
+        "authenticate"
+      ],
+      "change_type": "breaking",
+      "has_deprecation": false,
+      "replacement_api": "authenticate(client_id, client_secret)",
+      "freshness_score": 1.0
+    },
+    {
+      "chunk_id": "chunk_v2_fetch_ref",
+      "source_url": "docs/reference/v2/fetchUser",
+      "doc_type": "reference",
+      "version_tag": "v2",
+      "section_title": "fetchUser() reference v2",
+      "content": "In v2, fetchUser(user_id) returns a user profile object.",
+      "api_names": [
+        "fetchUser"
+      ],
+      "change_type": "current",
+      "has_deprecation": false,
+      "replacement_api": null,
+      "freshness_score": 1.0
+    },
+    {
+      "chunk_id": "chunk_v3_fetch_changelog",
+      "source_url": "docs/changelog/v3/fetchUser",
+      "doc_type": "changelog",
+      "version_tag": "v3",
+      "section_title": "fetchUser renamed in v3",
+      "content": "In v3, fetchUser is deprecated. Use getUserProfile(user_id) instead.",
+      "api_names": [
+        "fetchUser",
+        "getUserProfile"
+      ],
+      "change_type": "deprecated",
+      "has_deprecation": true,
+      "replacement_api": "getUserProfile",
+      "freshness_score": 1.0
+    },
+    {
+      "chunk_id": "chunk_v3_fetch_ref_stale",
+      "source_url": "docs/reference/v3/fetchUser",
+      "doc_type": "reference",
+      "version_tag": "v3",
+      "section_title": "fetchUser() reference v3 stale page",
+      "content": "In v3, fetchUser(user_id) returns a user profile object.",
+      "api_names": [
+        "fetchUser"
+      ],
+      "change_type": "current",
+      "has_deprecation": false,
+      "replacement_api": null,
+      "freshness_score": 0.25
+    },
+    {
+      "chunk_id": "chunk_v3_rate_ref",
+      "source_url": "docs/reference/v3/rateLimit",
+      "doc_type": "reference",
+      "version_tag": "v3",
+      "section_title": "rateLimit v3",
+      "content": "In v3, rateLimit is 1000 requests per minute for paid plans.",
+      "api_names": [
+        "rateLimit"
+      ],
+      "change_type": "current",
+      "has_deprecation": false,
+      "replacement_api": null,
+      "freshness_score": 1.0
+    },
+    {
+      "chunk_id": "chunk_v2_rate_ref",
+      "source_url": "docs/reference/v2/rateLimit",
+      "doc_type": "reference",
+      "version_tag": "v2",
+      "section_title": "rateLimit v2",
+      "content": "In v2, rateLimit is 500 requests per minute for paid plans.",
+      "api_names": [
+        "rateLimit"
+      ],
+      "change_type": "current",
+      "has_deprecation": false,
+      "replacement_api": null,
+      "freshness_score": 1.0
+    },
+    {
+      "chunk_id": "chunk_v3_logging_ref_stale",
+      "source_url": "docs/reference/v3/logging",
+      "doc_type": "reference",
+      "version_tag": "v3",
+      "section_title": "logging reference v3 stale page",
+      "content": "In v3, logging supports structured event payloads, but this page is marked stale and needs reviewer confirmation.",
+      "api_names": [
+        "logging"
+      ],
+      "change_type": "current",
+      "has_deprecation": false,
+      "replacement_api": null,
+      "freshness_score": 0.25
+    }
+  ]
+}

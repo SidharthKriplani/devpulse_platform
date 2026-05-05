@@ -1,0 +1,67 @@
+{
+  "artifact": "query_mode_failure_scenarios_f01_f10",
+  "scenario_count": 10,
+  "scenarios": [
+    {
+      "scenario_id": "F-01",
+      "name": "wrong_version_chunk_returned",
+      "expected_recovery": "version_filter_prevents_wrong_version_chunk",
+      "status": "pass"
+    },
+    {
+      "scenario_id": "F-02",
+      "name": "llm_hallucinates_api_name",
+      "expected_recovery": "post_generation_validation_discards_synthesis",
+      "status": "pass"
+    },
+    {
+      "scenario_id": "F-03",
+      "name": "critical_conflict_not_flagged",
+      "expected_recovery": "conflict_detector_blocks_critical_conflict",
+      "status": "pass"
+    },
+    {
+      "scenario_id": "F-04",
+      "name": "stale_doc_trusted",
+      "expected_recovery": "freshness_warning_and_fallback_logged",
+      "status": "pass"
+    },
+    {
+      "scenario_id": "F-05",
+      "name": "pgvector_unavailable",
+      "expected_recovery": "bm25_only_degraded_fallback",
+      "status": "pass"
+    },
+    {
+      "scenario_id": "F-06",
+      "name": "llm_provider_timeout",
+      "expected_recovery": "provider_fallback_or_evidence_only_response",
+      "status": "pass"
+    },
+    {
+      "scenario_id": "F-07",
+      "name": "eval_regression_on_version_accuracy",
+      "expected_recovery": "golden_eval_gate_blocks_regression",
+      "status": "pass"
+    },
+    {
+      "scenario_id": "F-08",
+      "name": "embedding_model_changed_without_reindex",
+      "expected_recovery": "startup_validation_blocks_mismatch",
+      "status": "pass"
+    },
+    {
+      "scenario_id": "F-09",
+      "name": "adversarial_version_ambiguous_query",
+      "expected_recovery": "conflict_flag_or_blocked_response",
+      "status": "pass"
+    },
+    {
+      "scenario_id": "F-10",
+      "name": "changelog_reference_disagreement",
+      "expected_recovery": "cross_source_conflict_blocks_or_caveats",
+      "status": "pass"
+    }
+  ],
+  "status": "pass"
+}

@@ -1,0 +1,117 @@
+{
+  "artifact": "EA-09 retrieval_traces_sample",
+  "trace_count": 11,
+  "traces": [
+    {
+      "chunk_id": "chunk_v2_auth_ref",
+      "bm25_score": 0.75,
+      "vector_score": 0.425,
+      "rrf_score": 1.225,
+      "rank": 1,
+      "selected": true,
+      "version_tag": "v2",
+      "doc_type": "reference"
+    },
+    {
+      "chunk_id": "chunk_v3_auth_ref",
+      "bm25_score": 0.75,
+      "vector_score": 0.425,
+      "rrf_score": 1.225,
+      "rank": 2,
+      "selected": true,
+      "version_tag": "v3",
+      "doc_type": "reference"
+    },
+    {
+      "chunk_id": "chunk_v3_migration_auth",
+      "bm25_score": 0.75,
+      "vector_score": 0.425,
+      "rrf_score": 1.225,
+      "rank": 3,
+      "selected": true,
+      "version_tag": "v3",
+      "doc_type": "migration_guide"
+    },
+    {
+      "chunk_id": "chunk_v3_migration_auth",
+      "bm25_score": 2.4178,
+      "vector_score": 1.5026,
+      "rrf_score": 3.9704,
+      "rank": 1,
+      "selected": true,
+      "version_tag": "v3",
+      "doc_type": "migration_guide"
+    },
+    {
+      "chunk_id": "chunk_v2_auth_ref",
+      "bm25_score": 1.3107,
+      "vector_score": 0.9016,
+      "rrf_score": 2.2622,
+      "rank": 2,
+      "selected": true,
+      "version_tag": "v2",
+      "doc_type": "reference"
+    },
+    {
+      "chunk_id": "chunk_v3_auth_ref",
+      "bm25_score": 1.3107,
+      "vector_score": 0.9016,
+      "rrf_score": 2.2622,
+      "rank": 3,
+      "selected": true,
+      "version_tag": "v3",
+      "doc_type": "reference"
+    },
+    {
+      "chunk_id": "chunk_v2_fetch_ref",
+      "bm25_score": 0.9167,
+      "vector_score": 0.5667,
+      "rrf_score": 1.5333,
+      "rank": 1,
+      "selected": true,
+      "version_tag": "v2",
+      "doc_type": "reference"
+    },
+    {
+      "chunk_id": "chunk_v3_fetch_changelog",
+      "bm25_score": 0.9167,
+      "vector_score": 0.5667,
+      "rrf_score": 1.5333,
+      "rank": 2,
+      "selected": true,
+      "version_tag": "v3",
+      "doc_type": "changelog"
+    },
+    {
+      "chunk_id": "chunk_v3_fetch_ref_stale",
+      "bm25_score": 0.9167,
+      "vector_score": 0.5667,
+      "rrf_score": 1.4958,
+      "rank": 3,
+      "selected": true,
+      "version_tag": "v3",
+      "doc_type": "reference"
+    },
+    {
+      "chunk_id": "chunk_v3_fetch_changelog",
+      "bm25_score": 2.1398,
+      "vector_score": 1.6063,
+      "rrf_score": 3.7962,
+      "rank": 1,
+      "selected": true,
+      "version_tag": "v3",
+      "doc_type": "changelog"
+    },
+    {
+      "chunk_id": "chunk_v3_fetch_ref_stale",
+      "bm25_score": 1.3839,
+      "vector_score": 0.9638,
+      "rrf_score": 2.3602,
+      "rank": 2,
+      "selected": true,
+      "version_tag": "v3",
+      "doc_type": "reference"
+    }
+  ],
+  "status": "pass"
+}

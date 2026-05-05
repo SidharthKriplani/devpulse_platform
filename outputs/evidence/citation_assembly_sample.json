@@ -1,0 +1,113 @@
+{
+  "artifact": "EA-14 citation_assembly_sample",
+  "sample_count": 5,
+  "citations": [
+    {
+      "query": "How does authenticate work in v3?",
+      "citations": [
+        {
+          "chunk_id": "chunk_v3_auth_ref",
+          "source_url": "docs/reference/v3/authenticate",
+          "version_tag": "v3",
+          "doc_type": "reference",
+          "section_title": "authenticate() reference v3",
+          "retrieval_score": 2.5658
+        },
+        {
+          "chunk_id": "chunk_v3_migration_auth",
+          "source_url": "docs/migration/v2-to-v3/authenticate",
+          "version_tag": "v3",
+          "doc_type": "migration_guide",
+          "section_title": "Migrating authenticate() from v2 to v3",
+          "retrieval_score": 1.8105
+        }
+      ]
+    },
+    {
+      "query": "What changed in authenticate from v2 to v3?",
+      "citations": [
+        {
+          "chunk_id": "chunk_v3_migration_auth",
+          "source_url": "docs/migration/v2-to-v3/authenticate",
+          "version_tag": "v3",
+          "doc_type": "migration_guide",
+          "section_title": "Migrating authenticate() from v2 to v3",
+          "retrieval_score": 3.9704
+        },
+        {
+          "chunk_id": "chunk_v2_auth_ref",
+          "source_url": "docs/reference/v2/authenticate",
+          "version_tag": "v2",
+          "doc_type": "reference",
+          "section_title": "authenticate() reference v2",
+          "retrieval_score": 2.2622
+        },
+        {
+          "chunk_id": "chunk_v3_auth_ref",
+          "source_url": "docs/reference/v3/authenticate",
+          "version_tag": "v3",
+          "doc_type": "reference",
+          "section_title": "authenticate() reference v3",
+          "retrieval_score": 2.2622
+        }
+      ]
+    },
+    {
+      "query": "Is logging safe to use in v3?",
+      "citations": [
+        {
+          "chunk_id": "chunk_v3_logging_ref_stale",
+          "source_url": "docs/reference/v3/logging",
+          "version_tag": "v3",
+          "doc_type": "reference",
+          "section_title": "logging reference v3 stale page",
+          "retrieval_score": 3.0594
+        }
+      ]
+    },
+    {
+      "query": "How should I migrate fetchUser from v2 to v3?",
+      "citations": [
+        {
+          "chunk_id": "chunk_v2_fetch_ref",
+          "source_url": "docs/reference/v2/fetchUser",
+          "version_tag": "v2",
+          "doc_type": "reference",
+          "section_title": "fetchUser() reference v2",
+          "retrieval_score": 1.5333
+        },
+        {
+          "chunk_id": "chunk_v3_fetch_changelog",
+          "source_url": "docs/changelog/v3/fetchUser",
+          "version_tag": "v3",
+          "doc_type": "changelog",
+          "section_title": "fetchUser renamed in v3",
+          "retrieval_score": 1.5333
+        },
+        {
+          "chunk_id": "chunk_v3_fetch_ref_stale",
+          "source_url": "docs/reference/v3/fetchUser",
+          "version_tag": "v3",
+          "doc_type": "reference",
+          "section_title": "fetchUser() reference v3 stale page",
+          "retrieval_score": 1.4958
+        }
+      ]
+    },
+    {
+      "query": "What is the rateLimit in v2?",
+      "citations": [
+        {
+          "chunk_id": "chunk_v2_rate_ref",
+          "source_url": "docs/reference/v2/rateLimit",
+          "version_tag": "v2",
+          "doc_type": "reference",
+          "section_title": "rateLimit v2",
+          "retrieval_score": 3.321
+        }
+      ]
+    }
+  ],
+  "programmatic_citations": true,
+  "status": "pass"
+}

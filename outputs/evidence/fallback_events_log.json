@@ -1,0 +1,78 @@
+{
+  "artifact": "EA-18 fallback_events_log",
+  "event_count": 10,
+  "events": [
+    {
+      "event_id": "fallback_5142907b5c71",
+      "query_id": "query_614f78f4cced",
+      "reason": "blocked_verdict_or_unresolved_conflict",
+      "fallback_path": "evidence_only_response",
+      "outcome": "synthesis_suppressed",
+      "created_at": "2026-05-05T09:16:45.998027+00:00"
+    },
+    {
+      "event_id": "fallback_b9369dec82e5",
+      "query_id": "query_50d5dc70530a",
+      "reason": "blocked_verdict_or_unresolved_conflict",
+      "fallback_path": "evidence_only_response",
+      "outcome": "synthesis_suppressed",
+      "created_at": "2026-05-05T09:16:45.998404+00:00"
+    },
+    {
+      "event_id": "fallback_435e9f0902a2",
+      "query_id": "query_8ba73a1d677a",
+      "reason": "blocked_verdict_or_unresolved_conflict",
+      "fallback_path": "evidence_only_response",
+      "outcome": "synthesis_suppressed",
+      "created_at": "2026-05-05T09:16:45.999995+00:00"
+    },
+    {
+      "event_id": "fallback_b7285555decd",
+      "query_id": "query_845bc134441a",
+      "reason": "blocked_verdict_or_unresolved_conflict",
+      "fallback_path": "evidence_only_response",
+      "outcome": "synthesis_suppressed",
+      "created_at": "2026-05-05T09:16:46.000242+00:00"
+    },
+    {
+      "event_id": "fallback_884f574df03a",
+      "query_id": "query_89369bb08f65",
+      "reason": "blocked_verdict_or_unresolved_conflict",
+      "fallback_path": "evidence_only_response",
+      "outcome": "synthesis_suppressed",
+      "created_at": "2026-05-05T09:16:46.000570+00:00"
+    },
+    {
+      "event_id": "fallback_2e3728e5fb2d",
+      "query_id": "query_d17376a815f8",
+      "reason": "blocked_verdict_or_unresolved_conflict",
+      "fallback_path": "evidence_only_response",
+      "outcome": "synthesis_suppressed",
+      "created_at": "2026-05-05T09:16:46.000971+00:00"
+    },
+    {
+      "event_id": "fallback_d0d040a98293",
+      "query_id": "query_1f08f0d53556",
+      "reason": "blocked_verdict_or_unresolved_conflict",
+      "fallback_path": "evidence_only_response",
+      "outcome": "synthesis_suppressed",
+      "created_at": "2026-05-05T09:16:46.001369+00:00"
+    },
+    {
+      "reason": "ungrounded_api",
+      "fallback_path": "synthesis_discarded",
+      "outcome": "evidence_only"
+    },
+    {
+      "reason": "vector_store_unavailable",
+      "fallback_path": "bm25_only",
+      "outcome": "degraded_success"
+    },
+    {
+      "reason": "llm_timeout",
+      "fallback_path": "provider_fallback",
+      "outcome": "success"
+    }
+  ],
+  "status": "pass"
+}

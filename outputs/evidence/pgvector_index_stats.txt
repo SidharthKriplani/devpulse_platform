@@ -1,0 +1,5 @@
+EA-04 pgvector_index_stats
+vector_count=8
+embedding_dim=1536
+index_type=simulated_pgvector_cosine
+status=pass

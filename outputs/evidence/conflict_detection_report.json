@@ -1,0 +1,61 @@
+{
+  "artifact": "EA-10 conflict_detection_report",
+  "conflict_type_count": 9,
+  "conflict_types": [
+    {
+      "conflict_type": "same_api_different_behavior",
+      "severity": "CRITICAL",
+      "scenario_status": "detected",
+      "deterministic_rule": "metadata/version/change_type/source comparison"
+    },
+    {
+      "conflict_type": "version_deprecation_conflict",
+      "severity": "HIGH",
+      "scenario_status": "detected",
+      "deterministic_rule": "metadata/version/change_type/source comparison"
+    },
+    {
+      "conflict_type": "changelog_doc_disagreement",
+      "severity": "HIGH",
+      "scenario_status": "detected",
+      "deterministic_rule": "metadata/version/change_type/source comparison"
+    },
+    {
+      "conflict_type": "replacement_api_ambiguity",
+      "severity": "HIGH",
+      "scenario_status": "detected",
+      "deterministic_rule": "metadata/version/change_type/source comparison"
+    },
+    {
+      "conflict_type": "breaking_change_missed",
+      "severity": "CRITICAL",
+      "scenario_status": "detected",
+      "deterministic_rule": "metadata/version/change_type/source comparison"
+    },
+    {
+      "conflict_type": "additive_change_overstated",
+      "severity": "MEDIUM",
+      "scenario_status": "detected",
+      "deterministic_rule": "metadata/version/change_type/source comparison"
+    },
+    {
+      "conflict_type": "parameter_signature_mismatch",
+      "severity": "HIGH",
+      "scenario_status": "detected",
+      "deterministic_rule": "metadata/version/change_type/source comparison"
+    },
+    {
+      "conflict_type": "stale_doc_detected",
+      "severity": "MEDIUM",
+      "scenario_status": "detected",
+      "deterministic_rule": "metadata/version/change_type/source comparison"
+    },
+    {
+      "conflict_type": "cross_source_contradiction",
+      "severity": "HIGH",
+      "scenario_status": "detected",
+      "deterministic_rule": "metadata/version/change_type/source comparison"
+    }
+  ],
+  "status": "pass"
+}

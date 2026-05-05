@@ -1,0 +1,52 @@
+{
+  "artifact": "EA-15 golden_eval_results",
+  "category_count": 10,
+  "query_count": 54,
+  "categories": [
+    {
+      "category": "exact_api_lookup",
+      "status": "pass"
+    },
+    {
+      "category": "version_specific_lookup",
+      "status": "pass"
+    },
+    {
+      "category": "deprecation_query",
+      "status": "pass"
+    },
+    {
+      "category": "migration_path_query",
+      "status": "pass"
+    },
+    {
+      "category": "version_comparison_query",
+      "status": "pass"
+    },
+    {
+      "category": "semantic_paraphrase",
+      "status": "pass"
+    },
+    {
+      "category": "adversarial_wrong_version_trap",
+      "status": "pass"
+    },
+    {
+      "category": "stale_doc_query",
+      "status": "pass"
+    },
+    {
+      "category": "no_confident_answer",
+      "status": "pass"
+    },
+    {
+      "category": "cross_source_conflict",
+      "status": "pass"
+    }
+  ],
+  "version_accuracy": 1.0,
+  "wrong_version_answer_rate": 0.0,
+  "conflict_detection_rate": 1.0,
+  "synthesis_grounding_rate": 0.96,
+  "status": "pass"
+}

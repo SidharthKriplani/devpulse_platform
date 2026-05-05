@@ -1,0 +1,163 @@
+{
+  "artifact": "query_mode_lifecycle_validation",
+  "status": "pass",
+  "check_count": 30,
+  "passed_count": 30,
+  "checks": [
+    {
+      "name": "ingest_summary.json",
+      "passed": true,
+      "observed": "outputs/evidence/ingest_summary.json"
+    },
+    {
+      "name": "chunk_metadata_sample.json",
+      "passed": true,
+      "observed": "outputs/evidence/chunk_metadata_sample.json"
+    },
+    {
+      "name": "bm25_index_stats.txt",
+      "passed": true,
+      "observed": "outputs/evidence/bm25_index_stats.txt"
+    },
+    {
+      "name": "pgvector_index_stats.txt",
+      "passed": true,
+      "observed": "outputs/evidence/pgvector_index_stats.txt"
+    },
+    {
+      "name": "version_coverage_matrix.json",
+      "passed": true,
+      "observed": "outputs/evidence/version_coverage_matrix.json"
+    },
+    {
+      "name": "simple_query_results.json",
+      "passed": true,
+      "observed": "outputs/evidence/simple_query_results.json"
+    },
+    {
+      "name": "hybrid_retrieval_report.json",
+      "passed": true,
+      "observed": "outputs/evidence/hybrid_retrieval_report.json"
+    },
+    {
+      "name": "version_filter_audit.json",
+      "passed": true,
+      "observed": "outputs/evidence/version_filter_audit.json"
+    },
+    {
+      "name": "retrieval_traces_sample.json",
+      "passed": true,
+      "observed": "outputs/evidence/retrieval_traces_sample.json"
+    },
+    {
+      "name": "conflict_detection_report.json",
+      "passed": true,
+      "observed": "outputs/evidence/conflict_detection_report.json"
+    },
+    {
+      "name": "conflict_alerts_schema.sql",
+      "passed": true,
+      "observed": "outputs/evidence/conflict_alerts_schema.sql"
+    },
+    {
+      "name": "migration_decision_samples.json",
+      "passed": true,
+      "observed": "outputs/evidence/migration_decision_samples.json"
+    },
+    {
+      "name": "synthesis_grounding_report.json",
+      "passed": true,
+      "observed": "outputs/evidence/synthesis_grounding_report.json"
+    },
+    {
+      "name": "citation_assembly_sample.json",
+      "passed": true,
+      "observed": "outputs/evidence/citation_assembly_sample.json"
+    },
+    {
+      "name": "golden_eval_results.json",
+      "passed": true,
+      "observed": "outputs/evidence/golden_eval_results.json"
+    },
+    {
+      "name": "adversarial_trap_results.json",
+      "passed": true,
+      "observed": "outputs/evidence/adversarial_trap_results.json"
+    },
+    {
+      "name": "query_audit_log_sample.json",
+      "passed": true,
+      "observed": "outputs/evidence/query_audit_log_sample.json"
+    },
+    {
+      "name": "fallback_events_log.json",
+      "passed": true,
+      "observed": "outputs/evidence/fallback_events_log.json"
+    },
+    {
+      "name": "freshness_report.json",
+      "passed": true,
+      "observed": "outputs/evidence/freshness_report.json"
+    },
+    {
+      "name": "embedding_swap_log.txt",
+      "passed": true,
+      "observed": "outputs/evidence/embedding_swap_log.txt"
+    },
+    {
+      "name": "langfuse_trace_export.json",
+      "passed": true,
+      "observed": "outputs/evidence/langfuse_trace_export.json"
+    },
+    {
+      "name": "sentry_error_summary.txt",
+      "passed": true,
+      "observed": "outputs/evidence/sentry_error_summary.txt"
+    },
+    {
+      "name": "cost_latency_report.json",
+      "passed": true,
+      "observed": "outputs/evidence/cost_latency_report.json"
+    },
+    {
+      "name": "devpulse_demo_report.txt",
+      "passed": true,
+      "observed": "outputs/evidence/devpulse_demo_report.txt"
+    },
+    {
+      "name": "ea_01_to_ea_24_present",
+      "passed": true,
+      "observed": "24/24"
+    },
+    {
+      "name": "wrong_version_answer_rate_zero",
+      "passed": true,
+      "observed": 0.0
+    },
+    {
+      "name": "golden_eval_pass",
+      "passed": true,
+      "observed": "pass"
+    },
+    {
+      "name": "all_9_conflict_types_covered",
+      "passed": true,
+      "observed": 9
+    },
+    {
+      "name": "f01_to_f10_covered",
+      "passed": true,
+      "observed": 10
+    },
+    {
+      "name": "safe_risky_blocked_decision_samples",
+      "passed": true,
+      "observed": [
+        "BLOCKED",
+        "RISKY",
+        "SAFE"
+      ]
+    }
+  ],
+  "evidence_statement": "Validates DevPulse Query Mode EA-01 to EA-24, F-01 to F-10, golden eval, version correctness, conflict coverage, and verdict coverage."
+}

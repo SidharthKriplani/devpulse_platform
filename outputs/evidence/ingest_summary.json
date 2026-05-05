@@ -1,0 +1,17 @@
+{
+  "artifact": "EA-01 ingest_summary",
+  "source_count": 3,
+  "chunk_count": 9,
+  "doc_types": [
+    "changelog",
+    "migration_guide",
+    "reference"
+  ],
+  "versions": [
+    "v2",
+    "v3"
+  ],
+  "metadata_fill_rate": 1.0,
+  "status": "pass",
+  "evidence_statement": "Demo corpus ingested with version_tag, doc_type, change_type, api_names, and freshness metadata."
+}

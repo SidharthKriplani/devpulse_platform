@@ -1,0 +1,5 @@
+EA-03 bm25_index_stats
+chunks=9
+token_count=99
+index_type=simulated_postgres_tsvector
+status=pass
