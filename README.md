@@ -23,6 +23,47 @@
 
 ---
 
+## Architecture
+
+```mermaid
+flowchart TD
+    INPUT["🔍 User Query / Migration Goal\ne.g. migrate requests v2 → v3"] --> QP
+
+    subgraph QM["Query Mode"]
+        QP["Query Parser\nVersion extraction · complexity routing"]
+        RET["Version-Safe Retrieval\nHard version filter · wrong-version rate = 0.0\nHybrid Recall@5 = 0.94"]
+        CD["Conflict Detector\nStale · contradictory · deprecated\nConflict Macro F1 = 0.966"]
+        SYN["LLM-Last Synthesis\nOnly when evidence is grounded\nCitation assembly · fallback audit"]
+        REP["Migration Report\nSAFE / RISKY / BLOCKED"]
+    end
+
+    QP --> RET --> CD --> SYN --> REP
+
+    REP --> GP
+
+    subgraph GM["Goal Mode"]
+        GP["GoalParser + DependencyDeltaDetector"]
+        TP["TaskPlanner → TaskExecutor\nBounded retry · staged migration"]
+        RD["RecoveryDecider · Escalation"]
+        PS["PlanSummaryReporter"]
+    end
+
+    GP --> TP --> RD --> PS
+
+    PS --> RA
+
+    subgraph EXT["Extensions"]
+        RA["Repo-Aware Analysis\n10 risky callsites · DO_NOT_APPLY_WITHOUT_REVIEW"]
+        PP["Patch + PR Simulation\nDiff · test sim · triage · rollback plan"]
+        BT["37-Day Backtest\n2,479 queries · 70 evidence artifacts"]
+    end
+
+    RA --> PP --> BT
+    BT --> DASH["📊 Evidence Dashboard\nGitHub Pages · public"]
+```
+
+---
+
 ## At a Glance
 
 | Layer | What it proves |
