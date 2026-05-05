@@ -1,0 +1,64 @@
+{
+  "artifact": "query_mode_core_validation",
+  "status": "pass",
+  "check_count": 8,
+  "passed_count": 8,
+  "checks": [
+    {
+      "name": "probe_artifact_exists",
+      "passed": true,
+      "observed": "outputs/evidence/query_mode_core_probe.json"
+    },
+    {
+      "name": "all_three_routes_available_or_represented",
+      "passed": true,
+      "observed": [
+        "MIGRATION",
+        "SIMPLE"
+      ]
+    },
+    {
+      "name": "safe_risky_blocked_verdicts_present",
+      "passed": true,
+      "observed": [
+        "BLOCKED",
+        "RISKY",
+        "SAFE"
+      ]
+    },
+    {
+      "name": "critical_conflict_detected",
+      "passed": true,
+      "observed": [
+        "same_api_different_behavior",
+        "stale_doc_detected",
+        "version_deprecation_conflict"
+      ]
+    },
+    {
+      "name": "deprecation_conflict_detected",
+      "passed": true,
+      "observed": [
+        "same_api_different_behavior",
+        "stale_doc_detected",
+        "version_deprecation_conflict"
+      ]
+    },
+    {
+      "name": "blocked_suppresses_synthesis",
+      "passed": true,
+      "observed": "checked BLOCKED records"
+    },
+    {
+      "name": "citations_are_programmatic",
+      "passed": true,
+      "observed": "all reports include citations"
+    },
+    {
+      "name": "explicit_v2_query_has_only_v2_chunks",
+      "passed": true,
+      "observed": "version-filtered explicit v2 query"
+    }
+  ],
+  "evidence_statement": "Validates the DevPulse Query Mode core implementation before lifecycle artifact generation."
+}

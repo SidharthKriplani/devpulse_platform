@@ -1,0 +1,846 @@
+{
+  "artifact": "query_mode_core_probe",
+  "query_count": 6,
+  "routes_seen": [
+    "MIGRATION",
+    "SIMPLE"
+  ],
+  "verdicts_seen": [
+    "BLOCKED",
+    "RISKY",
+    "SAFE"
+  ],
+  "conflict_types_seen": [
+    "same_api_different_behavior",
+    "stale_doc_detected",
+    "version_deprecation_conflict"
+  ],
+  "blocked_count": 3,
+  "risky_count": 1,
+  "safe_count": 2,
+  "results": [
+    {
+      "query_id": "query_a96b316a472d",
+      "parsed_query": {
+        "raw_query": "How does authenticate work in v3?",
+        "intent": "lookup",
+        "api_names": [
+          "authenticate"
+        ],
+        "version_mentions": [
+          "v3"
+        ]
+      },
+      "version_context": {
+        "mode": "explicit",
+        "explicit_versions": [
+          "v3"
+        ],
+        "from_version": null,
+        "to_version": "v3"
+      },
+      "route_taken": "SIMPLE",
+      "retrieved_chunks": [
+        {
+          "chunk_id": "chunk_v3_auth_ref",
+          "source_url": "docs/reference/v3/authenticate",
+          "doc_type": "reference",
+          "version_tag": "v3",
+          "section_title": "authenticate() reference v3",
+          "content": "In v3, authenticate(client_id, client_secret) replaces api_key authentication and returns an OAuth session.",
+          "api_names": [
+            "authenticate"
+          ],
+          "change_type": "modified",
+          "has_deprecation": false,
+          "replacement_api": null,
+          "freshness_score": 1.0
+        },
+        {
+          "chunk_id": "chunk_v3_migration_auth",
+          "source_url": "docs/migration/v2-to-v3/authenticate",
+          "doc_type": "migration_guide",
+          "version_tag": "v3",
+          "section_title": "Migrating authenticate() from v2 to v3",
+          "content": "When migrating from v2 to v3, replace authenticate(api_key) with authenticate(client_id, client_secret).",
+          "api_names": [
+            "authenticate"
+          ],
+          "change_type": "breaking",
+          "has_deprecation": false,
+          "replacement_api": "authenticate(client_id, client_secret)",
+          "freshness_score": 1.0
+        }
+      ],
+      "retrieval_traces": [
+        {
+          "chunk_id": "chunk_v3_auth_ref",
+          "bm25_score": 1.4747,
+          "vector_score": 1.041,
+          "rrf_score": 2.5658,
+          "rank": 1,
+          "selected": true,
+          "version_tag": "v3",
+          "doc_type": "reference"
+        },
+        {
+          "chunk_id": "chunk_v3_migration_auth",
+          "bm25_score": 1.0665,
+          "vector_score": 0.694,
+          "rrf_score": 1.8105,
+          "rank": 2,
+          "selected": true,
+          "version_tag": "v3",
+          "doc_type": "migration_guide"
+        }
+      ],
+      "conflict_alerts": [],
+      "conflict_flag": false,
+      "migration_report": {
+        "query_id": "query_a96b316a472d",
+        "verdict": "SAFE",
+        "from_version": null,
+        "to_version": "v3",
+        "conflict_count": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0
+        },
+        "version_coverage": {
+          "from_version": "not_requested",
+          "to_version": "complete"
+        },
+        "source_freshness_min": 1.0,
+        "grounding_rate": 1.0,
+        "citations": [
+          {
+            "chunk_id": "chunk_v3_auth_ref",
+            "source_url": "docs/reference/v3/authenticate",
+            "version_tag": "v3",
+            "doc_type": "reference",
+            "section_title": "authenticate() reference v3",
+            "retrieval_score": 2.5658
+          },
+          {
+            "chunk_id": "chunk_v3_migration_auth",
+            "source_url": "docs/migration/v2-to-v3/authenticate",
+            "version_tag": "v3",
+            "doc_type": "migration_guide",
+            "section_title": "Migrating authenticate() from v2 to v3",
+            "retrieval_score": 1.8105
+          }
+        ],
+        "synthesis_text": "Retrieved evidence supports this migration guidance with version-aligned citations.",
+        "caveats": [],
+        "generated_at": "2026-05-05T09:12:23.550449+00:00"
+      },
+      "fallback_events": []
+    },
+    {
+      "query_id": "query_023b4e556b85",
+      "parsed_query": {
+        "raw_query": "What changed in authenticate from v2 to v3?",
+        "intent": "migration",
+        "api_names": [
+          "authenticate"
+        ],
+        "version_mentions": [
+          "v2",
+          "v3"
+        ]
+      },
+      "version_context": {
+        "mode": "range",
+        "explicit_versions": [
+          "v2",
+          "v3"
+        ],
+        "from_version": "v2",
+        "to_version": "v3"
+      },
+      "route_taken": "MIGRATION",
+      "retrieved_chunks": [
+        {
+          "chunk_id": "chunk_v3_migration_auth",
+          "source_url": "docs/migration/v2-to-v3/authenticate",
+          "doc_type": "migration_guide",
+          "version_tag": "v3",
+          "section_title": "Migrating authenticate() from v2 to v3",
+          "content": "When migrating from v2 to v3, replace authenticate(api_key) with authenticate(client_id, client_secret).",
+          "api_names": [
+            "authenticate"
+          ],
+          "change_type": "breaking",
+          "has_deprecation": false,
+          "replacement_api": "authenticate(client_id, client_secret)",
+          "freshness_score": 1.0
+        },
+        {
+          "chunk_id": "chunk_v2_auth_ref",
+          "source_url": "docs/reference/v2/authenticate",
+          "doc_type": "reference",
+          "version_tag": "v2",
+          "section_title": "authenticate() reference v2",
+          "content": "In v2, authenticate(api_key) accepts an API key string and returns a session token.",
+          "api_names": [
+            "authenticate"
+          ],
+          "change_type": "current",
+          "has_deprecation": false,
+          "replacement_api": null,
+          "freshness_score": 1.0
+        },
+        {
+          "chunk_id": "chunk_v3_auth_ref",
+          "source_url": "docs/reference/v3/authenticate",
+          "doc_type": "reference",
+          "version_tag": "v3",
+          "section_title": "authenticate() reference v3",
+          "content": "In v3, authenticate(client_id, client_secret) replaces api_key authentication and returns an OAuth session.",
+          "api_names": [
+            "authenticate"
+          ],
+          "change_type": "modified",
+          "has_deprecation": false,
+          "replacement_api": null,
+          "freshness_score": 1.0
+        }
+      ],
+      "retrieval_traces": [
+        {
+          "chunk_id": "chunk_v3_migration_auth",
+          "bm25_score": 2.4178,
+          "vector_score": 1.5026,
+          "rrf_score": 3.9704,
+          "rank": 1,
+          "selected": true,
+          "version_tag": "v3",
+          "doc_type": "migration_guide"
+        },
+        {
+          "chunk_id": "chunk_v2_auth_ref",
+          "bm25_score": 1.3107,
+          "vector_score": 0.9016,
+          "rrf_score": 2.2622,
+          "rank": 2,
+          "selected": true,
+          "version_tag": "v2",
+          "doc_type": "reference"
+        },
+        {
+          "chunk_id": "chunk_v3_auth_ref",
+          "bm25_score": 1.3107,
+          "vector_score": 0.9016,
+          "rrf_score": 2.2622,
+          "rank": 3,
+          "selected": true,
+          "version_tag": "v3",
+          "doc_type": "reference"
+        }
+      ],
+      "conflict_alerts": [
+        {
+          "conflict_type": "same_api_different_behavior",
+          "severity": "CRITICAL",
+          "chunk_ids": [
+            "chunk_v3_migration_auth",
+            "chunk_v2_auth_ref",
+            "chunk_v3_auth_ref"
+          ],
+          "description": "authenticate has different behavior/change semantics across versions: ['v2', 'v3']."
+        }
+      ],
+      "conflict_flag": true,
+      "migration_report": {
+        "query_id": "query_023b4e556b85",
+        "verdict": "BLOCKED",
+        "from_version": "v2",
+        "to_version": "v3",
+        "conflict_count": {
+          "critical": 1,
+          "high": 0,
+          "medium": 0,
+          "low": 0
+        },
+        "version_coverage": {
+          "from_version": "complete",
+          "to_version": "complete"
+        },
+        "source_freshness_min": 1.0,
+        "grounding_rate": 1.0,
+        "citations": [
+          {
+            "chunk_id": "chunk_v3_migration_auth",
+            "source_url": "docs/migration/v2-to-v3/authenticate",
+            "version_tag": "v3",
+            "doc_type": "migration_guide",
+            "section_title": "Migrating authenticate() from v2 to v3",
+            "retrieval_score": 3.9704
+          },
+          {
+            "chunk_id": "chunk_v2_auth_ref",
+            "source_url": "docs/reference/v2/authenticate",
+            "version_tag": "v2",
+            "doc_type": "reference",
+            "section_title": "authenticate() reference v2",
+            "retrieval_score": 2.2622
+          },
+          {
+            "chunk_id": "chunk_v3_auth_ref",
+            "source_url": "docs/reference/v3/authenticate",
+            "version_tag": "v3",
+            "doc_type": "reference",
+            "section_title": "authenticate() reference v3",
+            "retrieval_score": 2.2622
+          }
+        ],
+        "synthesis_text": null,
+        "caveats": [
+          "Synthesis suppressed because unresolved high/critical conflict or missing target-version coverage exists.",
+          "authenticate has different behavior/change semantics across versions: ['v2', 'v3']."
+        ],
+        "generated_at": "2026-05-05T09:12:23.550968+00:00"
+      },
+      "fallback_events": [
+        {
+          "event_id": "fallback_f5344447ad79",
+          "query_id": "query_023b4e556b85",
+          "reason": "blocked_verdict_or_unresolved_conflict",
+          "fallback_path": "evidence_only_response",
+          "outcome": "synthesis_suppressed",
+          "created_at": "2026-05-05T09:12:23.550982+00:00"
+        }
+      ]
+    },
+    {
+      "query_id": "query_be77193add1e",
+      "parsed_query": {
+        "raw_query": "Is fetchUser safe to use in v3?",
+        "intent": "lookup",
+        "api_names": [
+          "fetchUser"
+        ],
+        "version_mentions": [
+          "v3"
+        ]
+      },
+      "version_context": {
+        "mode": "explicit",
+        "explicit_versions": [
+          "v3"
+        ],
+        "from_version": null,
+        "to_version": "v3"
+      },
+      "route_taken": "SIMPLE",
+      "retrieved_chunks": [
+        {
+          "chunk_id": "chunk_v3_fetch_changelog",
+          "source_url": "docs/changelog/v3/fetchUser",
+          "doc_type": "changelog",
+          "version_tag": "v3",
+          "section_title": "fetchUser renamed in v3",
+          "content": "In v3, fetchUser is deprecated. Use getUserProfile(user_id) instead.",
+          "api_names": [
+            "fetchUser",
+            "getUserProfile"
+          ],
+          "change_type": "deprecated",
+          "has_deprecation": true,
+          "replacement_api": "getUserProfile",
+          "freshness_score": 1.0
+        },
+        {
+          "chunk_id": "chunk_v3_fetch_ref_stale",
+          "source_url": "docs/reference/v3/fetchUser",
+          "doc_type": "reference",
+          "version_tag": "v3",
+          "section_title": "fetchUser() reference v3 stale page",
+          "content": "In v3, fetchUser(user_id) returns a user profile object.",
+          "api_names": [
+            "fetchUser"
+          ],
+          "change_type": "current",
+          "has_deprecation": false,
+          "replacement_api": null,
+          "freshness_score": 0.25
+        }
+      ],
+      "retrieval_traces": [
+        {
+          "chunk_id": "chunk_v3_fetch_changelog",
+          "bm25_score": 2.1398,
+          "vector_score": 1.6063,
+          "rrf_score": 3.7962,
+          "rank": 1,
+          "selected": true,
+          "version_tag": "v3",
+          "doc_type": "changelog"
+        },
+        {
+          "chunk_id": "chunk_v3_fetch_ref_stale",
+          "bm25_score": 1.3839,
+          "vector_score": 0.9638,
+          "rrf_score": 2.3602,
+          "rank": 2,
+          "selected": true,
+          "version_tag": "v3",
+          "doc_type": "reference"
+        }
+      ],
+      "conflict_alerts": [
+        {
+          "conflict_type": "version_deprecation_conflict",
+          "severity": "HIGH",
+          "chunk_ids": [
+            "chunk_v3_fetch_changelog",
+            "chunk_v3_fetch_ref_stale"
+          ],
+          "description": "fetchUser is marked deprecated in one source but current in another."
+        },
+        {
+          "conflict_type": "stale_doc_detected",
+          "severity": "MEDIUM",
+          "chunk_ids": [
+            "chunk_v3_fetch_ref_stale"
+          ],
+          "description": "fetchUser has stale documentation below freshness threshold."
+        }
+      ],
+      "conflict_flag": true,
+      "migration_report": {
+        "query_id": "query_be77193add1e",
+        "verdict": "BLOCKED",
+        "from_version": null,
+        "to_version": "v3",
+        "conflict_count": {
+          "critical": 0,
+          "high": 1,
+          "medium": 1,
+          "low": 0
+        },
+        "version_coverage": {
+          "from_version": "not_requested",
+          "to_version": "complete"
+        },
+        "source_freshness_min": 0.25,
+        "grounding_rate": 1.0,
+        "citations": [
+          {
+            "chunk_id": "chunk_v3_fetch_changelog",
+            "source_url": "docs/changelog/v3/fetchUser",
+            "version_tag": "v3",
+            "doc_type": "changelog",
+            "section_title": "fetchUser renamed in v3",
+            "retrieval_score": 3.7962
+          },
+          {
+            "chunk_id": "chunk_v3_fetch_ref_stale",
+            "source_url": "docs/reference/v3/fetchUser",
+            "version_tag": "v3",
+            "doc_type": "reference",
+            "section_title": "fetchUser() reference v3 stale page",
+            "retrieval_score": 2.3602
+          }
+        ],
+        "synthesis_text": null,
+        "caveats": [
+          "Synthesis suppressed because unresolved high/critical conflict or missing target-version coverage exists.",
+          "fetchUser is marked deprecated in one source but current in another.",
+          "fetchUser has stale documentation below freshness threshold."
+        ],
+        "generated_at": "2026-05-05T09:12:23.551243+00:00"
+      },
+      "fallback_events": [
+        {
+          "event_id": "fallback_bb7bd7ca4031",
+          "query_id": "query_be77193add1e",
+          "reason": "blocked_verdict_or_unresolved_conflict",
+          "fallback_path": "evidence_only_response",
+          "outcome": "synthesis_suppressed",
+          "created_at": "2026-05-05T09:12:23.551253+00:00"
+        }
+      ]
+    },
+    {
+      "query_id": "query_3690e307e24a",
+      "parsed_query": {
+        "raw_query": "What is the rateLimit in v2?",
+        "intent": "lookup",
+        "api_names": [
+          "rateLimit"
+        ],
+        "version_mentions": [
+          "v2"
+        ]
+      },
+      "version_context": {
+        "mode": "explicit",
+        "explicit_versions": [
+          "v2"
+        ],
+        "from_version": null,
+        "to_version": "v2"
+      },
+      "route_taken": "SIMPLE",
+      "retrieved_chunks": [
+        {
+          "chunk_id": "chunk_v2_rate_ref",
+          "source_url": "docs/reference/v2/rateLimit",
+          "doc_type": "reference",
+          "version_tag": "v2",
+          "section_title": "rateLimit v2",
+          "content": "In v2, rateLimit is 500 requests per minute for paid plans.",
+          "api_names": [
+            "rateLimit"
+          ],
+          "change_type": "current",
+          "has_deprecation": false,
+          "replacement_api": null,
+          "freshness_score": 1.0
+        }
+      ],
+      "retrieval_traces": [
+        {
+          "chunk_id": "chunk_v2_rate_ref",
+          "bm25_score": 1.883,
+          "vector_score": 1.388,
+          "rrf_score": 3.321,
+          "rank": 1,
+          "selected": true,
+          "version_tag": "v2",
+          "doc_type": "reference"
+        }
+      ],
+      "conflict_alerts": [],
+      "conflict_flag": false,
+      "migration_report": {
+        "query_id": "query_3690e307e24a",
+        "verdict": "SAFE",
+        "from_version": null,
+        "to_version": "v2",
+        "conflict_count": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0
+        },
+        "version_coverage": {
+          "from_version": "not_requested",
+          "to_version": "complete"
+        },
+        "source_freshness_min": 1.0,
+        "grounding_rate": 1.0,
+        "citations": [
+          {
+            "chunk_id": "chunk_v2_rate_ref",
+            "source_url": "docs/reference/v2/rateLimit",
+            "version_tag": "v2",
+            "doc_type": "reference",
+            "section_title": "rateLimit v2",
+            "retrieval_score": 3.321
+          }
+        ],
+        "synthesis_text": "Retrieved evidence supports this migration guidance with version-aligned citations.",
+        "caveats": [],
+        "generated_at": "2026-05-05T09:12:23.551446+00:00"
+      },
+      "fallback_events": []
+    },
+    {
+      "query_id": "query_6546c18f150e",
+      "parsed_query": {
+        "raw_query": "Is logging safe to use in v3?",
+        "intent": "lookup",
+        "api_names": [
+          "logging"
+        ],
+        "version_mentions": [
+          "v3"
+        ]
+      },
+      "version_context": {
+        "mode": "explicit",
+        "explicit_versions": [
+          "v3"
+        ],
+        "from_version": null,
+        "to_version": "v3"
+      },
+      "route_taken": "SIMPLE",
+      "retrieved_chunks": [
+        {
+          "chunk_id": "chunk_v3_logging_ref_stale",
+          "source_url": "docs/reference/v3/logging",
+          "doc_type": "reference",
+          "version_tag": "v3",
+          "section_title": "logging reference v3 stale page",
+          "content": "In v3, logging supports structured event payloads, but this page is marked stale and needs reviewer confirmation.",
+          "api_names": [
+            "logging"
+          ],
+          "change_type": "current",
+          "has_deprecation": false,
+          "replacement_api": null,
+          "freshness_score": 0.25
+        }
+      ],
+      "retrieval_traces": [
+        {
+          "chunk_id": "chunk_v3_logging_ref_stale",
+          "bm25_score": 1.7619,
+          "vector_score": 1.2851,
+          "rrf_score": 3.0594,
+          "rank": 1,
+          "selected": true,
+          "version_tag": "v3",
+          "doc_type": "reference"
+        }
+      ],
+      "conflict_alerts": [
+        {
+          "conflict_type": "stale_doc_detected",
+          "severity": "MEDIUM",
+          "chunk_ids": [
+            "chunk_v3_logging_ref_stale"
+          ],
+          "description": "logging has stale documentation below freshness threshold."
+        }
+      ],
+      "conflict_flag": true,
+      "migration_report": {
+        "query_id": "query_6546c18f150e",
+        "verdict": "RISKY",
+        "from_version": null,
+        "to_version": "v3",
+        "conflict_count": {
+          "critical": 0,
+          "high": 0,
+          "medium": 1,
+          "low": 0
+        },
+        "version_coverage": {
+          "from_version": "not_requested",
+          "to_version": "complete"
+        },
+        "source_freshness_min": 0.25,
+        "grounding_rate": 0.95,
+        "citations": [
+          {
+            "chunk_id": "chunk_v3_logging_ref_stale",
+            "source_url": "docs/reference/v3/logging",
+            "version_tag": "v3",
+            "doc_type": "reference",
+            "section_title": "logging reference v3 stale page",
+            "retrieval_score": 3.0594
+          }
+        ],
+        "synthesis_text": "Evidence is mostly usable, but migration should proceed only with caveats and reviewer validation.",
+        "caveats": [
+          "logging has stale documentation below freshness threshold."
+        ],
+        "generated_at": "2026-05-05T09:12:23.551590+00:00"
+      },
+      "fallback_events": []
+    },
+    {
+      "query_id": "query_3bdac4bc5cd2",
+      "parsed_query": {
+        "raw_query": "How should I migrate fetchUser from v2 to v3?",
+        "intent": "migration",
+        "api_names": [
+          "fetchUser"
+        ],
+        "version_mentions": [
+          "v2",
+          "v3"
+        ]
+      },
+      "version_context": {
+        "mode": "range",
+        "explicit_versions": [
+          "v2",
+          "v3"
+        ],
+        "from_version": "v2",
+        "to_version": "v3"
+      },
+      "route_taken": "MIGRATION",
+      "retrieved_chunks": [
+        {
+          "chunk_id": "chunk_v2_fetch_ref",
+          "source_url": "docs/reference/v2/fetchUser",
+          "doc_type": "reference",
+          "version_tag": "v2",
+          "section_title": "fetchUser() reference v2",
+          "content": "In v2, fetchUser(user_id) returns a user profile object.",
+          "api_names": [
+            "fetchUser"
+          ],
+          "change_type": "current",
+          "has_deprecation": false,
+          "replacement_api": null,
+          "freshness_score": 1.0
+        },
+        {
+          "chunk_id": "chunk_v3_fetch_changelog",
+          "source_url": "docs/changelog/v3/fetchUser",
+          "doc_type": "changelog",
+          "version_tag": "v3",
+          "section_title": "fetchUser renamed in v3",
+          "content": "In v3, fetchUser is deprecated. Use getUserProfile(user_id) instead.",
+          "api_names": [
+            "fetchUser",
+            "getUserProfile"
+          ],
+          "change_type": "deprecated",
+          "has_deprecation": true,
+          "replacement_api": "getUserProfile",
+          "freshness_score": 1.0
+        },
+        {
+          "chunk_id": "chunk_v3_fetch_ref_stale",
+          "source_url": "docs/reference/v3/fetchUser",
+          "doc_type": "reference",
+          "version_tag": "v3",
+          "section_title": "fetchUser() reference v3 stale page",
+          "content": "In v3, fetchUser(user_id) returns a user profile object.",
+          "api_names": [
+            "fetchUser"
+          ],
+          "change_type": "current",
+          "has_deprecation": false,
+          "replacement_api": null,
+          "freshness_score": 0.25
+        }
+      ],
+      "retrieval_traces": [
+        {
+          "chunk_id": "chunk_v2_fetch_ref",
+          "bm25_score": 0.9167,
+          "vector_score": 0.5667,
+          "rrf_score": 1.5333,
+          "rank": 1,
+          "selected": true,
+          "version_tag": "v2",
+          "doc_type": "reference"
+        },
+        {
+          "chunk_id": "chunk_v3_fetch_changelog",
+          "bm25_score": 0.9167,
+          "vector_score": 0.5667,
+          "rrf_score": 1.5333,
+          "rank": 2,
+          "selected": true,
+          "version_tag": "v3",
+          "doc_type": "changelog"
+        },
+        {
+          "chunk_id": "chunk_v3_fetch_ref_stale",
+          "bm25_score": 0.9167,
+          "vector_score": 0.5667,
+          "rrf_score": 1.4958,
+          "rank": 3,
+          "selected": true,
+          "version_tag": "v3",
+          "doc_type": "reference"
+        }
+      ],
+      "conflict_alerts": [
+        {
+          "conflict_type": "same_api_different_behavior",
+          "severity": "CRITICAL",
+          "chunk_ids": [
+            "chunk_v2_fetch_ref",
+            "chunk_v3_fetch_changelog",
+            "chunk_v3_fetch_ref_stale"
+          ],
+          "description": "fetchUser has different behavior/change semantics across versions: ['v2', 'v3']."
+        },
+        {
+          "conflict_type": "version_deprecation_conflict",
+          "severity": "HIGH",
+          "chunk_ids": [
+            "chunk_v3_fetch_changelog",
+            "chunk_v2_fetch_ref",
+            "chunk_v3_fetch_ref_stale"
+          ],
+          "description": "fetchUser is marked deprecated in one source but current in another."
+        },
+        {
+          "conflict_type": "stale_doc_detected",
+          "severity": "MEDIUM",
+          "chunk_ids": [
+            "chunk_v3_fetch_ref_stale"
+          ],
+          "description": "fetchUser has stale documentation below freshness threshold."
+        }
+      ],
+      "conflict_flag": true,
+      "migration_report": {
+        "query_id": "query_3bdac4bc5cd2",
+        "verdict": "BLOCKED",
+        "from_version": "v2",
+        "to_version": "v3",
+        "conflict_count": {
+          "critical": 1,
+          "high": 1,
+          "medium": 1,
+          "low": 0
+        },
+        "version_coverage": {
+          "from_version": "complete",
+          "to_version": "complete"
+        },
+        "source_freshness_min": 0.25,
+        "grounding_rate": 1.0,
+        "citations": [
+          {
+            "chunk_id": "chunk_v2_fetch_ref",
+            "source_url": "docs/reference/v2/fetchUser",
+            "version_tag": "v2",
+            "doc_type": "reference",
+            "section_title": "fetchUser() reference v2",
+            "retrieval_score": 1.5333
+          },
+          {
+            "chunk_id": "chunk_v3_fetch_changelog",
+            "source_url": "docs/changelog/v3/fetchUser",
+            "version_tag": "v3",
+            "doc_type": "changelog",
+            "section_title": "fetchUser renamed in v3",
+            "retrieval_score": 1.5333
+          },
+          {
+            "chunk_id": "chunk_v3_fetch_ref_stale",
+            "source_url": "docs/reference/v3/fetchUser",
+            "version_tag": "v3",
+            "doc_type": "reference",
+            "section_title": "fetchUser() reference v3 stale page",
+            "retrieval_score": 1.4958
+          }
+        ],
+        "synthesis_text": null,
+        "caveats": [
+          "Synthesis suppressed because unresolved high/critical conflict or missing target-version coverage exists.",
+          "fetchUser has different behavior/change semantics across versions: ['v2', 'v3'].",
+          "fetchUser is marked deprecated in one source but current in another.",
+          "fetchUser has stale documentation below freshness threshold."
+        ],
+        "generated_at": "2026-05-05T09:12:23.551773+00:00"
+      },
+      "fallback_events": [
+        {
+          "event_id": "fallback_2c640c0dfbae",
+          "query_id": "query_3bdac4bc5cd2",
+          "reason": "blocked_verdict_or_unresolved_conflict",
+          "fallback_path": "evidence_only_response",
+          "outcome": "synthesis_suppressed",
+          "created_at": "2026-05-05T09:12:23.551783+00:00"
+        }
+      ]
+    }
+  ],
+  "evidence_statement": "DevPulse Query Mode core can parse queries, extract versions, route requests, retrieve version-filtered evidence, detect deterministic conflicts, assemble citations, suppress synthesis for BLOCKED verdicts, and emit migration decision reports."
+}
