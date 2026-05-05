@@ -1,0 +1,32 @@
+{
+  "artifact": "reranker_simulation_report_v35",
+  "generated_at": "2026-05-05T11:11:47.009398+00:00",
+  "mode": "simulated_reranker_layer_not_live_cross_encoder",
+  "baseline_hybrid": {
+    "recall_at_5": 0.94,
+    "precision_at_5": 0.88,
+    "mrr": 0.91,
+    "ndcg_at_5": 0.92,
+    "wrong_version_answer_rate": 0.0
+  },
+  "hybrid_plus_reranker": {
+    "recall_at_5": 0.97,
+    "precision_at_5": 0.94,
+    "mrr": 0.9500000000000001,
+    "ndcg_at_5": 0.9550000000000001,
+    "wrong_version_answer_rate": 0.0,
+    "latency_added_ms_p95": 210,
+    "cost_added_usd_per_query": 0.0002
+  },
+  "promotion_decision": "PROMOTE_FOR_COMPLEX_OR_CONFLICT_PRONE_QUERIES_ONLY",
+  "reason": "Reranker improves ranking quality but adds latency/cost; do not use for every simple lookup.",
+  "truth_boundary": {
+    "claim": "reranker impact simulation for architecture decisioning",
+    "not_claimed": [
+      "live cross-encoder deployment",
+      "real production ranking experiment",
+      "paid model call"
+    ]
+  },
+  "evidence_statement": "Shows when a reranker would be valuable and when it should be skipped to preserve latency/cost."
+}

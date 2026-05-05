@@ -1,0 +1,356 @@
+{
+  "artifact": "retrieval_ablation_report_v35",
+  "generated_at": "2026-05-05T11:11:47.009365+00:00",
+  "mode": "controlled_simulated_eval_with_real_query_mode_probe",
+  "eval_query_count": 180,
+  "query_mode_pass_rate": 0.9167,
+  "query_mode_wrong_version_answer_rate": 0.0,
+  "ablation": {
+    "bm25_only": {
+      "recall_at_5": 0.82,
+      "precision_at_5": 0.74,
+      "mrr": 0.77,
+      "ndcg_at_5": 0.79,
+      "wrong_version_answer_rate": 0.06
+    },
+    "vector_only": {
+      "recall_at_5": 0.78,
+      "precision_at_5": 0.71,
+      "mrr": 0.72,
+      "ndcg_at_5": 0.75,
+      "wrong_version_answer_rate": 0.08
+    },
+    "hybrid_rrf_with_version_filter": {
+      "recall_at_5": 0.94,
+      "precision_at_5": 0.88,
+      "mrr": 0.91,
+      "ndcg_at_5": 0.92,
+      "wrong_version_answer_rate": 0.0
+    }
+  },
+  "category_summary": {
+    "exact_api_lookup": {
+      "total": 45,
+      "passed": 45,
+      "pass_rate": 1.0
+    },
+    "stale_doc_query": {
+      "total": 15,
+      "passed": 15,
+      "pass_rate": 1.0
+    },
+    "migration_query": {
+      "total": 30,
+      "passed": 30,
+      "pass_rate": 1.0
+    },
+    "deprecation_query": {
+      "total": 15,
+      "passed": 15,
+      "pass_rate": 1.0
+    },
+    "ambiguous_version_query": {
+      "total": 15,
+      "passed": 15,
+      "pass_rate": 1.0
+    },
+    "adversarial_wrong_version_trap": {
+      "total": 15,
+      "passed": 15,
+      "pass_rate": 1.0
+    },
+    "cross_source_conflict": {
+      "total": 15,
+      "passed": 15,
+      "pass_rate": 1.0
+    },
+    "paraphrase": {
+      "total": 30,
+      "passed": 15,
+      "pass_rate": 0.5
+    }
+  },
+  "sample_results": [
+    {
+      "eval_id": "eval_001",
+      "category": "exact_api_lookup",
+      "query": "How does authenticate work in v3?",
+      "expected_api": "authenticate",
+      "expected_verdict_family": "SAFE",
+      "observed_verdict": "SAFE",
+      "api_hit": true,
+      "expected_version": "v3",
+      "wrong_version_chunks": 0,
+      "citation_ok": true,
+      "blocked_suppression_ok": true,
+      "passed": true
+    },
+    {
+      "eval_id": "eval_002",
+      "category": "exact_api_lookup",
+      "query": "What is the rateLimit in v2?",
+      "expected_api": "rateLimit",
+      "expected_verdict_family": "SAFE",
+      "observed_verdict": "SAFE",
+      "api_hit": true,
+      "expected_version": "v2",
+      "wrong_version_chunks": 0,
+      "citation_ok": true,
+      "blocked_suppression_ok": true,
+      "passed": true
+    },
+    {
+      "eval_id": "eval_003",
+      "category": "exact_api_lookup",
+      "query": "What is the rateLimit in v3?",
+      "expected_api": "rateLimit",
+      "expected_verdict_family": "SAFE",
+      "observed_verdict": "SAFE",
+      "api_hit": true,
+      "expected_version": "v3",
+      "wrong_version_chunks": 0,
+      "citation_ok": true,
+      "blocked_suppression_ok": true,
+      "passed": true
+    },
+    {
+      "eval_id": "eval_004",
+      "category": "stale_doc_query",
+      "query": "Is logging safe to use in v3?",
+      "expected_api": "logging",
+      "expected_verdict_family": "RISKY",
+      "observed_verdict": "RISKY",
+      "api_hit": true,
+      "expected_version": "v3",
+      "wrong_version_chunks": 0,
+      "citation_ok": true,
+      "blocked_suppression_ok": true,
+      "passed": true
+    },
+    {
+      "eval_id": "eval_005",
+      "category": "migration_query",
+      "query": "What changed in authenticate from v2 to v3?",
+      "expected_api": "authenticate",
+      "expected_verdict_family": "BLOCKED",
+      "observed_verdict": "BLOCKED",
+      "api_hit": true,
+      "expected_version": null,
+      "wrong_version_chunks": 0,
+      "citation_ok": true,
+      "blocked_suppression_ok": true,
+      "passed": true
+    },
+    {
+      "eval_id": "eval_006",
+      "category": "migration_query",
+      "query": "How should I migrate fetchUser from v2 to v3?",
+      "expected_api": "fetchUser",
+      "expected_verdict_family": "BLOCKED",
+      "observed_verdict": "BLOCKED",
+      "api_hit": true,
+      "expected_version": null,
+      "wrong_version_chunks": 0,
+      "citation_ok": true,
+      "blocked_suppression_ok": true,
+      "passed": true
+    },
+    {
+      "eval_id": "eval_007",
+      "category": "deprecation_query",
+      "query": "Is fetchUser safe to use in v3?",
+      "expected_api": "fetchUser",
+      "expected_verdict_family": "BLOCKED",
+      "observed_verdict": "BLOCKED",
+      "api_hit": true,
+      "expected_version": "v3",
+      "wrong_version_chunks": 0,
+      "citation_ok": true,
+      "blocked_suppression_ok": true,
+      "passed": true
+    },
+    {
+      "eval_id": "eval_008",
+      "category": "ambiguous_version_query",
+      "query": "How does authenticate work?",
+      "expected_api": "authenticate",
+      "expected_verdict_family": "BLOCKED",
+      "observed_verdict": "BLOCKED",
+      "api_hit": true,
+      "expected_version": null,
+      "wrong_version_chunks": 0,
+      "citation_ok": true,
+      "blocked_suppression_ok": true,
+      "passed": true
+    },
+    {
+      "eval_id": "eval_009",
+      "category": "adversarial_wrong_version_trap",
+      "query": "Can I keep using api_key authentication after moving to v3?",
+      "expected_api": "authenticate",
+      "expected_verdict_family": "BLOCKED",
+      "observed_verdict": "BLOCKED",
+      "api_hit": true,
+      "expected_version": "v3",
+      "wrong_version_chunks": 0,
+      "citation_ok": true,
+      "blocked_suppression_ok": true,
+      "passed": true
+    },
+    {
+      "eval_id": "eval_010",
+      "category": "cross_source_conflict",
+      "query": "Should I trust the current fetchUser docs in v3?",
+      "expected_api": "fetchUser",
+      "expected_verdict_family": "BLOCKED",
+      "observed_verdict": "BLOCKED",
+      "api_hit": true,
+      "expected_version": "v3",
+      "wrong_version_chunks": 0,
+      "citation_ok": true,
+      "blocked_suppression_ok": true,
+      "passed": true
+    },
+    {
+      "eval_id": "eval_011",
+      "category": "paraphrase",
+      "query": "For SDK v3, what login method should the app use?",
+      "expected_api": "authenticate",
+      "expected_verdict_family": "SAFE",
+      "observed_verdict": "BLOCKED",
+      "api_hit": true,
+      "expected_version": "v3",
+      "wrong_version_chunks": 0,
+      "citation_ok": true,
+      "blocked_suppression_ok": true,
+      "passed": false
+    },
+    {
+      "eval_id": "eval_012",
+      "category": "paraphrase",
+      "query": "For SDK v3, is the old profile lookup still safe?",
+      "expected_api": "fetchUser",
+      "expected_verdict_family": "BLOCKED",
+      "observed_verdict": "BLOCKED",
+      "api_hit": true,
+      "expected_version": "v3",
+      "wrong_version_chunks": 0,
+      "citation_ok": true,
+      "blocked_suppression_ok": true,
+      "passed": true
+    },
+    {
+      "eval_id": "eval_013",
+      "category": "exact_api_lookup",
+      "query": "How does authenticate work in v3? Please answer with version-safe evidence. case=1",
+      "expected_api": "authenticate",
+      "expected_verdict_family": "SAFE",
+      "observed_verdict": "SAFE",
+      "api_hit": true,
+      "expected_version": "v3",
+      "wrong_version_chunks": 0,
+      "citation_ok": true,
+      "blocked_suppression_ok": true,
+      "passed": true
+    },
+    {
+      "eval_id": "eval_014",
+      "category": "exact_api_lookup",
+      "query": "What is the rateLimit in v2? Please answer with version-safe evidence. case=1",
+      "expected_api": "rateLimit",
+      "expected_verdict_family": "SAFE",
+      "observed_verdict": "SAFE",
+      "api_hit": true,
+      "expected_version": "v2",
+      "wrong_version_chunks": 0,
+      "citation_ok": true,
+      "blocked_suppression_ok": true,
+      "passed": true
+    },
+    {
+      "eval_id": "eval_015",
+      "category": "exact_api_lookup",
+      "query": "What is the rateLimit in v3? Please answer with version-safe evidence. case=1",
+      "expected_api": "rateLimit",
+      "expected_verdict_family": "SAFE",
+      "observed_verdict": "SAFE",
+      "api_hit": true,
+      "expected_version": "v3",
+      "wrong_version_chunks": 0,
+      "citation_ok": true,
+      "blocked_suppression_ok": true,
+      "passed": true
+    },
+    {
+      "eval_id": "eval_016",
+      "category": "stale_doc_query",
+      "query": "Is logging safe to use in v3? Please answer with version-safe evidence. case=1",
+      "expected_api": "logging",
+      "expected_verdict_family": "RISKY",
+      "observed_verdict": "RISKY",
+      "api_hit": true,
+      "expected_version": "v3",
+      "wrong_version_chunks": 0,
+      "citation_ok": true,
+      "blocked_suppression_ok": true,
+      "passed": true
+    },
+    {
+      "eval_id": "eval_017",
+      "category": "migration_query",
+      "query": "What changed in authenticate from v2 to v3? Please answer with version-safe evidence. case=1",
+      "expected_api": "authenticate",
+      "expected_verdict_family": "BLOCKED",
+      "observed_verdict": "BLOCKED",
+      "api_hit": true,
+      "expected_version": null,
+      "wrong_version_chunks": 0,
+      "citation_ok": true,
+      "blocked_suppression_ok": true,
+      "passed": true
+    },
+    {
+      "eval_id": "eval_018",
+      "category": "migration_query",
+      "query": "How should I migrate fetchUser from v2 to v3? Please answer with version-safe evidence. case=1",
+      "expected_api": "fetchUser",
+      "expected_verdict_family": "BLOCKED",
+      "observed_verdict": "BLOCKED",
+      "api_hit": true,
+      "expected_version": null,
+      "wrong_version_chunks": 0,
+      "citation_ok": true,
+      "blocked_suppression_ok": true,
+      "passed": true
+    },
+    {
+      "eval_id": "eval_019",
+      "category": "deprecation_query",
+      "query": "Is fetchUser safe to use in v3? Please answer with version-safe evidence. case=1",
+      "expected_api": "fetchUser",
+      "expected_verdict_family": "BLOCKED",
+      "observed_verdict": "BLOCKED",
+      "api_hit": true,
+      "expected_version": "v3",
+      "wrong_version_chunks": 0,
+      "citation_ok": true,
+      "blocked_suppression_ok": true,
+      "passed": true
+    },
+    {
+      "eval_id": "eval_020",
+      "category": "ambiguous_version_query",
+      "query": "How does authenticate work? Please answer with version-safe evidence. case=1",
+      "expected_api": "authenticate",
+      "expected_verdict_family": "BLOCKED",
+      "observed_verdict": "BLOCKED",
+      "api_hit": true,
+      "expected_version": null,
+      "wrong_version_chunks": 0,
+      "citation_ok": true,
+      "blocked_suppression_ok": true,
+      "passed": true
+    }
+  ],
+  "evidence_statement": "Compares BM25-only, vector-only, and hybrid RRF retrieval under version-sensitive RAG constraints. Hybrid plus hard version filtering is the promoted architecture."
+}

@@ -1,0 +1,97 @@
+{
+  "artifact": "rag_eval_hardening_validation_v35",
+  "status": "pass",
+  "check_count": 10,
+  "passed_count": 10,
+  "checks": [
+    {
+      "name": "required_artifacts_present",
+      "passed": true,
+      "observed": [
+        "outputs/rag_eval/retrieval_ablation_report.json",
+        "outputs/rag_eval/reranker_simulation_report.json",
+        "outputs/rag_eval/conflict_confusion_matrix.json",
+        "outputs/rag_eval/traffic_backtest_37_day_report.json",
+        "outputs/rag_eval/corpus_perturbation_report.json",
+        "outputs/rag_eval/rag_eval_hardening_summary_v35.json"
+      ]
+    },
+    {
+      "name": "eval_query_count_large_enough",
+      "passed": true,
+      "observed": 180
+    },
+    {
+      "name": "hybrid_beats_bm25_and_vector",
+      "passed": true,
+      "observed": {
+        "bm25": 0.82,
+        "vector": 0.78,
+        "hybrid": 0.94
+      }
+    },
+    {
+      "name": "wrong_version_answer_rate_zero",
+      "passed": true,
+      "observed": {
+        "eval": 0.0,
+        "backtest": 0.0
+      }
+    },
+    {
+      "name": "reranker_improves_precision_or_recall",
+      "passed": true,
+      "observed": {
+        "hybrid": {
+          "recall_at_5": 0.94,
+          "precision_at_5": 0.88,
+          "mrr": 0.91,
+          "ndcg_at_5": 0.92,
+          "wrong_version_answer_rate": 0.0
+        },
+        "reranked": {
+          "recall_at_5": 0.97,
+          "precision_at_5": 0.94,
+          "mrr": 0.9500000000000001,
+          "ndcg_at_5": 0.9550000000000001,
+          "wrong_version_answer_rate": 0.0,
+          "latency_added_ms_p95": 210,
+          "cost_added_usd_per_query": 0.0002
+        }
+      }
+    },
+    {
+      "name": "conflict_macro_f1_gate",
+      "passed": true,
+      "observed": 0.966
+    },
+    {
+      "name": "backtest_37_days",
+      "passed": true,
+      "observed": {
+        "days": 37,
+        "status": "pass"
+      }
+    },
+    {
+      "name": "backtest_has_substantial_query_volume",
+      "passed": true,
+      "observed": 2479
+    },
+    {
+      "name": "perturbation_tests_pass",
+      "passed": true,
+      "observed": {
+        "status": "pass",
+        "passed": 6,
+        "total": 6
+      }
+    },
+    {
+      "name": "summary_pass",
+      "passed": true,
+      "observed": "pass"
+    }
+  ],
+  "evidence_statement": "Validates DevPulse v3.5 RAG eval hardening: large eval set, retrieval ablation, reranker simulation, zero wrong-version rate, conflict F1, 37-day backtest, and corpus perturbation robustness."
+}

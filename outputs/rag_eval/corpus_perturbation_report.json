@@ -1,0 +1,50 @@
+{
+  "artifact": "corpus_perturbation_report_v35",
+  "generated_at": "2026-05-05T11:11:47.626231+00:00",
+  "mode": "controlled_corpus_robustness_tests",
+  "perturbation_count": 6,
+  "passed_count": 6,
+  "perturbations": [
+    {
+      "perturbation": "duplicate_chunk_injection",
+      "expected_behavior": "retrieval still returns version-correct evidence",
+      "passed": true,
+      "observed_verdict": "SAFE"
+    },
+    {
+      "perturbation": "stale_doc_injection",
+      "expected_behavior": "RISKY or BLOCKED, not SAFE",
+      "passed": true,
+      "observed_verdict": "RISKY"
+    },
+    {
+      "perturbation": "contradictory_doc_injection",
+      "expected_behavior": "BLOCKED due unresolved conflict",
+      "passed": true,
+      "observed_verdict": "BLOCKED"
+    },
+    {
+      "perturbation": "missing_target_version_coverage",
+      "expected_behavior": "BLOCKED or no target-version evidence",
+      "passed": true,
+      "observed_verdict": "BLOCKED"
+    },
+    {
+      "perturbation": "wrong_version_trap",
+      "expected_behavior": "retrieved chunks must be v2 only",
+      "passed": true,
+      "observed_versions": [
+        "v2"
+      ]
+    },
+    {
+      "perturbation": "ambiguous_query_without_version",
+      "expected_behavior": "hybrid or blocked/caveated evidence path",
+      "passed": true,
+      "observed_route": "HYBRID",
+      "observed_verdict": "BLOCKED"
+    }
+  ],
+  "status": "pass",
+  "evidence_statement": "Tests DevPulse behavior under duplicate, stale, contradictory, missing-target, wrong-version, and ambiguous-query perturbations."
+}

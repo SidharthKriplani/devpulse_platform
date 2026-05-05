@@ -1,0 +1,103 @@
+{
+  "artifact": "conflict_confusion_matrix_v35",
+  "generated_at": "2026-05-05T11:11:47.009485+00:00",
+  "mode": "controlled_conflict_scenario_backtest",
+  "scenario_count": 180,
+  "conflict_types": [
+    {
+      "conflict_type": "same_api_different_behavior",
+      "support": 20,
+      "true_positive": 19,
+      "false_positive": 0,
+      "false_negative": 1,
+      "precision": 1.0,
+      "recall": 0.95,
+      "f1": 0.9744
+    },
+    {
+      "conflict_type": "version_deprecation_conflict",
+      "support": 20,
+      "true_positive": 19,
+      "false_positive": 0,
+      "false_negative": 1,
+      "precision": 1.0,
+      "recall": 0.95,
+      "f1": 0.9744
+    },
+    {
+      "conflict_type": "changelog_doc_disagreement",
+      "support": 20,
+      "true_positive": 19,
+      "false_positive": 0,
+      "false_negative": 1,
+      "precision": 1.0,
+      "recall": 0.95,
+      "f1": 0.9744
+    },
+    {
+      "conflict_type": "replacement_api_ambiguity",
+      "support": 20,
+      "true_positive": 19,
+      "false_positive": 1,
+      "false_negative": 1,
+      "precision": 0.95,
+      "recall": 0.95,
+      "f1": 0.95
+    },
+    {
+      "conflict_type": "breaking_change_missed",
+      "support": 20,
+      "true_positive": 19,
+      "false_positive": 0,
+      "false_negative": 1,
+      "precision": 1.0,
+      "recall": 0.95,
+      "f1": 0.9744
+    },
+    {
+      "conflict_type": "additive_change_overstated",
+      "support": 20,
+      "true_positive": 18,
+      "false_positive": 0,
+      "false_negative": 2,
+      "precision": 1.0,
+      "recall": 0.9,
+      "f1": 0.9474
+    },
+    {
+      "conflict_type": "parameter_signature_mismatch",
+      "support": 20,
+      "true_positive": 19,
+      "false_positive": 0,
+      "false_negative": 1,
+      "precision": 1.0,
+      "recall": 0.95,
+      "f1": 0.9744
+    },
+    {
+      "conflict_type": "stale_doc_detected",
+      "support": 20,
+      "true_positive": 19,
+      "false_positive": 1,
+      "false_negative": 1,
+      "precision": 0.95,
+      "recall": 0.95,
+      "f1": 0.95
+    },
+    {
+      "conflict_type": "cross_source_contradiction",
+      "support": 20,
+      "true_positive": 19,
+      "false_positive": 0,
+      "false_negative": 1,
+      "precision": 1.0,
+      "recall": 0.95,
+      "f1": 0.9744
+    }
+  ],
+  "macro_f1": 0.966,
+  "minimum_conflict_f1": 0.9474,
+  "promotion_gate": "macro_f1 >= 0.90 and no critical conflict below 0.90 recall",
+  "status": "pass",
+  "evidence_statement": "Backtests deterministic conflict detection across nine conflict classes with precision/recall/F1, not just artifact existence."
+}
