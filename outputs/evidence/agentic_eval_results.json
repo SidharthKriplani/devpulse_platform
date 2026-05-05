@@ -1,0 +1,68 @@
+{
+  "artifact": "EA-31 agentic_eval_results",
+  "metric_count": 10,
+  "metrics": [
+    {
+      "metric": "goal_parse_accuracy",
+      "target_gate": 0.95,
+      "actual_value": 1.0,
+      "status": "pass"
+    },
+    {
+      "metric": "dependency_extraction_accuracy",
+      "target_gate": 0.98,
+      "actual_value": 1.0,
+      "status": "pass"
+    },
+    {
+      "metric": "task_plan_completeness",
+      "target_gate": 1.0,
+      "actual_value": 1.0,
+      "status": "pass"
+    },
+    {
+      "metric": "task_order_correctness",
+      "target_gate": 0.95,
+      "actual_value": 1.0,
+      "status": "pass"
+    },
+    {
+      "metric": "recovery_policy_correctness",
+      "target_gate": 1.0,
+      "actual_value": 1.0,
+      "status": "pass"
+    },
+    {
+      "metric": "aggregate_verdict_correctness",
+      "target_gate": 1.0,
+      "actual_value": 1.0,
+      "status": "pass"
+    },
+    {
+      "metric": "trace_completeness_rate",
+      "target_gate": 0.98,
+      "actual_value": 1.0,
+      "status": "pass"
+    },
+    {
+      "metric": "unbounded_retry_rate",
+      "target_gate": 0.0,
+      "actual_value": 0.0,
+      "status": "pass"
+    },
+    {
+      "metric": "llm_planning_violation_rate",
+      "target_gate": 0.0,
+      "actual_value": 0.0,
+      "status": "pass"
+    },
+    {
+      "metric": "wrong_version_answer_rate",
+      "target_gate": 0.0,
+      "actual_value": 0.0,
+      "status": "pass"
+    }
+  ],
+  "status": "pass",
+  "evidence_statement": "Agentic eval confirms bounded orchestration: no unbounded retries, no LLM planning, complete traces, and correct aggregate verdict logic."
+}

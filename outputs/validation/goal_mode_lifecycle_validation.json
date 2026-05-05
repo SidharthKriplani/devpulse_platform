@@ -1,0 +1,108 @@
+{
+  "artifact": "goal_mode_lifecycle_validation",
+  "status": "pass",
+  "check_count": 17,
+  "passed_count": 17,
+  "checks": [
+    {
+      "name": "agent_goal_parse_sample.json",
+      "passed": true,
+      "observed": "outputs/evidence/agent_goal_parse_sample.json"
+    },
+    {
+      "name": "dependency_delta_report.json",
+      "passed": true,
+      "observed": "outputs/evidence/dependency_delta_report.json"
+    },
+    {
+      "name": "agent_task_plan.json",
+      "passed": true,
+      "observed": "outputs/evidence/agent_task_plan.json"
+    },
+    {
+      "name": "agent_task_execution_trace.json",
+      "passed": true,
+      "observed": "outputs/evidence/agent_task_execution_trace.json"
+    },
+    {
+      "name": "recovery_decision_log.json",
+      "passed": true,
+      "observed": "outputs/evidence/recovery_decision_log.json"
+    },
+    {
+      "name": "plan_summary_report.json",
+      "passed": true,
+      "observed": "outputs/evidence/plan_summary_report.json"
+    },
+    {
+      "name": "agentic_eval_results.json",
+      "passed": true,
+      "observed": "outputs/evidence/agentic_eval_results.json"
+    },
+    {
+      "name": "agentic_demo_report.txt",
+      "passed": true,
+      "observed": "outputs/evidence/agentic_demo_report.txt"
+    },
+    {
+      "name": "ea_25_to_ea_32_present",
+      "passed": true,
+      "observed": "8/8"
+    },
+    {
+      "name": "goal_parser_no_invented_versions",
+      "passed": true,
+      "observed": "complete"
+    },
+    {
+      "name": "delta_detector_uses_controlled_registry",
+      "passed": true,
+      "observed": "controlled_demo_registry"
+    },
+    {
+      "name": "task_plan_count_matches_dependency_count",
+      "passed": true,
+      "observed": {
+        "tasks": 5,
+        "dependencies": 5
+      }
+    },
+    {
+      "name": "task_execution_has_query_mode_linkage",
+      "passed": true,
+      "observed": true
+    },
+    {
+      "name": "recovery_has_successful_blocked_to_risky",
+      "passed": true,
+      "observed": true
+    },
+    {
+      "name": "plan_summary_has_blocked_aggregate",
+      "passed": true,
+      "observed": "BLOCKED"
+    },
+    {
+      "name": "agentic_eval_all_pass",
+      "passed": true,
+      "observed": [
+        "pass",
+        "pass",
+        "pass",
+        "pass",
+        "pass",
+        "pass",
+        "pass",
+        "pass",
+        "pass",
+        "pass"
+      ]
+    },
+    {
+      "name": "f11_to_f19_covered",
+      "passed": true,
+      "observed": 9
+    }
+  ],
+  "evidence_statement": "Validates DevPulse Goal Mode EA-25 to EA-32, F-11 to F-19, agentic eval, controlled registry, Query Mode task linkage, bounded recovery, and aggregate verdict logic."
+}

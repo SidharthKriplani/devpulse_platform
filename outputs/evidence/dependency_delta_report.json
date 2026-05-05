@@ -1,0 +1,80 @@
+{
+  "artifact": "EA-26 dependency_delta_report",
+  "dependency_count": 5,
+  "deltas": [
+    {
+      "dependency_name": "auth-sdk",
+      "ecosystem": "npm",
+      "current_version": "2.4.1",
+      "target_version": "3.0.0",
+      "version_delta_type": "major",
+      "breaking_change_risk": "high",
+      "requires_migration_check": true,
+      "version_status": "resolved",
+      "target_source": "controlled_demo_registry",
+      "criticality": "high",
+      "known_breaking_change": true,
+      "delta_notes": "classified by deterministic semver and controlled demo registry"
+    },
+    {
+      "dependency_name": "analytics-sdk",
+      "ecosystem": "npm",
+      "current_version": "1.2.0",
+      "target_version": "1.2.3",
+      "version_delta_type": "patch",
+      "breaking_change_risk": "low",
+      "requires_migration_check": false,
+      "version_status": "resolved",
+      "target_source": "controlled_demo_registry",
+      "criticality": "low",
+      "known_breaking_change": false,
+      "delta_notes": "classified by deterministic semver and controlled demo registry"
+    },
+    {
+      "dependency_name": "logging-lib",
+      "ecosystem": "npm",
+      "current_version": "0.9.0",
+      "target_version": "1.0.0",
+      "version_delta_type": "major",
+      "breaking_change_risk": "high",
+      "requires_migration_check": true,
+      "version_status": "resolved",
+      "target_source": "controlled_demo_registry",
+      "criticality": "medium",
+      "known_breaking_change": false,
+      "delta_notes": "classified by deterministic semver and controlled demo registry"
+    },
+    {
+      "dependency_name": "profile-sdk",
+      "ecosystem": "npm",
+      "current_version": "2.1.0",
+      "target_version": "3.0.0",
+      "version_delta_type": "major",
+      "breaking_change_risk": "high",
+      "requires_migration_check": true,
+      "version_status": "resolved",
+      "target_source": "controlled_demo_registry",
+      "criticality": "high",
+      "known_breaking_change": true,
+      "delta_notes": "classified by deterministic semver and controlled demo registry"
+    },
+    {
+      "dependency_name": "unknown-dep",
+      "ecosystem": "npm",
+      "current_version": "0.1.0",
+      "target_version": null,
+      "version_delta_type": "unknown",
+      "breaking_change_risk": "unknown",
+      "requires_migration_check": true,
+      "version_status": "unresolvable",
+      "target_source": null,
+      "criticality": "unknown",
+      "known_breaking_change": false,
+      "delta_notes": "classified by deterministic semver and controlled demo registry"
+    }
+  ],
+  "target_registry_path": "configs/dependency_target_registry.json",
+  "resolved_target_source": "controlled_demo_registry",
+  "status": "pass",
+  "evidence_statement": "DependencyDeltaDetector classified dependency version deltas using semver rules and controlled target registry values."
+}

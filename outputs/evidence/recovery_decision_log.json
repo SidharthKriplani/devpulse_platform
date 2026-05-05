@@ -1,0 +1,46 @@
+{
+  "artifact": "EA-29 recovery_decision_log",
+  "recovery_count": 3,
+  "recoveries": [
+    {
+      "recovery_id": "recovery_6bc6b05f771d",
+      "task_id": "task_0fb473946f62",
+      "run_id": "run_a4c442e4c0ee",
+      "dependency_name": "auth-sdk",
+      "recovery_action": "skip_and_escalate",
+      "reason": "HIGH/CRITICAL conflict: do not retry or synthesize",
+      "retry_number": 0,
+      "outcome": "escalated",
+      "capped_by_policy": false,
+      "created_at": "2026-05-05T09:25:03.195773+00:00"
+    },
+    {
+      "recovery_id": "recovery_6170b92143d8",
+      "task_id": "task_1ae03d712e5d",
+      "run_id": "run_1f1d88e73a6f",
+      "dependency_name": "profile-sdk",
+      "recovery_action": "skip_and_escalate",
+      "reason": "HIGH/CRITICAL conflict: do not retry or synthesize",
+      "retry_number": 0,
+      "outcome": "escalated",
+      "capped_by_policy": false,
+      "created_at": "2026-05-05T09:25:03.196288+00:00"
+    },
+    {
+      "recovery_id": "recovery_9a69de24b0c1",
+      "task_id": "task_9bda9e5273a7",
+      "run_id": "run_c4e0b2d5d117",
+      "dependency_name": "unknown-dep",
+      "recovery_action": "retry_with_related_version_evidence",
+      "reason": "missing or insufficient target-version evidence",
+      "retry_number": 1,
+      "outcome": "success",
+      "capped_by_policy": false,
+      "created_at": "2026-05-05T09:25:03.196594+00:00"
+    }
+  ],
+  "bounded_retry_cap": 2,
+  "successful_blocked_to_risky_recovery_present": true,
+  "status": "pass",
+  "evidence_statement": "RecoveryDecider applied deterministic bounded recovery, including escalation for high conflicts and one successful BLOCKED-to-RISKY recovery."
+}

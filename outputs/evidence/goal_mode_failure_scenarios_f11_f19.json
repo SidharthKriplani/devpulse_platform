@@ -1,0 +1,61 @@
+{
+  "artifact": "goal_mode_failure_scenarios_f11_f19",
+  "scenario_count": 9,
+  "scenarios": [
+    {
+      "scenario_id": "F-11",
+      "name": "ambiguous_migration_goal",
+      "expected_behavior": "GoalParser sets ambiguity_flag and does not invent versions",
+      "status": "pass"
+    },
+    {
+      "scenario_id": "F-12",
+      "name": "unsupported_or_malformed_manifest",
+      "expected_behavior": "GoalParser marks parsed_status failed and blocks hallucinated plan",
+      "status": "pass"
+    },
+    {
+      "scenario_id": "F-13",
+      "name": "missing_target_version_documentation",
+      "expected_behavior": "RecoveryDecider retries related evidence then escalates or caves",
+      "status": "pass"
+    },
+    {
+      "scenario_id": "F-14",
+      "name": "high_severity_conflict_during_task",
+      "expected_behavior": "skip_and_escalate; synthesis suppressed",
+      "status": "pass"
+    },
+    {
+      "scenario_id": "F-15",
+      "name": "recovery_loop_cap_reached",
+      "expected_behavior": "retry cap = 2; no unbounded loop",
+      "status": "pass"
+    },
+    {
+      "scenario_id": "F-16",
+      "name": "mixed_aggregate_migration_verdict",
+      "expected_behavior": "critical blocked task forces aggregate BLOCKED",
+      "status": "pass"
+    },
+    {
+      "scenario_id": "F-17",
+      "name": "vector_store_unavailable_during_agent_execution",
+      "expected_behavior": "fallback to BM25-only and degraded retrieval warning",
+      "status": "pass"
+    },
+    {
+      "scenario_id": "F-18",
+      "name": "llm_synthesis_fails_for_one_task",
+      "expected_behavior": "evidence-only deterministic verdict; goal run continues",
+      "status": "pass"
+    },
+    {
+      "scenario_id": "F-19",
+      "name": "successful_recovery_from_missing_evidence",
+      "expected_behavior": "BLOCKED improves to RISKY, not SAFE",
+      "status": "pass"
+    }
+  ],
+  "status": "pass"
+}

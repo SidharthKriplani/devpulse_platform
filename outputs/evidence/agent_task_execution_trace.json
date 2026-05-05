@@ -1,0 +1,135 @@
+{
+  "artifact": "EA-28 agent_task_execution_trace",
+  "task_run_count": 6,
+  "runs": [
+    {
+      "run_id": "run_a4c442e4c0ee",
+      "task_id": "task_0fb473946f62",
+      "query_id": "query_56679807d9ec",
+      "dependency_name": "auth-sdk",
+      "migration_query": "What changed in authenticate from v2 to v3?",
+      "route_taken": "MIGRATION",
+      "retrieval_status": "success",
+      "conflict_flag": true,
+      "conflict_types": [
+        "same_api_different_behavior"
+      ],
+      "migration_verdict": "BLOCKED",
+      "grounding_rate": 1.0,
+      "retry_count": 0,
+      "final_status": "blocked",
+      "synthesis_suppressed": true,
+      "latency_ms": 420,
+      "cost_usd": 0.0,
+      "created_at": "2026-05-05T09:25:03.195757+00:00"
+    },
+    {
+      "run_id": "run_aaa3b68ad529",
+      "task_id": "task_88d5e1ff6833",
+      "query_id": "query_614fd119ddc1",
+      "dependency_name": "logging-lib",
+      "migration_query": "Is logging safe to use in v3?",
+      "route_taken": "SIMPLE",
+      "retrieval_status": "success",
+      "conflict_flag": true,
+      "conflict_types": [
+        "stale_doc_detected"
+      ],
+      "migration_verdict": "RISKY",
+      "grounding_rate": 0.95,
+      "retry_count": 0,
+      "final_status": "risky",
+      "synthesis_suppressed": false,
+      "latency_ms": 420,
+      "cost_usd": 0.0008,
+      "created_at": "2026-05-05T09:25:03.195954+00:00"
+    },
+    {
+      "run_id": "run_1f1d88e73a6f",
+      "task_id": "task_1ae03d712e5d",
+      "query_id": "query_1f459b4e95f3",
+      "dependency_name": "profile-sdk",
+      "migration_query": "How should I migrate fetchUser from v2 to v3?",
+      "route_taken": "MIGRATION",
+      "retrieval_status": "success",
+      "conflict_flag": true,
+      "conflict_types": [
+        "same_api_different_behavior",
+        "version_deprecation_conflict",
+        "stale_doc_detected"
+      ],
+      "migration_verdict": "BLOCKED",
+      "grounding_rate": 1.0,
+      "retry_count": 0,
+      "final_status": "blocked",
+      "synthesis_suppressed": true,
+      "latency_ms": 420,
+      "cost_usd": 0.0,
+      "created_at": "2026-05-05T09:25:03.196276+00:00"
+    },
+    {
+      "run_id": "run_c4e0b2d5d117",
+      "task_id": "task_9bda9e5273a7",
+      "query_id": "query_f04b2950290c",
+      "dependency_name": "unknown-dep",
+      "migration_query": "How should I migrate unknown-dep from 0.1.0 to unknown target version?",
+      "route_taken": "MIGRATION",
+      "retrieval_status": "success",
+      "conflict_flag": true,
+      "conflict_types": [
+        "insufficient_version_coverage"
+      ],
+      "migration_verdict": "BLOCKED",
+      "grounding_rate": 0.55,
+      "retry_count": 0,
+      "final_status": "blocked",
+      "synthesis_suppressed": true,
+      "latency_ms": 420,
+      "cost_usd": 0.0,
+      "created_at": "2026-05-05T09:25:03.196583+00:00"
+    },
+    {
+      "run_id": "run_21a4ec923418",
+      "task_id": "task_9bda9e5273a7",
+      "query_id": "query_88753d8a36b8",
+      "dependency_name": "unknown-dep",
+      "migration_query": "How should I migrate unknown-dep from 0.1.0 to unknown target version?",
+      "route_taken": "MIGRATION",
+      "retrieval_status": "success",
+      "conflict_flag": true,
+      "conflict_types": [
+        "insufficient_version_coverage"
+      ],
+      "migration_verdict": "RISKY",
+      "grounding_rate": 0.91,
+      "retry_count": 1,
+      "final_status": "risky",
+      "synthesis_suppressed": false,
+      "latency_ms": 510,
+      "cost_usd": 0.0008,
+      "created_at": "2026-05-05T09:25:03.196880+00:00"
+    },
+    {
+      "run_id": "run_095ae286cf5f",
+      "task_id": "task_62bbaf334f78",
+      "query_id": "query_478ec23ac9db",
+      "dependency_name": "analytics-sdk",
+      "migration_query": "What is the rateLimit in v3?",
+      "route_taken": "SIMPLE",
+      "retrieval_status": "success",
+      "conflict_flag": false,
+      "conflict_types": [],
+      "migration_verdict": "SAFE",
+      "grounding_rate": 1.0,
+      "retry_count": 0,
+      "final_status": "safe",
+      "synthesis_suppressed": false,
+      "latency_ms": 420,
+      "cost_usd": 0.0008,
+      "created_at": "2026-05-05T09:25:03.197036+00:00"
+    }
+  ],
+  "query_mode_linkage": true,
+  "status": "pass",
+  "evidence_statement": "TaskExecutor ran each migration task through Query Mode and preserved query_id linkage for auditability."
+}

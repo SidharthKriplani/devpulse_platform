@@ -1,0 +1,53 @@
+{
+  "artifact": "EA-25 agent_goal_parse_sample",
+  "raw_goal_text": "Assess migration safety for this repo from SDK v2 to SDK v3",
+  "manifest_type": "package.json",
+  "project_name": "checkout-web-app",
+  "parsed_status": "complete",
+  "ambiguity_flag": false,
+  "ambiguity_reason": null,
+  "dependency_list": [
+    {
+      "dependency_name": "auth-sdk",
+      "current_version": "2.4.1",
+      "target_version": null,
+      "ecosystem": "npm",
+      "version_status": "resolved",
+      "target_source": null
+    },
+    {
+      "dependency_name": "analytics-sdk",
+      "current_version": "1.2.0",
+      "target_version": null,
+      "ecosystem": "npm",
+      "version_status": "resolved",
+      "target_source": null
+    },
+    {
+      "dependency_name": "logging-lib",
+      "current_version": "0.9.0",
+      "target_version": null,
+      "ecosystem": "npm",
+      "version_status": "resolved",
+      "target_source": null
+    },
+    {
+      "dependency_name": "profile-sdk",
+      "current_version": "2.1.0",
+      "target_version": null,
+      "ecosystem": "npm",
+      "version_status": "resolved",
+      "target_source": null
+    },
+    {
+      "dependency_name": "unknown-dep",
+      "current_version": "0.1.0",
+      "target_version": null,
+      "ecosystem": "npm",
+      "version_status": "resolved",
+      "target_source": null
+    }
+  ],
+  "status": "pass",
+  "evidence_statement": "GoalParser extracted dependency records deterministically from the manifest without inventing target versions."
+}

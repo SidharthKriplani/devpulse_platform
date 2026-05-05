@@ -1,0 +1,41 @@
+EA-32 agentic_demo_report
+
+=== DevPulse Goal Mode / Agentic Demo ===
+Status: pass
+Goal: Assess migration safety for this repo from SDK v2 to SDK v3
+Parsed dependencies: 5
+Dependency deltas: 5
+Planned tasks: 5
+Task runs: 6
+Recovery actions: 3
+Aggregate verdict: BLOCKED
+Recommended action: Do not proceed
+
+Task priority order:
+- P1 auth-sdk | major | major version jump
+- P1 logging-lib | major | major version jump
+- P1 profile-sdk | major | major version jump
+- P4 unknown-dep | unknown | missing or ambiguous target version
+- P6 analytics-sdk | patch | patch or low-risk update
+
+Recovery actions:
+- auth-sdk | skip_and_escalate | escalated | capped=False
+- profile-sdk | skip_and_escalate | escalated | capped=False
+- unknown-dep | retry_with_related_version_evidence | success | capped=False
+
+Staged recommendation:
+{
+  "safe_tasks_can_proceed_independently": [
+    "analytics-sdk"
+  ],
+  "risky_tasks_require_caveats_and_reviewer_approval": [
+    "logging-lib",
+    "unknown-dep"
+  ],
+  "blocked_or_escalated_tasks_block_full_migration": [
+    "auth-sdk",
+    "profile-sdk"
+  ]
+}
+
+Truth boundary: production-simulated, controlled registry, no live package registry, no real GitHub PR generation.

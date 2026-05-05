@@ -1,0 +1,44 @@
+{
+  "artifact": "EA-30 plan_summary_report",
+  "report_id": "plan_10dd35b5a501",
+  "goal_id": "goal_43d82aa6562a",
+  "total_tasks": 5,
+  "safe_tasks": 1,
+  "risky_tasks": 2,
+  "blocked_tasks": 0,
+  "skipped_tasks": 0,
+  "escalated_tasks": 2,
+  "aggregate_verdict": "BLOCKED",
+  "recommended_action": "Do not proceed",
+  "recommended_migration_order": [
+    "analytics-sdk",
+    "logging-lib",
+    "unknown-dep"
+  ],
+  "do_not_proceed_blockers": [
+    "auth-sdk",
+    "profile-sdk",
+    "auth-sdk",
+    "profile-sdk"
+  ],
+  "staged_recommendation": {
+    "safe_tasks_can_proceed_independently": [
+      "analytics-sdk"
+    ],
+    "risky_tasks_require_caveats_and_reviewer_approval": [
+      "logging-lib",
+      "unknown-dep"
+    ],
+    "blocked_or_escalated_tasks_block_full_migration": [
+      "auth-sdk",
+      "profile-sdk"
+    ]
+  },
+  "recovery_summary": {
+    "skip_and_escalate": 2,
+    "retry_with_related_version_evidence": 1
+  },
+  "generated_at": "2026-05-05T09:25:03.197055+00:00",
+  "status": "pass",
+  "evidence_statement": "PlanSummaryReporter produced aggregate SAFE/RISKY/BLOCKED goal-level migration recommendation with staged action logic."
+}

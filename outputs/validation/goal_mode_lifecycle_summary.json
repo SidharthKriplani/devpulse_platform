@@ -1,0 +1,10 @@
+{
+  "artifact": "goal_mode_lifecycle_summary",
+  "status": "pass",
+  "goal_mode_artifacts": 8,
+  "failure_scenarios": 9,
+  "aggregate_verdict": "BLOCKED",
+  "unbounded_retry_rate": 0.0,
+  "llm_planning_violation_rate": 0.0,
+  "evidence_statement": "DevPulse Goal Mode lifecycle generated EA-25 to EA-32 and F-11 to F-19 as production-simulated executable evidence."
+}
