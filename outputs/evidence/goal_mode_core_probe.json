@@ -1,0 +1,417 @@
+{
+  "artifact": "goal_mode_core_probe",
+  "component_count": 6,
+  "components": [
+    "GoalParser",
+    "DependencyDeltaDetector",
+    "TaskPlanner",
+    "TaskExecutor",
+    "RecoveryDecider",
+    "PlanSummaryReporter"
+  ],
+  "agent_goal": {
+    "goal_id": "goal_26c4b921d995",
+    "raw_goal_text": "Assess migration safety for this repo from SDK v2 to SDK v3",
+    "manifest_type": "package.json",
+    "project_name": "checkout-web-app",
+    "ecosystem": "npm",
+    "parsed_status": "complete",
+    "ambiguity_flag": false,
+    "ambiguity_reason": null,
+    "dependency_list": [
+      {
+        "dependency_name": "auth-sdk",
+        "current_version": "2.4.1",
+        "target_version": null,
+        "ecosystem": "npm",
+        "version_status": "resolved",
+        "target_source": null
+      },
+      {
+        "dependency_name": "analytics-sdk",
+        "current_version": "1.2.0",
+        "target_version": null,
+        "ecosystem": "npm",
+        "version_status": "resolved",
+        "target_source": null
+      },
+      {
+        "dependency_name": "logging-lib",
+        "current_version": "0.9.0",
+        "target_version": null,
+        "ecosystem": "npm",
+        "version_status": "resolved",
+        "target_source": null
+      },
+      {
+        "dependency_name": "profile-sdk",
+        "current_version": "2.1.0",
+        "target_version": null,
+        "ecosystem": "npm",
+        "version_status": "resolved",
+        "target_source": null
+      },
+      {
+        "dependency_name": "unknown-dep",
+        "current_version": "0.1.0",
+        "target_version": null,
+        "ecosystem": "npm",
+        "version_status": "resolved",
+        "target_source": null
+      }
+    ],
+    "created_at": "2026-05-05T09:20:34.204609+00:00"
+  },
+  "dependency_delta_report": [
+    {
+      "dependency_name": "auth-sdk",
+      "ecosystem": "npm",
+      "current_version": "2.4.1",
+      "target_version": "3.0.0",
+      "version_delta_type": "major",
+      "breaking_change_risk": "high",
+      "requires_migration_check": true,
+      "version_status": "resolved",
+      "target_source": "controlled_demo_registry",
+      "criticality": "high",
+      "known_breaking_change": true,
+      "delta_notes": "classified by deterministic semver and controlled demo registry"
+    },
+    {
+      "dependency_name": "analytics-sdk",
+      "ecosystem": "npm",
+      "current_version": "1.2.0",
+      "target_version": "1.2.3",
+      "version_delta_type": "patch",
+      "breaking_change_risk": "low",
+      "requires_migration_check": false,
+      "version_status": "resolved",
+      "target_source": "controlled_demo_registry",
+      "criticality": "low",
+      "known_breaking_change": false,
+      "delta_notes": "classified by deterministic semver and controlled demo registry"
+    },
+    {
+      "dependency_name": "logging-lib",
+      "ecosystem": "npm",
+      "current_version": "0.9.0",
+      "target_version": "1.0.0",
+      "version_delta_type": "major",
+      "breaking_change_risk": "high",
+      "requires_migration_check": true,
+      "version_status": "resolved",
+      "target_source": "controlled_demo_registry",
+      "criticality": "medium",
+      "known_breaking_change": false,
+      "delta_notes": "classified by deterministic semver and controlled demo registry"
+    },
+    {
+      "dependency_name": "profile-sdk",
+      "ecosystem": "npm",
+      "current_version": "2.1.0",
+      "target_version": "3.0.0",
+      "version_delta_type": "major",
+      "breaking_change_risk": "high",
+      "requires_migration_check": true,
+      "version_status": "resolved",
+      "target_source": "controlled_demo_registry",
+      "criticality": "high",
+      "known_breaking_change": true,
+      "delta_notes": "classified by deterministic semver and controlled demo registry"
+    },
+    {
+      "dependency_name": "unknown-dep",
+      "ecosystem": "npm",
+      "current_version": "0.1.0",
+      "target_version": null,
+      "version_delta_type": "unknown",
+      "breaking_change_risk": "unknown",
+      "requires_migration_check": true,
+      "version_status": "unresolvable",
+      "target_source": null,
+      "criticality": "unknown",
+      "known_breaking_change": false,
+      "delta_notes": "classified by deterministic semver and controlled demo registry"
+    }
+  ],
+  "agent_task_plan": [
+    {
+      "task_id": "task_c09a5a80db7b",
+      "goal_id": "goal_26c4b921d995",
+      "dependency_name": "auth-sdk",
+      "current_version": "2.4.1",
+      "target_version": "3.0.0",
+      "version_delta_type": "major",
+      "breaking_change_risk": "high",
+      "priority": 1,
+      "reason_for_priority": "major version jump",
+      "task_status": "escalated",
+      "created_at": "2026-05-05T09:20:34.205116+00:00",
+      "completed_at": "2026-05-05T09:20:34.205700+00:00"
+    },
+    {
+      "task_id": "task_46ad274b3b85",
+      "goal_id": "goal_26c4b921d995",
+      "dependency_name": "logging-lib",
+      "current_version": "0.9.0",
+      "target_version": "1.0.0",
+      "version_delta_type": "major",
+      "breaking_change_risk": "high",
+      "priority": 1,
+      "reason_for_priority": "major version jump",
+      "task_status": "risky",
+      "created_at": "2026-05-05T09:20:34.205140+00:00",
+      "completed_at": "2026-05-05T09:20:34.205915+00:00"
+    },
+    {
+      "task_id": "task_92a1e4edcbb2",
+      "goal_id": "goal_26c4b921d995",
+      "dependency_name": "profile-sdk",
+      "current_version": "2.1.0",
+      "target_version": "3.0.0",
+      "version_delta_type": "major",
+      "breaking_change_risk": "high",
+      "priority": 1,
+      "reason_for_priority": "major version jump",
+      "task_status": "escalated",
+      "created_at": "2026-05-05T09:20:34.205148+00:00",
+      "completed_at": "2026-05-05T09:20:34.206243+00:00"
+    },
+    {
+      "task_id": "task_6b395e5af6e1",
+      "goal_id": "goal_26c4b921d995",
+      "dependency_name": "unknown-dep",
+      "current_version": "0.1.0",
+      "target_version": null,
+      "version_delta_type": "unknown",
+      "breaking_change_risk": "unknown",
+      "priority": 4,
+      "reason_for_priority": "missing or ambiguous target version",
+      "task_status": "risky",
+      "created_at": "2026-05-05T09:20:34.205156+00:00",
+      "completed_at": "2026-05-05T09:20:34.207163+00:00"
+    },
+    {
+      "task_id": "task_142afb613ebf",
+      "goal_id": "goal_26c4b921d995",
+      "dependency_name": "analytics-sdk",
+      "current_version": "1.2.0",
+      "target_version": "1.2.3",
+      "version_delta_type": "patch",
+      "breaking_change_risk": "low",
+      "priority": 6,
+      "reason_for_priority": "patch or low-risk update",
+      "task_status": "safe",
+      "created_at": "2026-05-05T09:20:34.205130+00:00",
+      "completed_at": "2026-05-05T09:20:34.207338+00:00"
+    }
+  ],
+  "agent_task_execution_trace": [
+    {
+      "run_id": "run_11b5f413a7ae",
+      "task_id": "task_c09a5a80db7b",
+      "query_id": "query_04f38b41014d",
+      "dependency_name": "auth-sdk",
+      "migration_query": "What changed in authenticate from v2 to v3?",
+      "route_taken": "MIGRATION",
+      "retrieval_status": "success",
+      "conflict_flag": true,
+      "conflict_types": [
+        "same_api_different_behavior"
+      ],
+      "migration_verdict": "BLOCKED",
+      "grounding_rate": 1.0,
+      "retry_count": 0,
+      "final_status": "blocked",
+      "synthesis_suppressed": true,
+      "latency_ms": 420,
+      "cost_usd": 0.0,
+      "created_at": "2026-05-05T09:20:34.205712+00:00"
+    },
+    {
+      "run_id": "run_83769f40bb67",
+      "task_id": "task_46ad274b3b85",
+      "query_id": "query_a810f5a7f65d",
+      "dependency_name": "logging-lib",
+      "migration_query": "Is logging safe to use in v3?",
+      "route_taken": "SIMPLE",
+      "retrieval_status": "success",
+      "conflict_flag": true,
+      "conflict_types": [
+        "stale_doc_detected"
+      ],
+      "migration_verdict": "RISKY",
+      "grounding_rate": 0.95,
+      "retry_count": 0,
+      "final_status": "risky",
+      "synthesis_suppressed": false,
+      "latency_ms": 420,
+      "cost_usd": 0.0008,
+      "created_at": "2026-05-05T09:20:34.205924+00:00"
+    },
+    {
+      "run_id": "run_b7a0a5596a4a",
+      "task_id": "task_92a1e4edcbb2",
+      "query_id": "query_5df8284a9034",
+      "dependency_name": "profile-sdk",
+      "migration_query": "How should I migrate fetchUser from v2 to v3?",
+      "route_taken": "MIGRATION",
+      "retrieval_status": "success",
+      "conflict_flag": true,
+      "conflict_types": [
+        "same_api_different_behavior",
+        "version_deprecation_conflict",
+        "stale_doc_detected"
+      ],
+      "migration_verdict": "BLOCKED",
+      "grounding_rate": 1.0,
+      "retry_count": 0,
+      "final_status": "blocked",
+      "synthesis_suppressed": true,
+      "latency_ms": 420,
+      "cost_usd": 0.0,
+      "created_at": "2026-05-05T09:20:34.206251+00:00"
+    },
+    {
+      "run_id": "run_7c04ae430efc",
+      "task_id": "task_6b395e5af6e1",
+      "query_id": "query_b44489b4aacb",
+      "dependency_name": "unknown-dep",
+      "migration_query": "How should I migrate unknown-dep from 0.1.0 to unknown target version?",
+      "route_taken": "MIGRATION",
+      "retrieval_status": "success",
+      "conflict_flag": true,
+      "conflict_types": [
+        "insufficient_version_coverage"
+      ],
+      "migration_verdict": "BLOCKED",
+      "grounding_rate": 0.55,
+      "retry_count": 0,
+      "final_status": "blocked",
+      "synthesis_suppressed": true,
+      "latency_ms": 420,
+      "cost_usd": 0.0,
+      "created_at": "2026-05-05T09:20:34.206736+00:00"
+    },
+    {
+      "run_id": "run_caaa21e411a8",
+      "task_id": "task_6b395e5af6e1",
+      "query_id": "query_ca368d286379",
+      "dependency_name": "unknown-dep",
+      "migration_query": "How should I migrate unknown-dep from 0.1.0 to unknown target version?",
+      "route_taken": "MIGRATION",
+      "retrieval_status": "success",
+      "conflict_flag": true,
+      "conflict_types": [
+        "insufficient_version_coverage"
+      ],
+      "migration_verdict": "RISKY",
+      "grounding_rate": 0.91,
+      "retry_count": 1,
+      "final_status": "risky",
+      "synthesis_suppressed": false,
+      "latency_ms": 510,
+      "cost_usd": 0.0008,
+      "created_at": "2026-05-05T09:20:34.207176+00:00"
+    },
+    {
+      "run_id": "run_4f1d717f74ea",
+      "task_id": "task_142afb613ebf",
+      "query_id": "query_2c74ce6d31c2",
+      "dependency_name": "analytics-sdk",
+      "migration_query": "What is the rateLimit in v3?",
+      "route_taken": "SIMPLE",
+      "retrieval_status": "success",
+      "conflict_flag": false,
+      "conflict_types": [],
+      "migration_verdict": "SAFE",
+      "grounding_rate": 1.0,
+      "retry_count": 0,
+      "final_status": "safe",
+      "synthesis_suppressed": false,
+      "latency_ms": 420,
+      "cost_usd": 0.0008,
+      "created_at": "2026-05-05T09:20:34.207348+00:00"
+    }
+  ],
+  "recovery_decision_log": [
+    {
+      "recovery_id": "recovery_c7aa3937ec07",
+      "task_id": "task_c09a5a80db7b",
+      "run_id": "run_11b5f413a7ae",
+      "dependency_name": "auth-sdk",
+      "recovery_action": "skip_and_escalate",
+      "reason": "HIGH/CRITICAL conflict: do not retry or synthesize",
+      "retry_number": 0,
+      "outcome": "escalated",
+      "capped_by_policy": false,
+      "created_at": "2026-05-05T09:20:34.205730+00:00"
+    },
+    {
+      "recovery_id": "recovery_009d1c158f82",
+      "task_id": "task_92a1e4edcbb2",
+      "run_id": "run_b7a0a5596a4a",
+      "dependency_name": "profile-sdk",
+      "recovery_action": "skip_and_escalate",
+      "reason": "HIGH/CRITICAL conflict: do not retry or synthesize",
+      "retry_number": 0,
+      "outcome": "escalated",
+      "capped_by_policy": false,
+      "created_at": "2026-05-05T09:20:34.206289+00:00"
+    },
+    {
+      "recovery_id": "recovery_6e754d4d7f9f",
+      "task_id": "task_6b395e5af6e1",
+      "run_id": "run_7c04ae430efc",
+      "dependency_name": "unknown-dep",
+      "recovery_action": "retry_with_related_version_evidence",
+      "reason": "missing or insufficient target-version evidence",
+      "retry_number": 1,
+      "outcome": "success",
+      "capped_by_policy": false,
+      "created_at": "2026-05-05T09:20:34.206748+00:00"
+    }
+  ],
+  "plan_summary_report": {
+    "report_id": "plan_36ac0c14fc30",
+    "goal_id": "goal_26c4b921d995",
+    "total_tasks": 5,
+    "safe_tasks": 1,
+    "risky_tasks": 2,
+    "blocked_tasks": 0,
+    "skipped_tasks": 0,
+    "escalated_tasks": 2,
+    "aggregate_verdict": "BLOCKED",
+    "recommended_action": "Do not proceed",
+    "recommended_migration_order": [
+      "analytics-sdk",
+      "logging-lib",
+      "unknown-dep"
+    ],
+    "do_not_proceed_blockers": [
+      "auth-sdk",
+      "profile-sdk",
+      "auth-sdk",
+      "profile-sdk"
+    ],
+    "staged_recommendation": {
+      "safe_tasks_can_proceed_independently": [
+        "analytics-sdk"
+      ],
+      "risky_tasks_require_caveats_and_reviewer_approval": [
+        "logging-lib",
+        "unknown-dep"
+      ],
+      "blocked_or_escalated_tasks_block_full_migration": [
+        "auth-sdk",
+        "profile-sdk"
+      ]
+    },
+    "recovery_summary": {
+      "skip_and_escalate": 2,
+      "retry_with_related_version_evidence": 1
+    },
+    "generated_at": "2026-05-05T09:20:34.207371+00:00"
+  },
+  "evidence_statement": "DevPulse Goal Mode core parses a migration goal and dependency manifest, classifies version deltas, plans an ordered task queue, executes tasks through Query Mode, applies deterministic recovery, and produces an aggregate migration plan."
+}

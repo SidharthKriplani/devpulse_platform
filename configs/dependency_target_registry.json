@@ -1,0 +1,30 @@
+{
+  "auth-sdk": {
+    "ecosystem": "npm",
+    "target_version": "3.0.0",
+    "criticality": "high",
+    "known_breaking_change": true,
+    "target_source": "controlled_demo_registry"
+  },
+  "analytics-sdk": {
+    "ecosystem": "npm",
+    "target_version": "1.2.3",
+    "criticality": "low",
+    "known_breaking_change": false,
+    "target_source": "controlled_demo_registry"
+  },
+  "logging-lib": {
+    "ecosystem": "npm",
+    "target_version": "1.0.0",
+    "criticality": "medium",
+    "known_breaking_change": false,
+    "target_source": "controlled_demo_registry"
+  },
+  "profile-sdk": {
+    "ecosystem": "npm",
+    "target_version": "3.0.0",
+    "criticality": "high",
+    "known_breaking_change": true,
+    "target_source": "controlled_demo_registry"
+  }
+}

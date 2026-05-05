@@ -1,0 +1,120 @@
+{
+  "artifact": "goal_mode_core_validation",
+  "status": "pass",
+  "check_count": 11,
+  "passed_count": 11,
+  "checks": [
+    {
+      "name": "six_agentic_components_present",
+      "passed": true,
+      "observed": [
+        "GoalParser",
+        "DependencyDeltaDetector",
+        "TaskPlanner",
+        "TaskExecutor",
+        "RecoveryDecider",
+        "PlanSummaryReporter"
+      ]
+    },
+    {
+      "name": "goal_parser_extracts_five_dependencies",
+      "passed": true,
+      "observed": 5
+    },
+    {
+      "name": "delta_detector_covers_major_patch_unknown",
+      "passed": true,
+      "observed": [
+        "major",
+        "patch",
+        "unknown"
+      ]
+    },
+    {
+      "name": "target_versions_use_controlled_registry",
+      "passed": true,
+      "observed": [
+        "None",
+        "controlled_demo_registry"
+      ]
+    },
+    {
+      "name": "task_plan_ordered_by_priority",
+      "passed": true,
+      "observed": [
+        1,
+        1,
+        1,
+        4,
+        6
+      ]
+    },
+    {
+      "name": "task_executor_links_query_ids",
+      "passed": true,
+      "observed": [
+        "query_04f38b41014d",
+        "query_a810f5a7f65d",
+        "query_5df8284a9034",
+        "query_b44489b4aacb",
+        "query_ca368d286379",
+        "query_2c74ce6d31c2"
+      ]
+    },
+    {
+      "name": "safe_risky_blocked_statuses_seen",
+      "passed": true,
+      "observed": [
+        "blocked",
+        "risky",
+        "safe"
+      ]
+    },
+    {
+      "name": "recovery_decider_has_escalation_and_retry",
+      "passed": true,
+      "observed": [
+        "retry_with_related_version_evidence",
+        "skip_and_escalate"
+      ]
+    },
+    {
+      "name": "retry_cap_respected",
+      "passed": true,
+      "observed": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "name": "plan_summary_blocks_critical_goal",
+      "passed": true,
+      "observed": {
+        "aggregate_verdict": "BLOCKED",
+        "recommended_action": "Do not proceed"
+      }
+    },
+    {
+      "name": "staged_recommendation_present",
+      "passed": true,
+      "observed": {
+        "safe_tasks_can_proceed_independently": [
+          "analytics-sdk"
+        ],
+        "risky_tasks_require_caveats_and_reviewer_approval": [
+          "logging-lib",
+          "unknown-dep"
+        ],
+        "blocked_or_escalated_tasks_block_full_migration": [
+          "auth-sdk",
+          "profile-sdk"
+        ]
+      }
+    }
+  ],
+  "evidence_statement": "Validates DevPulse Goal Mode core: 6 agentic components, controlled target registry, deterministic task planning, Query Mode task execution, bounded recovery, and aggregate plan summary."
+}
