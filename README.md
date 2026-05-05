@@ -67,46 +67,53 @@ DevPulse is designed to answer questions like:
 
 The system intentionally avoids blind LLM output. It uses deterministic gates first, then allows synthesis only when evidence is sufficiently grounded.
 
-## Core Architecture
+## Architecture
 
-```text
-User Query / Migration Goal
-        |
-        v
-Query Mode
-- query parsing
-- version extraction
-- route selection
-- version-aware retrieval
-- conflict detection
-- citation assembly
-- SAFE / RISKY / BLOCKED migration report
-        |
-        v
-Goal Mode
-- goal parsing
-- dependency delta detection
-- task planning
-- task execution through Query Mode
-- bounded recovery
-- plan summary reporting
-        |
-        v
-Repo-Aware Extension
-- local sample repo scan
-- dependency usage mapping
-- risky callsite detection
-        |
-        v
-Patch + PR Simulation
-- proposed patch diff
-- before/after test simulation
-- failure triage
-- reviewer checklist
-- rollback plan
-        |
-        v
-Evidence Dashboard
+```mermaid
+flowchart TD
+    INPUT["🔍 User Query / Migration Goal\ne.g. 'migrate requests v2 → v3'"] --> QM
+
+    subgraph QM["Query Mode  src/query/"]
+        QP["Query Parser\nVersion extraction · complexity routing"]
+        RET["Version-Safe Retrieval\nHard version filter · wrong-version rate = 0.0\nHybrid Recall@5 = 0.94"]
+        CD["Conflict Detector\nStale · contradictory · deprecated · cross-source\nConflict Macro F1 = 0.966"]
+        SYN["LLM-Last Synthesis\nOnly when evidence is grounded\nCitation assembly · fallback audit"]
+        REP["Migration Report\nSAFE / RISKY / BLOCKED"]
+    end
+
+    QP --> RET --> CD --> SYN --> REP
+
+    REP --> GM
+
+    subgraph GM["Goal Mode  src/goal/"]
+        GP["GoalParser"]
+        DD["DependencyDeltaDetector"]
+        TP["TaskPlanner → TaskExecutor\nBounded retry cap · staged migration"]
+        RD["RecoveryDecider\nEscalation on repeated failure"]
+        PS["PlanSummaryReporter"]
+    end
+
+    GP --> DD --> TP --> RD --> PS
+
+    PS --> RA
+
+    subgraph RA["Repo-Aware Extension  src/repo/"]
+        SCAN["Local Repo Scanner\n10 callsites found"]
+        MAP["Dependency Usage Mapper"]
+        RISK["Risky Callsite Detector\n10/10 risky · DO_NOT_APPLY_WITHOUT_REVIEW"]
+    end
+
+    RA --> PP
+
+    subgraph PP["Patch + PR Simulation  src/patch/"]
+        DIFF["Patch Diff Proposal"]
+        TEST["Before/After Test Simulation"]
+        TRIAGE["Failure Triage · Reviewer Checklist"]
+        ROLL["Rollback Plan"]
+    end
+
+    PP --> DASH["📊 Evidence Dashboard\nGitHub Pages · 70 artifacts\n37-day backtest · 2,479 queries"]
+    PP --> BT["37-Day Backtest\nRAG eval · 180 queries"]
 ```
 
 ## Key Results
