@@ -1,0 +1,81 @@
+{
+  "artifact": "patch_pr_simulation_validation_v35",
+  "status": "pass",
+  "check_count": 10,
+  "passed_count": 10,
+  "checks": [
+    {
+      "name": "required_artifacts_present",
+      "passed": true,
+      "observed": [
+        "outputs/patches/proposed_file_changes.json",
+        "outputs/patches/proposed_migration_patch.diff",
+        "outputs/reports/patch_risk_report.json",
+        "outputs/test_simulation/before_tests_report.json",
+        "outputs/test_simulation/after_patch_tests_report.json",
+        "outputs/test_simulation/test_failure_triage_report.json",
+        "outputs/pr_simulation/pr_title.txt",
+        "outputs/pr_simulation/pr_body.md",
+        "outputs/pr_simulation/pr_diff.patch",
+        "outputs/pr_simulation/reviewer_checklist.md",
+        "outputs/pr_simulation/rollback_plan.md",
+        "outputs/reports/patch_pr_simulation_summary_v35.json"
+      ]
+    },
+    {
+      "name": "patch_has_multiple_file_changes",
+      "passed": true,
+      "observed": 4
+    },
+    {
+      "name": "patch_is_proposal_only",
+      "passed": true,
+      "observed": {
+        "auto_apply": false,
+        "review_required": true
+      }
+    },
+    {
+      "name": "diff_contains_auth_and_profile_changes",
+      "passed": true,
+      "observed": "checked patch text"
+    },
+    {
+      "name": "patch_risk_blocks_autonomous_apply",
+      "passed": true,
+      "observed": "DO_NOT_APPLY_WITHOUT_REVIEW"
+    },
+    {
+      "name": "before_tests_pass",
+      "passed": true,
+      "observed": "pass"
+    },
+    {
+      "name": "after_patch_review_blocked",
+      "passed": true,
+      "observed": {
+        "status": "review_blocked",
+        "patch_applied": false
+      }
+    },
+    {
+      "name": "triage_has_actionable_root_causes",
+      "passed": true,
+      "observed": {
+        "root_causes": 2,
+        "triage_status": "review_required"
+      }
+    },
+    {
+      "name": "pr_body_truth_boundary_present",
+      "passed": true,
+      "observed": "checked pr body"
+    },
+    {
+      "name": "summary_pass",
+      "passed": true,
+      "observed": "pass"
+    }
+  ],
+  "evidence_statement": "Validates DevPulse v3.5 patch proposal, test simulation, failure triage, and PR-ready migration bundle."
+}

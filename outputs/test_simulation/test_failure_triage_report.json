@@ -1,0 +1,24 @@
+{
+  "artifact": "test_failure_triage_report_v35",
+  "generated_at": "2026-05-05T11:03:47.265517+00:00",
+  "triage_status": "review_required",
+  "root_causes": [
+    {
+      "dependency_name": "auth-sdk",
+      "failure_category": "runtime_configuration_gap",
+      "triage": "Need confirmed credential source and environment variable setup before applying authenticate signature change."
+    },
+    {
+      "dependency_name": "profile-sdk",
+      "failure_category": "replacement_api_verification",
+      "triage": "Need reviewer or real SDK typecheck to confirm getUserProfile export and return contract."
+    }
+  ],
+  "recommended_next_actions": [
+    "Open PR-ready package for review, not merge.",
+    "Ask SDK owner to confirm v3 auth signature.",
+    "Run real npm install and typecheck in a live development environment.",
+    "Apply analytics-sdk patch separately if reviewer accepts staged migration."
+  ],
+  "evidence_statement": "DevPulse simulated the verify loop and produced actionable failure triage instead of pretending patch success."
+}

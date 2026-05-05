@@ -1,0 +1,26 @@
+{
+  "artifact": "patch_pr_simulation_summary_v35",
+  "status": "pass",
+  "generated_at": "2026-05-05T11:03:47.267238+00:00",
+  "patch_change_count": 4,
+  "patch_apply_recommendation": "DO_NOT_APPLY_WITHOUT_REVIEW",
+  "before_test_status": "pass",
+  "after_patch_status": "review_blocked",
+  "pr_bundle_artifacts": [
+    "outputs/pr_simulation/pr_title.txt",
+    "outputs/pr_simulation/pr_body.md",
+    "outputs/pr_simulation/pr_diff.patch",
+    "outputs/pr_simulation/reviewer_checklist.md",
+    "outputs/pr_simulation/rollback_plan.md"
+  ],
+  "truth_boundary": {
+    "claim": "PR-ready local migration simulation package",
+    "not_claimed": [
+      "real PR opened",
+      "patch merged",
+      "real CI passed",
+      "production deployment"
+    ]
+  },
+  "evidence_statement": "DevPulse generated a reviewer-safe patch proposal, simulated test/triage reports, and PR-ready package while blocking autonomous application."
+}

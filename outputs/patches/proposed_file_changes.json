@@ -1,0 +1,62 @@
+{
+  "artifact": "proposed_file_changes_v35",
+  "generated_at": "2026-05-05T11:03:47.265341+00:00",
+  "change_count": 4,
+  "apply_mode": "proposal_only",
+  "auto_apply": false,
+  "review_required": true,
+  "source_artifacts": [
+    "outputs/repo_aware/repo_inspection_report.json",
+    "outputs/repo_aware/dependency_usage_map.json",
+    "outputs/repo_aware/risky_callsite_report.json",
+    "outputs/evidence/plan_summary_report.json"
+  ],
+  "changes": [
+    {
+      "file_path": "sample_repos/checkout_app/src/auth.ts",
+      "dependency_name": "auth-sdk",
+      "change_type": "candidate_signature_migration",
+      "before_snippet": "authenticate(apiKey)",
+      "after_snippet": "authenticate(process.env.AUTH_CLIENT_ID!, process.env.AUTH_CLIENT_SECRET!)",
+      "review_required": true,
+      "risk_reason": "auth-sdk is a major migration and was escalated by DevPulse; patch is proposal-only."
+    },
+    {
+      "file_path": "sample_repos/checkout_app/src/profile.ts",
+      "dependency_name": "profile-sdk",
+      "change_type": "candidate_replacement_api_migration",
+      "before_snippet": "fetchUser(userId)",
+      "after_snippet": "getUserProfile(userId)",
+      "review_required": true,
+      "risk_reason": "profile-sdk is a major migration and was escalated by DevPulse; patch is proposal-only."
+    },
+    {
+      "file_path": "sample_repos/checkout_app/src/logging.ts",
+      "dependency_name": "logging-lib",
+      "change_type": "candidate_structured_logging_payload",
+      "before_snippet": "logger.info(eventName, payload)",
+      "after_snippet": "logger.info({ eventName, payload, schemaVersion: \"v3-migration-review\" })",
+      "review_required": true,
+      "risk_reason": "logging-lib was classified as RISKY due stale/limited evidence; patch requires reviewer validation."
+    },
+    {
+      "file_path": "sample_repos/checkout_app/package.json",
+      "dependency_name": "multiple",
+      "change_type": "candidate_manifest_version_bump",
+      "before_snippet": "old dependency versions",
+      "after_snippet": "controlled target versions from dependency_target_registry.json",
+      "review_required": true,
+      "risk_reason": "manifest bump is bundled with code changes but must not be merged while aggregate readiness is BLOCKED."
+    }
+  ],
+  "truth_boundary": {
+    "claim": "local patch proposal package generated from repo-aware risk evidence",
+    "not_claimed": [
+      "patch applied to production",
+      "real GitHub PR opened",
+      "tests executed against real CI",
+      "autonomous merge approval"
+    ]
+  },
+  "evidence_statement": "DevPulse generated reviewer-safe candidate file changes without mutating the source repo."
+}

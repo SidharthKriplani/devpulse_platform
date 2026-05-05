@@ -1,0 +1,25 @@
+{
+  "artifact": "after_patch_tests_report_v35",
+  "generated_at": "2026-05-05T11:03:47.265514+00:00",
+  "mode": "simulated_after_patch_validation",
+  "patch_applied_to_source_repo": false,
+  "patch_evaluated_as_preview": true,
+  "status": "review_blocked",
+  "tests_total": 3,
+  "tests_passed": 1,
+  "tests_failed": 2,
+  "failed_checks": [
+    {
+      "check": "auth_sdk_runtime_credentials",
+      "reason": "candidate patch requires AUTH_CLIENT_ID and AUTH_CLIENT_SECRET; reviewer must validate runtime config."
+    },
+    {
+      "check": "profile_sdk_replacement_api",
+      "reason": "getUserProfile replacement is inferred from controlled docs; reviewer must verify actual SDK export."
+    }
+  ],
+  "passed_checks": [
+    "analytics-sdk patch candidate remains low risk"
+  ],
+  "evidence_statement": "After-patch simulation intentionally blocks merge because high-risk migration changes need human review."
+}

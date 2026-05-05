@@ -1,0 +1,38 @@
+{
+  "artifact": "patch_risk_report_v35",
+  "generated_at": "2026-05-05T11:03:47.265508+00:00",
+  "repo_migration_readiness": "BLOCKED",
+  "patch_apply_recommendation": "DO_NOT_APPLY_WITHOUT_REVIEW",
+  "reason": "Repo-aware scan found high-risk dependencies and all risky callsites require reviewer attention.",
+  "risk_summary": {
+    "callsites_found": 10,
+    "risky_callsite_count": 10,
+    "high_risk_dependencies": [
+      "auth-sdk",
+      "logging-lib",
+      "profile-sdk",
+      "unknown-dep"
+    ],
+    "medium_risk_dependencies": [
+      "analytics-sdk"
+    ],
+    "low_risk_dependencies": []
+  },
+  "review_gates": [
+    "Confirm auth-sdk v3 authenticate signature and credential source.",
+    "Confirm profile-sdk replacement API getUserProfile is correct.",
+    "Confirm logging-lib structured payload shape against current docs.",
+    "Run real package install and test suite before merge.",
+    "Do not merge while aggregate repo readiness is BLOCKED."
+  ],
+  "safe_tasks_can_proceed": [
+    "analytics-sdk manifest patch candidate"
+  ],
+  "blocked_tasks": [
+    "auth-sdk",
+    "logging-lib",
+    "profile-sdk",
+    "unknown-dep"
+  ],
+  "evidence_statement": "Patch risk report keeps the extension honest: DevPulse proposes changes but blocks autonomous application when critical migration risk remains."
+}

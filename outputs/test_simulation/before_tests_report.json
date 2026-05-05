@@ -1,0 +1,15 @@
+{
+  "artifact": "before_tests_report_v35",
+  "generated_at": "2026-05-05T11:03:47.265512+00:00",
+  "mode": "simulated_local_test_report",
+  "test_command": "npm test",
+  "test_environment": "sample_repos/checkout_app",
+  "status": "pass",
+  "tests_total": 1,
+  "tests_passed": 1,
+  "tests_failed": 0,
+  "notes": [
+    "Baseline sample test confirms existing checkout analytics function is callable.",
+    "This is a controlled local simulation, not a real CI run."
+  ]
+}

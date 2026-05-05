@@ -1,0 +1,39 @@
+--- a/sample_repos/checkout_app/src/auth.ts+++ b/sample_repos/checkout_app/src/auth.ts@@ -1,6 +1,6 @@ import { authenticate } from "auth-sdk";
+ 
+ export async function loginUser(apiKey: string) {
+-  const session = await authenticate(apiKey);
++  const session = await authenticate(process.env.AUTH_CLIENT_ID!, process.env.AUTH_CLIENT_SECRET!);
+   return session;
+ }
+
+--- a/sample_repos/checkout_app/src/profile.ts+++ b/sample_repos/checkout_app/src/profile.ts@@ -1,6 +1,6 @@-import { fetchUser } from "profile-sdk";
++import { getUserProfile } from "profile-sdk";
+ 
+ export async function loadProfile(userId: string) {
+-  const profile = await fetchUser(userId);
++  const profile = await getUserProfile(userId);
+   return profile;
+ }
+
+--- a/sample_repos/checkout_app/src/logging.ts+++ b/sample_repos/checkout_app/src/logging.ts@@ -3,5 +3,5 @@ const logger = createLogger({ service: "checkout-web-app" });
+ 
+ export function logCheckoutEvent(eventName: string, payload: Record<string, unknown>) {
+-  logger.info(eventName, payload);
++  logger.info({ eventName, payload, schemaVersion: "v3-migration-review" });
+ }
+
+--- a/sample_repos/checkout_app/package.json+++ b/sample_repos/checkout_app/package.json@@ -2,10 +2,10 @@   "name": "checkout-web-app",
+   "version": "0.1.0",
+   "dependencies": {
+-    "auth-sdk": "2.4.1",
+-    "analytics-sdk": "1.2.0",
+-    "logging-lib": "0.9.0",
+-    "profile-sdk": "2.1.0",
++    "auth-sdk": "3.0.0",
++    "analytics-sdk": "1.2.3",
++    "logging-lib": "1.0.0",
++    "profile-sdk": "3.0.0",
+     "unknown-dep": "0.1.0"
+   },
+   "devDependencies": {
+

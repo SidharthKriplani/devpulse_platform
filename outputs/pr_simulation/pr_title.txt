@@ -1,0 +1,1 @@
+DevPulse simulated migration package: SDK v2 to v3 reviewer-safe proposal
