@@ -1,0 +1,54 @@
+{
+  "artifact": "dashboard_validation_v35",
+  "status": "pass",
+  "check_count": 9,
+  "passed_count": 9,
+  "checks": [
+    {
+      "name": "dashboard_html_exists",
+      "passed": true,
+      "observed": "outputs/dashboard/index.html"
+    },
+    {
+      "name": "dashboard_manifest_exists",
+      "passed": true,
+      "observed": "outputs/dashboard/dashboard_manifest.json"
+    },
+    {
+      "name": "manifest_status_pass",
+      "passed": true,
+      "observed": "pass"
+    },
+    {
+      "name": "contains_project_title",
+      "passed": true,
+      "observed": "title checked"
+    },
+    {
+      "name": "contains_truth_boundary",
+      "passed": true,
+      "observed": "truth boundary checked"
+    },
+    {
+      "name": "contains_rag_metrics",
+      "passed": true,
+      "observed": "rag metrics checked"
+    },
+    {
+      "name": "contains_repo_aware_section",
+      "passed": true,
+      "observed": "repo-aware section checked"
+    },
+    {
+      "name": "contains_patch_pr_section",
+      "passed": true,
+      "observed": "patch/pr section checked"
+    },
+    {
+      "name": "contains_artifact_inventory",
+      "passed": true,
+      "observed": 70
+    }
+  ],
+  "evidence_statement": "Validates DevPulse static dashboard renders PRD completion, RAG eval, repo-aware risk, patch/PR simulation, truth boundary, and artifact inventory."
+}

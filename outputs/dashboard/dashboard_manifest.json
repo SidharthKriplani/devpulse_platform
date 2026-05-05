@@ -1,0 +1,15 @@
+{
+  "artifact": "devpulse_dashboard_manifest_v35",
+  "status": "pass",
+  "generated_at": "2026-05-05T11:32:00.157435+00:00",
+  "dashboard_path": "outputs/dashboard/index.html",
+  "source_artifacts": {
+    "completion_report": "outputs/reports/devpulse_prd_completion_report_v3.json",
+    "rag_summary": "outputs/rag_eval/rag_eval_hardening_summary_v35.json",
+    "repo_aware_summary": "outputs/repo_aware/repo_aware_extension_summary.json",
+    "patch_pr_summary": "outputs/reports/patch_pr_simulation_summary_v35.json",
+    "plan_summary": "outputs/evidence/plan_summary_report.json"
+  },
+  "artifact_inventory_count": 70,
+  "evidence_statement": "Static dashboard renders DevPulse v3.0 + v3.5 evidence into an interview/showcase-friendly UI without requiring a running backend."
+}

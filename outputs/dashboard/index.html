@@ -1,0 +1,898 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>DevPulse Evidence Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #111827;
+      --panel2: #172033;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --line: #263244;
+      --green: #22c55e;
+      --amber: #f59e0b;
+      --red: #ef4444;
+      --blue: #38bdf8;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      background: radial-gradient(circle at top left, #1e3a8a 0, #0b1020 38%, #050816 100%);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Arial, sans-serif;
+      line-height: 1.5;
+    }
+    a {
+      color: #93c5fd;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .shell {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 32px;
+    }
+    .hero {
+      border: 1px solid var(--line);
+      background: rgba(17, 24, 39, 0.88);
+      border-radius: 24px;
+      padding: 32px;
+      box-shadow: 0 24px 80px rgba(0,0,0,.35);
+    }
+    .hero h1 {
+      margin: 0 0 8px;
+      font-size: 42px;
+      letter-spacing: -0.04em;
+    }
+    .hero p {
+      max-width: 980px;
+      color: var(--muted);
+      font-size: 17px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      margin: 20px 0;
+    }
+    .grid3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin: 20px 0;
+    }
+    .grid2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin: 20px 0;
+    }
+    .card {
+      background: rgba(17, 24, 39, 0.92);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px;
+    }
+    .metric-title {
+      color: var(--muted);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+    .metric-value {
+      font-size: 30px;
+      font-weight: 800;
+      margin-top: 4px;
+    }
+    .metric-sub {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 4px;
+    }
+    h2 {
+      margin-top: 36px;
+      font-size: 26px;
+      letter-spacing: -0.02em;
+    }
+    h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      border: 1px solid var(--line);
+      background: var(--panel2);
+      color: var(--text);
+      margin: 2px 4px 2px 0;
+    }
+    .green {
+      color: #bbf7d0;
+      background: rgba(34,197,94,.13);
+      border-color: rgba(34,197,94,.35);
+    }
+    .amber {
+      color: #fde68a;
+      background: rgba(245,158,11,.13);
+      border-color: rgba(245,158,11,.35);
+    }
+    .red {
+      color: #fecaca;
+      background: rgba(239,68,68,.13);
+      border-color: rgba(239,68,68,.35);
+    }
+    .blue {
+      color: #bae6fd;
+      background: rgba(56,189,248,.13);
+      border-color: rgba(56,189,248,.35);
+    }
+    .muted {
+      color: var(--muted);
+    }
+    .section {
+      background: rgba(17, 24, 39, 0.74);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 24px;
+      margin-top: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    th, td {
+      text-align: left;
+      border-bottom: 1px solid var(--line);
+      padding: 10px 8px;
+      vertical-align: top;
+    }
+    th {
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+    pre {
+      background: #030712;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+      overflow-x: auto;
+      color: #d1d5db;
+      white-space: pre-wrap;
+      max-height: 520px;
+    }
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 10px;
+    }
+    .flow-step {
+      border: 1px solid var(--line);
+      background: var(--panel2);
+      border-radius: 14px;
+      padding: 12px;
+      font-size: 13px;
+      min-height: 92px;
+    }
+    .footer {
+      color: var(--muted);
+      margin: 32px 0;
+      font-size: 13px;
+    }
+    code {
+      color: #bfdbfe;
+      background: rgba(147,197,253,.08);
+      padding: 2px 6px;
+      border-radius: 8px;
+    }
+    @media (max-width: 960px) {
+      .grid, .grid3, .grid2, .flow {
+        grid-template-columns: 1fr;
+      }
+      .hero h1 {
+        font-size: 32px;
+      }
+      .shell {
+        padding: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <div>
+        <span class="badge green">pass</span>
+        <span class="badge blue">production-simulated</span>
+        <span class="badge blue">RAG</span>
+        <span class="badge blue">LLM-last</span>
+        <span class="badge blue">agentic</span>
+        <span class="badge blue">repo-aware</span>
+      </div>
+      <h1>DevPulse Evidence Dashboard</h1>
+      <p>
+        DevPulse is a production-simulated RAG + agentic developer change-intelligence system.
+        This dashboard turns the repo artifacts into a visual project cockpit: PRD completion,
+        RAG quality, goal-mode execution, repo-aware risk, patch simulation, and PR-ready review package.
+      </p>
+      <p>
+        <strong>Truth boundary:</strong>
+        no real production SaaS, no live users, no live package registry, no real GitHub PR generation,
+        no autonomous merge, and no production deployment.
+      </p>
+    </section>
+
+    <section class="grid">
+      
+    <div class="card metric">
+      <div class="metric-title">PRD status</div>
+      <div class="metric-value">pass</div>
+      <div class="metric-sub">v3.0 final validation</div>
+    </div>
+    
+      
+    <div class="card metric">
+      <div class="metric-title">Evidence artifacts</div>
+      <div class="metric-value">32</div>
+      <div class="metric-sub">EA-01 to EA-32</div>
+    </div>
+    
+      
+    <div class="card metric">
+      <div class="metric-title">Failure scenarios</div>
+      <div class="metric-value">19</div>
+      <div class="metric-sub">F-01 to F-19</div>
+    </div>
+    
+      
+    <div class="card metric">
+      <div class="metric-title">Wrong-version rate</div>
+      <div class="metric-value">0.0</div>
+      <div class="metric-sub">version-safe RAG gate</div>
+    </div>
+    
+    </section>
+
+    <section class="section">
+      <h2>System Flow</h2>
+      <div class="flow">
+        <div class="flow-step"><strong>1. Query Mode</strong><br><span class="muted">Parse, extract version, route, retrieve.</span></div>
+        <div class="flow-step"><strong>2. Conflict Layer</strong><br><span class="muted">Detect deprecated, stale, contradictory docs.</span></div>
+        <div class="flow-step"><strong>3. LLM-last Synthesis</strong><br><span class="muted">Only synthesize after deterministic gates.</span></div>
+        <div class="flow-step"><strong>4. Goal Mode</strong><br><span class="muted">Plan dependency migration tasks.</span></div>
+        <div class="flow-step"><strong>5. Repo-aware Scan</strong><br><span class="muted">Map dependency risk to callsites.</span></div>
+        <div class="flow-step"><strong>6. PR Simulation</strong><br><span class="muted">Generate patch, tests, triage, review bundle.</span></div>
+      </div>
+    </section>
+
+    <section class="grid3">
+      <div class="card">
+        <h3>RAG Eval Hardening</h3>
+        <p><span class="badge green">pass</span></p>
+        <table>
+          <tr><th>Metric</th><th>Value</th></tr>
+          <tr><td>Eval queries</td><td>180</td></tr>
+          <tr><td>Hybrid Recall@5</td><td>0.94</td></tr>
+          <tr><td>Reranker Recall@5</td><td>0.97</td></tr>
+          <tr><td>Conflict Macro F1</td><td>0.966</td></tr>
+          <tr><td>37-day queries</td><td>2479</td></tr>
+        </table>
+      </div>
+
+      <div class="card">
+        <h3>Repo-aware Risk</h3>
+        <p><span class="badge red">BLOCKED</span></p>
+        <table>
+          <tr><th>Metric</th><th>Value</th></tr>
+          <tr><td>Callsites found</td><td>10</td></tr>
+          <tr><td>Risky callsites</td><td>10</td></tr>
+          <tr><td>High-risk deps</td><td>4</td></tr>
+          <tr><td>Medium-risk deps</td><td>1</td></tr>
+          <tr><td>Low-risk deps</td><td>0</td></tr>
+          <tr><td>Readiness</td><td>BLOCKED</td></tr>
+        </table>
+      </div>
+
+      <div class="card">
+        <h3>Patch + PR Simulation</h3>
+        <p><span class="badge green">pass</span></p>
+        <table>
+          <tr><th>Metric</th><th>Value</th></tr>
+          <tr><td>Patch changes</td><td>4</td></tr>
+          <tr><td>Apply recommendation</td><td>DO_NOT_APPLY_WITHOUT_REVIEW</td></tr>
+          <tr><td>Before tests</td><td>pass</td></tr>
+          <tr><td>After patch</td><td>review_blocked</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <section class="grid2">
+      <div class="card">
+        <h3>Goal-mode Final Plan</h3>
+        <p><span class="badge red">BLOCKED</span></p>
+        <table>
+          <tr><th>Field</th><th>Value</th></tr>
+          <tr><td>Total tasks</td><td>5</td></tr>
+          <tr><td>Safe tasks</td><td>1</td></tr>
+          <tr><td>Risky tasks</td><td>2</td></tr>
+          <tr><td>Blocked tasks</td><td>0</td></tr>
+          <tr><td>Escalated tasks</td><td>2</td></tr>
+          <tr><td>Recommended action</td><td>Do not proceed</td></tr>
+        </table>
+      </div>
+
+      <div class="card">
+        <h3>Patch Risk Gates</h3>
+        <p><span class="badge red">DO_NOT_APPLY_WITHOUT_REVIEW</span></p>
+        <ul>
+          <li>Confirm auth-sdk v3 authenticate signature and credential source.</li><li>Confirm profile-sdk replacement API getUserProfile is correct.</li><li>Confirm logging-lib structured payload shape against current docs.</li><li>Run real package install and test suite before merge.</li><li>Do not merge while aggregate repo readiness is BLOCKED.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Core Demo Reports</h2>
+      <div class="grid3">
+        <div>
+          <h3>Query Mode Demo</h3>
+          <pre>EA-24 devpulse_demo_report
+
+=== DevPulse Query Mode Demo ===
+Status: pass
+Evidence artifacts EA-01 to EA-24: present
+Failure scenarios F-01 to F-10: represented
+Version correctness: wrong_version_answer_rate = 0.0
+Conflict detection: 9/9 conflict types covered in deterministic scenario catalog
+Migration verdicts: SAFE, RISKY, BLOCKED
+LLM-last: synthesis suppressed for BLOCKED verdicts
+Citation assembly: programmatic citations from chunk metadata
+Truth boundary: production-simulated, not production SaaS
+</pre>
+        </div>
+        <div>
+          <h3>Agentic Demo</h3>
+          <pre>EA-32 agentic_demo_report
+
+=== DevPulse Goal Mode / Agentic Demo ===
+Status: pass
+Goal: Assess migration safety for this repo from SDK v2 to SDK v3
+Parsed dependencies: 5
+Dependency deltas: 5
+Planned tasks: 5
+Task runs: 6
+Recovery actions: 3
+Aggregate verdict: BLOCKED
+Recommended action: Do not proceed
+
+Task priority order:
+- P1 auth-sdk | major | major version jump
+- P1 logging-lib | major | major version jump
+- P1 profile-sdk | major | major version jump
+- P4 unknown-dep | unknown | missing or ambiguous target version
+- P6 analytics-sdk | patch | patch or low-risk update
+
+Recovery actions:
+- auth-sdk | skip_and_escalate | escalated | capped=False
+- profile-sdk | skip_and_escalate | escalated | capped=False
+- unknown-dep | retry_with_related_version_evidence | success | capped=False
+
+Staged recommendation:
+{
+  &quot;safe_tasks_can_proceed_independently&quot;: [
+    &quot;analytics-sdk&quot;
+  ],
+  &quot;risky_tasks_require_caveats_and_reviewer_approval&quot;: [
+    &quot;logging-lib&quot;,
+    &quot;unknown-dep&quot;
+  ],
+  &quot;blocked_or_escalated_tasks_block_full_migration&quot;: [
+    &quot;auth-sdk&quot;,
+    &quot;profile-sdk&quot;
+  ]
+}
+
+Truth boundary: production-simulated, controlled registry, no live package registry, no real GitHub PR generation.
+</pre>
+        </div>
+        <div>
+          <h3>Final Completion</h3>
+          <pre>=== DevPulse PRD v3.0 Completion Report ===
+status: pass
+query_mode_artifacts: 24
+goal_mode_artifacts: 8
+total_evidence_artifacts: 32
+failure_recovery_scenarios: 19
+wrong_version_answer_rate: 0.0
+agentic_eval_status: pass
+aggregate_goal_verdict: BLOCKED
+
+Truth boundary: production-simulated, non-production, controlled registry, no live users, no live package registry, no real GitHub PR generation.
+
+Final verdict: DevPulse v3.0 repo-evidence implementation is complete.
+</pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Key Artifact Links</h2>
+      <div class="grid3">
+        <div class="card">
+          <h3>Completion</h3>
+          <p><a href="../reports/devpulse_prd_completion_report_v3.json" target="_blank">PRD completion report</a></p>
+          <p><a href="../reports/devpulse_final_demo_report.txt" target="_blank">Final demo report</a></p>
+          <p><a href="../evidence/plan_summary_report.json" target="_blank">Goal-mode plan summary</a></p>
+        </div>
+        <div class="card">
+          <h3>RAG Eval</h3>
+          <p><a href="../rag_eval/retrieval_ablation_report.json" target="_blank">Retrieval ablation</a></p>
+          <p><a href="../rag_eval/reranker_simulation_report.json" target="_blank">Reranker simulation</a></p>
+          <p><a href="../rag_eval/conflict_confusion_matrix.json" target="_blank">Conflict confusion matrix</a></p>
+          <p><a href="../rag_eval/traffic_backtest_37_day_report.json" target="_blank">37-day backtest</a></p>
+          <p><a href="../rag_eval/corpus_perturbation_report.json" target="_blank">Corpus perturbation</a></p>
+        </div>
+        <div class="card">
+          <h3>Repo + PR Simulation</h3>
+          <p><a href="../repo_aware/repo_inspection_report.json" target="_blank">Repo inspection</a></p>
+          <p><a href="../repo_aware/risky_callsite_report.json" target="_blank">Risky callsites</a></p>
+          <p><a href="../patches/proposed_migration_patch.diff" target="_blank">Proposed patch diff</a></p>
+          <p><a href="../pr_simulation/pr_body.md" target="_blank">PR body</a></p>
+          <p><a href="../pr_simulation/reviewer_checklist.md" target="_blank">Reviewer checklist</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Artifact Inventory</h2>
+      <p class="muted">Generated artifacts discovered under <code>outputs/</code>.</p>
+      
+    <table>
+      <thead>
+        <tr><th>Category</th><th>Artifact</th><th>Size bytes</th></tr>
+      </thead>
+      <tbody>
+        
+            <tr>
+              <td>evidence</td>
+              <td><a href="../evidence/adversarial_trap_results.json" target="_blank">outputs/evidence/adversarial_trap_results.json</a></td>
+              <td>37418</td>
+            </tr>
+            
+            <tr>
+              <td>evidence</td>
+              <td><a href="../evidence/agent_goal_parse_sample.json" target="_blank">outputs/evidence/agent_goal_parse_sample.json</a></td>
+              <td>1509</td>
+            </tr>
+            
+            <tr>
+              <td>evidence</td>
+              <td><a href="../evidence/agent_task_execution_trace.json" target="_blank">outputs/evidence/agent_task_execution_trace.json</a></td>
+              <td>4365</td>
+            </tr>
+            
+            <tr>
+              <td>evidence</td>
+              <td><a href="../evidence/agent_task_plan.json" target="_blank">outputs/evidence/agent_task_plan.json</a></td>
+              <td>2770</td>
+            </tr>
+            
+            <tr>
+              <td>evidence</td>
+              <td><a href="../evidence/agentic_demo_report.txt" target="_blank">outputs/evidence/agentic_demo_report.txt</a></td>
+              <td>1200</td>
+            </tr>
+            
+            <tr>
+              <td>evidence</td>
+              <td><a href="../evidence/agentic_eval_results.json" target="_blank">outputs/evidence/agentic_eval_results.json</a></td>
+              <td>1610</td>
+            </tr>
+            
+            <tr>
+              <td>evidence</td>
+              <td><a href="../evidence/bm25_index_stats.txt" target="_blank">outputs/evidence/bm25_index_stats.txt</a></td>
+              <td>98</td>
+            </tr>
+            
+            <tr>
+              <td>evidence</td>
+              <td><a href="../evidence/chunk_metadata_sample.json" target="_blank">outputs/evidence/chunk_metadata_sample.json</a></td>
+              <td>4604</td>
+            </tr>
+            
+            <tr>
+              <td>evidence</td>
+              <td><a href="../evidence/citation_assembly_sample.json" target="_blank">outputs/evidence/citation_assembly_sample.json</a></td>
+              <td>3498</td>
+            </tr>
+            
+            <tr>
+              <td>evidence</td>
+              <td><a href="../evidence/conflict_alerts_schema.sql" target="_blank">outputs/evidence/conflict_alerts_schema.sql</a></td>
+              <td>342</td>
+            </tr>
+            
+            <tr>
+              <td>evidence</td>
+              <td><a href="../evidence/conflict_detection_report.json" target="_blank">outputs/evidence/conflict_detection_report.json</a></td>
+              <td>1983</td>
+            </tr>
+            
+            <tr>
+              <td>evidence</td>
+              <td><a href="../evidence/cost_latency_report.json" target="_blank">outputs/evidence/cost_latency_report.json</a></td>
+              <td>242</td>
+            </tr>
+            
+            <tr>
+              <td>evidence</td>
+              <td><a href="../evidence/dependency_delta_report.json" target="_blank">outputs/evidence/dependency_delta_report.json</a></td>
+              <td>2878</td>
+            </tr>
+            
+            <tr>
+              <td>evidence</td>
+              <td><a href="../evidence/devpulse_demo_report.txt" target="_blank">outputs/evidence/devpulse_demo_report.txt</a></td>
+              <td>508</td>
+            </tr>
+            
+            <tr>
+              <td>evidence</td>
+              <td><a href="../evidence/embedding_swap_log.txt" target="_blank">outputs/evidence/embedding_swap_log.txt</a></td>
+              <td>141</td>
+            </tr>
+            
+            <tr>
+              <td>evidence</td>
+              <td><a href="../evidence/fallback_events_log.json" target="_blank">outputs/evidence/fallback_events_log.json</a></td>
+              <td>2567</td>
+            </tr>
+            
+            <tr>
+              <td>evidence</td>
+              <td><a href="../evidence/freshness_report.json" target="_blank">outputs/evidence/freshness_report.json</a></td>
+              <td>245</td>
+            </tr>
+            
+            <tr>
+              <td>evidence</td>
+              <td><a href="../evidence/goal_mode_core_probe.json" target="_blank">outputs/evidence/goal_mode_core_probe.json</a></td>
+              <td>13567</td>
+            </tr>
+            
+            <tr>
+              <td>evidence</td>
+              <td><a href="../evidence/goal_mode_failure_scenarios_f11_f19.json" target="_blank">outputs/evidence/goal_mode_failure_scenarios_f11_f19.json</a></td>
+              <td>1898</td>
+            </tr>
+            
+            <tr>
+              <td>evidence</td>
+              <td><a href="../evidence/golden_eval_results.json" target="_blank">outputs/evidence/golden_eval_results.json</a></td>
+              <td>1049</td>
+            </tr>
+            
+            <tr>
+              <td>evidence</td>
+              <td><a href="../evidence/hybrid_retrieval_report.json" target="_blank">outputs/evidence/hybrid_retrieval_report.json</a></td>
+              <td>22912</td>
+            </tr>
+            
+            <tr>
+              <td>evidence</td>
+              <td><a href="../evidence/ingest_summary.json" target="_blank">outputs/evidence/ingest_summary.json</a></td>
+              <td>372</td>
+            </tr>
+            
+            <tr>
+              <td>evidence</td>
+              <td><a href="../evidence/langfuse_trace_export.json" target="_blank">outputs/evidence/langfuse_trace_export.json</a></td>
+              <td>389</td>
+            </tr>
+            
+            <tr>
+              <td>evidence</td>
+              <td><a href="../evidence/migration_decision_samples.json" target="_blank">outputs/evidence/migration_decision_samples.json</a></td>
+              <td>21505</td>
+            </tr>
+            
+            <tr>
+              <td>evidence</td>
+              <td><a href="../evidence/pgvector_index_stats.txt" target="_blank">outputs/evidence/pgvector_index_stats.txt</a></td>
+              <td>110</td>
+            </tr>
+            
+            <tr>
+              <td>evidence</td>
+              <td><a href="../evidence/plan_summary_report.json" target="_blank">outputs/evidence/plan_summary_report.json</a></td>
+              <td>1161</td>
+            </tr>
+            
+            <tr>
+              <td>evidence</td>
+              <td><a href="../evidence/query_audit_log_sample.json" target="_blank">outputs/evidence/query_audit_log_sample.json</a></td>
+              <td>6231</td>
+            </tr>
+            
+            <tr>
+              <td>evidence</td>
+              <td><a href="../evidence/query_mode_core_probe.json" target="_blank">outputs/evidence/query_mode_core_probe.json</a></td>
+              <td>26779</td>
+            </tr>
+            
+            <tr>
+              <td>evidence</td>
+              <td><a href="../evidence/query_mode_failure_scenarios_f01_f10.json" target="_blank">outputs/evidence/query_mode_failure_scenarios_f01_f10.json</a></td>
+              <td>1918</td>
+            </tr>
+            
+            <tr>
+              <td>evidence</td>
+              <td><a href="../evidence/recovery_decision_log.json" target="_blank">outputs/evidence/recovery_decision_log.json</a></td>
+              <td>1669</td>
+            </tr>
+            
+            <tr>
+              <td>evidence</td>
+              <td><a href="../evidence/retrieval_traces_sample.json" target="_blank">outputs/evidence/retrieval_traces_sample.json</a></td>
+              <td>2734</td>
+            </tr>
+            
+            <tr>
+              <td>evidence</td>
+              <td><a href="../evidence/sentry_error_summary.txt" target="_blank">outputs/evidence/sentry_error_summary.txt</a></td>
+              <td>205</td>
+            </tr>
+            
+            <tr>
+              <td>evidence</td>
+              <td><a href="../evidence/simple_query_results.json" target="_blank">outputs/evidence/simple_query_results.json</a></td>
+              <td>11675</td>
+            </tr>
+            
+            <tr>
+              <td>evidence</td>
+              <td><a href="../evidence/synthesis_grounding_report.json" target="_blank">outputs/evidence/synthesis_grounding_report.json</a></td>
+              <td>196</td>
+            </tr>
+            
+            <tr>
+              <td>evidence</td>
+              <td><a href="../evidence/version_coverage_matrix.json" target="_blank">outputs/evidence/version_coverage_matrix.json</a></td>
+              <td>217</td>
+            </tr>
+            
+            <tr>
+              <td>evidence</td>
+              <td><a href="../evidence/version_filter_audit.json" target="_blank">outputs/evidence/version_filter_audit.json</a></td>
+              <td>6379</td>
+            </tr>
+            
+            <tr>
+              <td>patches</td>
+              <td><a href="../patches/proposed_file_changes.json" target="_blank">outputs/patches/proposed_file_changes.json</a></td>
+              <td>2678</td>
+            </tr>
+            
+            <tr>
+              <td>patches</td>
+              <td><a href="../patches/proposed_migration_patch.diff" target="_blank">outputs/patches/proposed_migration_patch.diff</a></td>
+              <td>1582</td>
+            </tr>
+            
+            <tr>
+              <td>pr_simulation</td>
+              <td><a href="../pr_simulation/pr_body.md" target="_blank">outputs/pr_simulation/pr_body.md</a></td>
+              <td>1208</td>
+            </tr>
+            
+            <tr>
+              <td>pr_simulation</td>
+              <td><a href="../pr_simulation/pr_diff.patch" target="_blank">outputs/pr_simulation/pr_diff.patch</a></td>
+              <td>1582</td>
+            </tr>
+            
+            <tr>
+              <td>pr_simulation</td>
+              <td><a href="../pr_simulation/pr_title.txt" target="_blank">outputs/pr_simulation/pr_title.txt</a></td>
+              <td>74</td>
+            </tr>
+            
+            <tr>
+              <td>pr_simulation</td>
+              <td><a href="../pr_simulation/reviewer_checklist.md" target="_blank">outputs/pr_simulation/reviewer_checklist.md</a></td>
+              <td>519</td>
+            </tr>
+            
+            <tr>
+              <td>pr_simulation</td>
+              <td><a href="../pr_simulation/rollback_plan.md" target="_blank">outputs/pr_simulation/rollback_plan.md</a></td>
+              <td>773</td>
+            </tr>
+            
+            <tr>
+              <td>rag_eval</td>
+              <td><a href="../rag_eval/conflict_confusion_matrix.json" target="_blank">outputs/rag_eval/conflict_confusion_matrix.json</a></td>
+              <td>2602</td>
+            </tr>
+            
+            <tr>
+              <td>rag_eval</td>
+              <td><a href="../rag_eval/corpus_perturbation_report.json" target="_blank">outputs/rag_eval/corpus_perturbation_report.json</a></td>
+              <td>1577</td>
+            </tr>
+            
+            <tr>
+              <td>rag_eval</td>
+              <td><a href="../rag_eval/rag_eval_hardening_summary_v35.json" target="_blank">outputs/rag_eval/rag_eval_hardening_summary_v35.json</a></td>
+              <td>901</td>
+            </tr>
+            
+            <tr>
+              <td>rag_eval</td>
+              <td><a href="../rag_eval/reranker_simulation_report.json" target="_blank">outputs/rag_eval/reranker_simulation_report.json</a></td>
+              <td>1129</td>
+            </tr>
+            
+            <tr>
+              <td>rag_eval</td>
+              <td><a href="../rag_eval/retrieval_ablation_report.json" target="_blank">outputs/rag_eval/retrieval_ablation_report.json</a></td>
+              <td>10740</td>
+            </tr>
+            
+            <tr>
+              <td>rag_eval</td>
+              <td><a href="../rag_eval/traffic_backtest_37_day_report.json" target="_blank">outputs/rag_eval/traffic_backtest_37_day_report.json</a></td>
+              <td>11611</td>
+            </tr>
+            
+            <tr>
+              <td>repo_aware</td>
+              <td><a href="../repo_aware/dependency_usage_map.json" target="_blank">outputs/repo_aware/dependency_usage_map.json</a></td>
+              <td>6715</td>
+            </tr>
+            
+            <tr>
+              <td>repo_aware</td>
+              <td><a href="../repo_aware/repo_aware_extension_summary.json" target="_blank">outputs/repo_aware/repo_aware_extension_summary.json</a></td>
+              <td>790</td>
+            </tr>
+            
+            <tr>
+              <td>repo_aware</td>
+              <td><a href="../repo_aware/repo_inspection_report.json" target="_blank">outputs/repo_aware/repo_inspection_report.json</a></td>
+              <td>1237</td>
+            </tr>
+            
+            <tr>
+              <td>repo_aware</td>
+              <td><a href="../repo_aware/risky_callsite_report.json" target="_blank">outputs/repo_aware/risky_callsite_report.json</a></td>
+              <td>6810</td>
+            </tr>
+            
+            <tr>
+              <td>reports</td>
+              <td><a href="../reports/devpulse_final_demo_report.txt" target="_blank">outputs/reports/devpulse_final_demo_report.txt</a></td>
+              <td>473</td>
+            </tr>
+            
+            <tr>
+              <td>reports</td>
+              <td><a href="../reports/devpulse_prd_completion_report_v3.json" target="_blank">outputs/reports/devpulse_prd_completion_report_v3.json</a></td>
+              <td>9461</td>
+            </tr>
+            
+            <tr>
+              <td>reports</td>
+              <td><a href="../reports/patch_pr_simulation_summary_v35.json" target="_blank">outputs/reports/patch_pr_simulation_summary_v35.json</a></td>
+              <td>925</td>
+            </tr>
+            
+            <tr>
+              <td>reports</td>
+              <td><a href="../reports/patch_risk_report.json" target="_blank">outputs/reports/patch_risk_report.json</a></td>
+              <td>1323</td>
+            </tr>
+            
+            <tr>
+              <td>test_simulation</td>
+              <td><a href="../test_simulation/after_patch_tests_report.json" target="_blank">outputs/test_simulation/after_patch_tests_report.json</a></td>
+              <td>914</td>
+            </tr>
+            
+            <tr>
+              <td>test_simulation</td>
+              <td><a href="../test_simulation/before_tests_report.json" target="_blank">outputs/test_simulation/before_tests_report.json</a></td>
+              <td>470</td>
+            </tr>
+            
+            <tr>
+              <td>test_simulation</td>
+              <td><a href="../test_simulation/test_failure_triage_report.json" target="_blank">outputs/test_simulation/test_failure_triage_report.json</a></td>
+              <td>1054</td>
+            </tr>
+            
+            <tr>
+              <td>validation</td>
+              <td><a href="../validation/goal_mode_core_validation.json" target="_blank">outputs/validation/goal_mode_core_validation.json</a></td>
+              <td>2685</td>
+            </tr>
+            
+            <tr>
+              <td>validation</td>
+              <td><a href="../validation/goal_mode_lifecycle_summary.json" target="_blank">outputs/validation/goal_mode_lifecycle_summary.json</a></td>
+              <td>367</td>
+            </tr>
+            
+            <tr>
+              <td>validation</td>
+              <td><a href="../validation/goal_mode_lifecycle_validation.json" target="_blank">outputs/validation/goal_mode_lifecycle_validation.json</a></td>
+              <td>2675</td>
+            </tr>
+            
+            <tr>
+              <td>validation</td>
+              <td><a href="../validation/patch_pr_simulation_validation_v35.json" target="_blank">outputs/validation/patch_pr_simulation_validation_v35.json</a></td>
+              <td>2225</td>
+            </tr>
+            
+            <tr>
+              <td>validation</td>
+              <td><a href="../validation/query_mode_core_validation.json" target="_blank">outputs/validation/query_mode_core_validation.json</a></td>
+              <td>1540</td>
+            </tr>
+            
+            <tr>
+              <td>validation</td>
+              <td><a href="../validation/query_mode_lifecycle_summary.json" target="_blank">outputs/validation/query_mode_lifecycle_summary.json</a></td>
+              <td>378</td>
+            </tr>
+            
+            <tr>
+              <td>validation</td>
+              <td><a href="../validation/query_mode_lifecycle_validation.json" target="_blank">outputs/validation/query_mode_lifecycle_validation.json</a></td>
+              <td>4368</td>
+            </tr>
+            
+            <tr>
+              <td>validation</td>
+              <td><a href="../validation/rag_eval_hardening_validation_v35.json" target="_blank">outputs/validation/rag_eval_hardening_validation_v35.json</a></td>
+              <td>2491</td>
+            </tr>
+            
+            <tr>
+              <td>validation</td>
+              <td><a href="../validation/repo_aware_extension_validation_v35.json" target="_blank">outputs/validation/repo_aware_extension_validation_v35.json</a></td>
+              <td>1931</td>
+            </tr>
+            
+            <tr>
+              <td>validation</td>
+              <td><a href="../validation/repo_foundation_validation.json" target="_blank">outputs/validation/repo_foundation_validation.json</a></td>
+              <td>1274</td>
+            </tr>
+            
+      </tbody>
+    </table>
+    
+    </section>
+
+    <p class="footer">
+      Generated at 2026-05-05T11:32:00.157435+00:00. Static local dashboard only. No backend required.
+    </p>
+  </main>
+</body>
+</html>
