@@ -1,0 +1,60 @@
+{
+  "project": "DevPulse",
+  "version": "v3.0",
+  "positioning": "solo-built, non-production, production-simulated, evidence-backed, LLM-last, agentic orchestration",
+  "truth_boundary": {
+    "claimed": [
+      "production-simulated developer change-intelligence system",
+      "version-aware migration decision support",
+      "deterministic conflict detection",
+      "LLM-last grounded synthesis",
+      "bounded agentic orchestration",
+      "scripted evidence artifacts"
+    ],
+    "not_claimed": [
+      "real production deployment",
+      "real users or traffic",
+      "live npm/PyPI/Maven registry integration",
+      "real GitHub PR generation",
+      "unbounded autonomous agent",
+      "LLM-driven planning or recovery"
+    ]
+  },
+  "query_mode": {
+    "layers": [
+      "IngestionPipeline",
+      "DocumentChunkStore",
+      "QueryParser",
+      "VersionExtractor",
+      "ComplexityRouter",
+      "HybridRetrieval",
+      "ConflictDetector",
+      "LLMSynthesizer",
+      "CitationAssembler",
+      "MigrationDecisionReporter",
+      "ObservabilityAudit"
+    ],
+    "artifact_range": ["EA-01", "EA-24"],
+    "failure_scenarios": ["F-01", "F-10"]
+  },
+  "goal_mode": {
+    "components": [
+      "GoalParser",
+      "DependencyDeltaDetector",
+      "TaskPlanner",
+      "TaskExecutor",
+      "RecoveryDecider",
+      "PlanSummaryReporter"
+    ],
+    "artifact_range": ["EA-25", "EA-32"],
+    "failure_scenarios": ["F-11", "F-19"]
+  },
+  "completion_targets": {
+    "operating_lifecycle_days": 37,
+    "evidence_artifacts": 32,
+    "failure_recovery_scenarios": 19,
+    "wrong_version_answer_rate_target": 0.0,
+    "retry_cap_per_task": 2,
+    "blocked_goal_halt_threshold": 0.4
+  }
+}

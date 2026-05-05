@@ -1,0 +1,9 @@
+[project]
+name = "devpulse-platform"
+version = "0.1.0"
+description = "Production-simulated agentic developer change-intelligence and migration decision system"
+requires-python = ">=3.10"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
