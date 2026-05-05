@@ -1,0 +1,14 @@
+{
+  "name": "checkout-web-app",
+  "version": "0.1.0",
+  "dependencies": {
+    "auth-sdk": "2.4.1",
+    "analytics-sdk": "1.2.0",
+    "logging-lib": "0.9.0",
+    "profile-sdk": "2.1.0",
+    "unknown-dep": "0.1.0"
+  },
+  "devDependencies": {
+    "vitest": "1.0.0"
+  }
+}

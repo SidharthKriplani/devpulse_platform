@@ -1,0 +1,228 @@
+{
+  "artifact": "dependency_usage_map_v35",
+  "dependency_usage_count": 5,
+  "dependencies": [
+    {
+      "dependency_name": "auth-sdk",
+      "current_version": "2.4.1",
+      "target_version": "3.0.0",
+      "version_delta_type": "major",
+      "breaking_change_risk": "high",
+      "usage_count": 2,
+      "files_touched": [
+        "sample_repos/checkout_app/src/auth.ts"
+      ],
+      "risk_level": "HIGH",
+      "risk_reasons": [
+        "major version jump",
+        "high breaking-change risk"
+      ]
+    },
+    {
+      "dependency_name": "analytics-sdk",
+      "current_version": "1.2.0",
+      "target_version": "1.2.3",
+      "version_delta_type": "patch",
+      "breaking_change_risk": "low",
+      "usage_count": 3,
+      "files_touched": [
+        "sample_repos/checkout_app/src/analytics.ts"
+      ],
+      "risk_level": "MEDIUM",
+      "risk_reasons": [
+        "patch update",
+        "multiple callsites"
+      ]
+    },
+    {
+      "dependency_name": "logging-lib",
+      "current_version": "0.9.0",
+      "target_version": "1.0.0",
+      "version_delta_type": "major",
+      "breaking_change_risk": "high",
+      "usage_count": 3,
+      "files_touched": [
+        "sample_repos/checkout_app/src/logging.ts"
+      ],
+      "risk_level": "HIGH",
+      "risk_reasons": [
+        "major version jump",
+        "high breaking-change risk"
+      ]
+    },
+    {
+      "dependency_name": "profile-sdk",
+      "current_version": "2.1.0",
+      "target_version": "3.0.0",
+      "version_delta_type": "major",
+      "breaking_change_risk": "high",
+      "usage_count": 2,
+      "files_touched": [
+        "sample_repos/checkout_app/src/profile.ts"
+      ],
+      "risk_level": "HIGH",
+      "risk_reasons": [
+        "major version jump",
+        "high breaking-change risk"
+      ]
+    },
+    {
+      "dependency_name": "unknown-dep",
+      "current_version": "0.1.0",
+      "target_version": null,
+      "version_delta_type": "unknown",
+      "breaking_change_risk": "unknown",
+      "usage_count": 0,
+      "files_touched": [],
+      "risk_level": "HIGH",
+      "risk_reasons": [
+        "target version unresolved",
+        "unknown breaking-change risk"
+      ]
+    }
+  ],
+  "callsites": [
+    {
+      "dependency_name": "analytics-sdk",
+      "current_version": "1.2.0",
+      "target_version": "1.2.3",
+      "version_delta_type": "patch",
+      "breaking_change_risk": "low",
+      "file_path": "sample_repos/checkout_app/src/analytics.ts",
+      "line_number": 1,
+      "line": "import { trackEvent, rateLimit } from \"analytics-sdk\";",
+      "symbols": [
+        "trackEvent",
+        "rateLimit"
+      ],
+      "usage_type": "direct_import_callsite"
+    },
+    {
+      "dependency_name": "analytics-sdk",
+      "current_version": "1.2.0",
+      "target_version": "1.2.3",
+      "version_delta_type": "patch",
+      "breaking_change_risk": "low",
+      "file_path": "sample_repos/checkout_app/src/analytics.ts",
+      "line_number": 4,
+      "line": "trackEvent(\"checkout_started\", { userId });",
+      "symbols": [
+        "trackEvent"
+      ],
+      "usage_type": "direct_import_callsite"
+    },
+    {
+      "dependency_name": "analytics-sdk",
+      "current_version": "1.2.0",
+      "target_version": "1.2.3",
+      "version_delta_type": "patch",
+      "breaking_change_risk": "low",
+      "file_path": "sample_repos/checkout_app/src/analytics.ts",
+      "line_number": 8,
+      "line": "return rateLimit();",
+      "symbols": [
+        "rateLimit"
+      ],
+      "usage_type": "direct_import_callsite"
+    },
+    {
+      "dependency_name": "auth-sdk",
+      "current_version": "2.4.1",
+      "target_version": "3.0.0",
+      "version_delta_type": "major",
+      "breaking_change_risk": "high",
+      "file_path": "sample_repos/checkout_app/src/auth.ts",
+      "line_number": 1,
+      "line": "import { authenticate } from \"auth-sdk\";",
+      "symbols": [
+        "authenticate"
+      ],
+      "usage_type": "direct_import_callsite"
+    },
+    {
+      "dependency_name": "auth-sdk",
+      "current_version": "2.4.1",
+      "target_version": "3.0.0",
+      "version_delta_type": "major",
+      "breaking_change_risk": "high",
+      "file_path": "sample_repos/checkout_app/src/auth.ts",
+      "line_number": 4,
+      "line": "const session = await authenticate(apiKey);",
+      "symbols": [
+        "authenticate"
+      ],
+      "usage_type": "direct_import_callsite"
+    },
+    {
+      "dependency_name": "logging-lib",
+      "current_version": "0.9.0",
+      "target_version": "1.0.0",
+      "version_delta_type": "major",
+      "breaking_change_risk": "high",
+      "file_path": "sample_repos/checkout_app/src/logging.ts",
+      "line_number": 1,
+      "line": "import { createLogger } from \"logging-lib\";",
+      "symbols": [
+        "createLogger"
+      ],
+      "usage_type": "direct_import_callsite"
+    },
+    {
+      "dependency_name": "logging-lib",
+      "current_version": "0.9.0",
+      "target_version": "1.0.0",
+      "version_delta_type": "major",
+      "breaking_change_risk": "high",
+      "file_path": "sample_repos/checkout_app/src/logging.ts",
+      "line_number": 3,
+      "line": "const logger = createLogger({ service: \"checkout-web-app\" });",
+      "symbols": [
+        "createLogger"
+      ],
+      "usage_type": "direct_import_callsite"
+    },
+    {
+      "dependency_name": "logging-lib",
+      "current_version": "0.9.0",
+      "target_version": "1.0.0",
+      "version_delta_type": "major",
+      "breaking_change_risk": "high",
+      "file_path": "sample_repos/checkout_app/src/logging.ts",
+      "line_number": 6,
+      "line": "logger.info(eventName, payload);",
+      "symbols": [
+        "logger.info"
+      ],
+      "usage_type": "direct_import_callsite"
+    },
+    {
+      "dependency_name": "profile-sdk",
+      "current_version": "2.1.0",
+      "target_version": "3.0.0",
+      "version_delta_type": "major",
+      "breaking_change_risk": "high",
+      "file_path": "sample_repos/checkout_app/src/profile.ts",
+      "line_number": 1,
+      "line": "import { fetchUser } from \"profile-sdk\";",
+      "symbols": [
+        "fetchUser"
+      ],
+      "usage_type": "direct_import_callsite"
+    },
+    {
+      "dependency_name": "profile-sdk",
+      "current_version": "2.1.0",
+      "target_version": "3.0.0",
+      "version_delta_type": "major",
+      "breaking_change_risk": "high",
+      "file_path": "sample_repos/checkout_app/src/profile.ts",
+      "line_number": 4,
+      "line": "const profile = await fetchUser(userId);",
+      "symbols": [
+        "fetchUser"
+      ],
+      "usage_type": "direct_import_callsite"
+    }
+  ],
+  "evidence_statement": "Maps dependency manifest entries to concrete source-file callsites in the sample repo."
+}

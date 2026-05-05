@@ -1,0 +1,68 @@
+{
+  "artifact": "repo_aware_extension_validation_v35",
+  "status": "pass",
+  "check_count": 8,
+  "passed_count": 8,
+  "checks": [
+    {
+      "name": "required_files_present",
+      "passed": true,
+      "observed": [
+        "sample_repos/checkout_app/package.json",
+        "sample_repos/checkout_app/src/auth.ts",
+        "sample_repos/checkout_app/src/profile.ts",
+        "sample_repos/checkout_app/src/logging.ts",
+        "sample_repos/checkout_app/src/analytics.ts",
+        "outputs/repo_aware/repo_inspection_report.json",
+        "outputs/repo_aware/dependency_usage_map.json",
+        "outputs/repo_aware/risky_callsite_report.json",
+        "outputs/repo_aware/repo_aware_extension_summary.json"
+      ]
+    },
+    {
+      "name": "sample_repo_scanned",
+      "passed": true,
+      "observed": 4
+    },
+    {
+      "name": "dependency_usage_map_covers_manifest",
+      "passed": true,
+      "observed": 5
+    },
+    {
+      "name": "callsites_found",
+      "passed": true,
+      "observed": 10
+    },
+    {
+      "name": "risky_callsites_present",
+      "passed": true,
+      "observed": 10
+    },
+    {
+      "name": "repo_readiness_not_empty",
+      "passed": true,
+      "observed": "BLOCKED"
+    },
+    {
+      "name": "truth_boundary_present",
+      "passed": true,
+      "observed": {
+        "claim": "local sample repo inspection and repo-aware migration simulation",
+        "not_claimed": [
+          "real customer repository analysis",
+          "live GitHub integration",
+          "real production PR generation",
+          "full static type analysis",
+          "full AST-based refactoring"
+        ]
+      }
+    },
+    {
+      "name": "extension_summary_pass",
+      "passed": true,
+      "observed": "pass"
+    }
+  ],
+  "evidence_statement": "Validates DevPulse v3.5 repo-aware migration simulation: sample repo inspection, dependency usage mapping, risky callsite detection, and honest non-claims."
+}

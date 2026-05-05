@@ -1,0 +1,21 @@
+{
+  "artifact": "repo_aware_extension_summary_v35",
+  "status": "pass",
+  "new_capabilities": [
+    "sample repo inspection",
+    "dependency usage mapping",
+    "source callsite extraction",
+    "risk propagation from migration plan to code usage",
+    "repo-level migration readiness verdict"
+  ],
+  "new_artifacts": [
+    "outputs/repo_aware/repo_inspection_report.json",
+    "outputs/repo_aware/dependency_usage_map.json",
+    "outputs/repo_aware/risky_callsite_report.json"
+  ],
+  "repo_migration_readiness": "BLOCKED",
+  "callsites_found": 10,
+  "risky_callsite_count": 10,
+  "high_risk_dependency_count": 4,
+  "evidence_statement": "DevPulse v3.5 repo-aware extension adds codebase-aware migration intelligence without claiming live GitHub integration or autonomous code mutation."
+}

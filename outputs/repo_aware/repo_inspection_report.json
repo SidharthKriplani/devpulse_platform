@@ -1,0 +1,37 @@
+{
+  "artifact": "repo_inspection_report_v35",
+  "extension": "DevPulse v3.5 repo-aware migration simulation",
+  "repo_path": "sample_repos/checkout_app",
+  "project_name": "checkout-web-app",
+  "dependency_count": 5,
+  "source_files_scanned": [
+    "sample_repos/checkout_app/src/analytics.ts",
+    "sample_repos/checkout_app/src/auth.ts",
+    "sample_repos/checkout_app/src/logging.ts",
+    "sample_repos/checkout_app/src/profile.ts"
+  ],
+  "source_file_count": 4,
+  "callsites_found": 10,
+  "high_risk_dependencies": [
+    "auth-sdk",
+    "logging-lib",
+    "profile-sdk",
+    "unknown-dep"
+  ],
+  "medium_risk_dependencies": [
+    "analytics-sdk"
+  ],
+  "low_risk_dependencies": [],
+  "aggregate_repo_migration_readiness": "BLOCKED",
+  "truth_boundary": {
+    "claim": "local sample repo inspection and repo-aware migration simulation",
+    "not_claimed": [
+      "real customer repository analysis",
+      "live GitHub integration",
+      "real production PR generation",
+      "full static type analysis",
+      "full AST-based refactoring"
+    ]
+  },
+  "evidence_statement": "DevPulse inspected a local sample repository, mapped dependency usage to source callsites, and connected usage risk to existing migration-plan evidence."
+}
