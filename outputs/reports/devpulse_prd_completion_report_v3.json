@@ -1,0 +1,367 @@
+{
+  "artifact": "devpulse_prd_completion_report_v3",
+  "project": "DevPulse Platform",
+  "prd_version": "v3.0",
+  "status": "pass",
+  "generated_at": "2026-05-05T09:42:27.183019+00:00",
+  "truth_boundary": {
+    "safe_claim": "production-simulated developer change-intelligence and migration decision system",
+    "not_claimed": [
+      "real production SaaS",
+      "real users or production traffic",
+      "live npm/PyPI/Maven registry integration",
+      "real GitHub PR generation",
+      "unbounded autonomous agent",
+      "LLM-driven planning or recovery"
+    ]
+  },
+  "scope_targets": {
+    "operating_lifecycle_days": 37,
+    "evidence_artifacts": 32,
+    "failure_recovery_scenarios": 19,
+    "wrong_version_answer_rate_target": 0.0,
+    "retry_cap_per_task": 2,
+    "blocked_goal_halt_threshold": 0.4
+  },
+  "query_mode": {
+    "layers": 11,
+    "evidence_artifacts": 24,
+    "failure_scenarios": 10,
+    "wrong_version_answer_rate": 0.0,
+    "conflict_detection_rate": 1.0
+  },
+  "goal_mode": {
+    "components": 6,
+    "evidence_artifacts": 8,
+    "failure_scenarios": 9,
+    "aggregate_verdict": "BLOCKED",
+    "unbounded_retry_rate": 0.0,
+    "llm_planning_violation_rate": 0.0
+  },
+  "totals": {
+    "evidence_artifacts": 32,
+    "failure_recovery_scenarios": 19,
+    "validation_files": 5,
+    "completion_checks": 7,
+    "passed_completion_checks": 7
+  },
+  "artifact_checks": [
+    {
+      "artifact_id": "EA-01",
+      "path": "outputs/evidence/ingest_summary.json",
+      "present": true
+    },
+    {
+      "artifact_id": "EA-02",
+      "path": "outputs/evidence/chunk_metadata_sample.json",
+      "present": true
+    },
+    {
+      "artifact_id": "EA-03",
+      "path": "outputs/evidence/bm25_index_stats.txt",
+      "present": true
+    },
+    {
+      "artifact_id": "EA-04",
+      "path": "outputs/evidence/pgvector_index_stats.txt",
+      "present": true
+    },
+    {
+      "artifact_id": "EA-05",
+      "path": "outputs/evidence/version_coverage_matrix.json",
+      "present": true
+    },
+    {
+      "artifact_id": "EA-06",
+      "path": "outputs/evidence/simple_query_results.json",
+      "present": true
+    },
+    {
+      "artifact_id": "EA-07",
+      "path": "outputs/evidence/hybrid_retrieval_report.json",
+      "present": true
+    },
+    {
+      "artifact_id": "EA-08",
+      "path": "outputs/evidence/version_filter_audit.json",
+      "present": true
+    },
+    {
+      "artifact_id": "EA-09",
+      "path": "outputs/evidence/retrieval_traces_sample.json",
+      "present": true
+    },
+    {
+      "artifact_id": "EA-10",
+      "path": "outputs/evidence/conflict_detection_report.json",
+      "present": true
+    },
+    {
+      "artifact_id": "EA-11",
+      "path": "outputs/evidence/conflict_alerts_schema.sql",
+      "present": true
+    },
+    {
+      "artifact_id": "EA-12",
+      "path": "outputs/evidence/migration_decision_samples.json",
+      "present": true
+    },
+    {
+      "artifact_id": "EA-13",
+      "path": "outputs/evidence/synthesis_grounding_report.json",
+      "present": true
+    },
+    {
+      "artifact_id": "EA-14",
+      "path": "outputs/evidence/citation_assembly_sample.json",
+      "present": true
+    },
+    {
+      "artifact_id": "EA-15",
+      "path": "outputs/evidence/golden_eval_results.json",
+      "present": true
+    },
+    {
+      "artifact_id": "EA-16",
+      "path": "outputs/evidence/adversarial_trap_results.json",
+      "present": true
+    },
+    {
+      "artifact_id": "EA-17",
+      "path": "outputs/evidence/query_audit_log_sample.json",
+      "present": true
+    },
+    {
+      "artifact_id": "EA-18",
+      "path": "outputs/evidence/fallback_events_log.json",
+      "present": true
+    },
+    {
+      "artifact_id": "EA-19",
+      "path": "outputs/evidence/freshness_report.json",
+      "present": true
+    },
+    {
+      "artifact_id": "EA-20",
+      "path": "outputs/evidence/embedding_swap_log.txt",
+      "present": true
+    },
+    {
+      "artifact_id": "EA-21",
+      "path": "outputs/evidence/langfuse_trace_export.json",
+      "present": true
+    },
+    {
+      "artifact_id": "EA-22",
+      "path": "outputs/evidence/sentry_error_summary.txt",
+      "present": true
+    },
+    {
+      "artifact_id": "EA-23",
+      "path": "outputs/evidence/cost_latency_report.json",
+      "present": true
+    },
+    {
+      "artifact_id": "EA-24",
+      "path": "outputs/evidence/devpulse_demo_report.txt",
+      "present": true
+    },
+    {
+      "artifact_id": "EA-25",
+      "path": "outputs/evidence/agent_goal_parse_sample.json",
+      "present": true
+    },
+    {
+      "artifact_id": "EA-26",
+      "path": "outputs/evidence/dependency_delta_report.json",
+      "present": true
+    },
+    {
+      "artifact_id": "EA-27",
+      "path": "outputs/evidence/agent_task_plan.json",
+      "present": true
+    },
+    {
+      "artifact_id": "EA-28",
+      "path": "outputs/evidence/agent_task_execution_trace.json",
+      "present": true
+    },
+    {
+      "artifact_id": "EA-29",
+      "path": "outputs/evidence/recovery_decision_log.json",
+      "present": true
+    },
+    {
+      "artifact_id": "EA-30",
+      "path": "outputs/evidence/plan_summary_report.json",
+      "present": true
+    },
+    {
+      "artifact_id": "EA-31",
+      "path": "outputs/evidence/agentic_eval_results.json",
+      "present": true
+    },
+    {
+      "artifact_id": "EA-32",
+      "path": "outputs/evidence/agentic_demo_report.txt",
+      "present": true
+    }
+  ],
+  "validation_checks": [
+    {
+      "path": "outputs/validation/repo_foundation_validation.json",
+      "status": "pass",
+      "passed": true
+    },
+    {
+      "path": "outputs/validation/query_mode_core_validation.json",
+      "status": "pass",
+      "passed": true
+    },
+    {
+      "path": "outputs/validation/query_mode_lifecycle_validation.json",
+      "status": "pass",
+      "passed": true
+    },
+    {
+      "path": "outputs/validation/goal_mode_core_validation.json",
+      "status": "pass",
+      "passed": true
+    },
+    {
+      "path": "outputs/validation/goal_mode_lifecycle_validation.json",
+      "status": "pass",
+      "passed": true
+    }
+  ],
+  "completion_checks": [
+    {
+      "name": "all_commands_passed",
+      "passed": true,
+      "observed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "ea_01_to_ea_32_present",
+      "passed": true,
+      "observed": "32/32"
+    },
+    {
+      "name": "f_01_to_f_19_covered",
+      "passed": true,
+      "observed": 19
+    },
+    {
+      "name": "all_validation_files_pass",
+      "passed": true,
+      "observed": [
+        {
+          "path": "outputs/validation/repo_foundation_validation.json",
+          "status": "pass",
+          "passed": true
+        },
+        {
+          "path": "outputs/validation/query_mode_core_validation.json",
+          "status": "pass",
+          "passed": true
+        },
+        {
+          "path": "outputs/validation/query_mode_lifecycle_validation.json",
+          "status": "pass",
+          "passed": true
+        },
+        {
+          "path": "outputs/validation/goal_mode_core_validation.json",
+          "status": "pass",
+          "passed": true
+        },
+        {
+          "path": "outputs/validation/goal_mode_lifecycle_validation.json",
+          "status": "pass",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "name": "query_mode_wrong_version_rate_zero",
+      "passed": true,
+      "observed": 0.0
+    },
+    {
+      "name": "agentic_eval_all_pass",
+      "passed": true,
+      "observed": "pass"
+    },
+    {
+      "name": "goal_mode_aggregate_verdict_present",
+      "passed": true,
+      "observed": "BLOCKED"
+    }
+  ],
+  "run_results": [
+    {
+      "label": "foundation_validation",
+      "command": "python3 scripts/validate_repo_foundation.py",
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "query_mode_core_probe",
+      "command": "python3 scripts/run_query_mode_core_probe.py",
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "query_mode_core_validation",
+      "command": "python3 scripts/validate_query_mode_core.py",
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "query_mode_lifecycle_seed",
+      "command": "python3 scripts/seed_devpulse.py",
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "query_mode_lifecycle_validation",
+      "command": "python3 scripts/validate_query_mode_lifecycle.py",
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "goal_mode_core_probe",
+      "command": "python3 scripts/run_goal_mode_core_probe.py",
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "goal_mode_core_validation",
+      "command": "python3 scripts/validate_goal_mode_core.py",
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "goal_mode_lifecycle_seed",
+      "command": "python3 scripts/seed_devpulse_v3.py",
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "label": "goal_mode_lifecycle_validation",
+      "command": "python3 scripts/validate_goal_mode_lifecycle.py",
+      "returncode": 0,
+      "passed": true
+    }
+  ],
+  "evidence_statement": "DevPulse PRD v3.0 is complete at repo-evidence level: 11-layer Query Mode, 6-component Goal Mode, 32 evidence artifacts, 19 failure/recovery scenarios, deterministic version-safety, LLM-last synthesis boundaries, bounded recovery, and final validation bundle."
+}

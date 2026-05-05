@@ -3,7 +3,7 @@
   "query_count": 4,
   "results": [
     {
-      "query_id": "query_7099ab7d0869",
+      "query_id": "query_43438c77e1f2",
       "parsed_query": {
         "raw_query": "How does authenticate work in v3?",
         "intent": "lookup",
@@ -80,7 +80,7 @@
       "conflict_alerts": [],
       "conflict_flag": false,
       "migration_report": {
-        "query_id": "query_7099ab7d0869",
+        "query_id": "query_43438c77e1f2",
         "verdict": "SAFE",
         "from_version": null,
         "to_version": "v3",
@@ -116,12 +116,12 @@
         ],
         "synthesis_text": "Retrieved evidence supports this migration guidance with version-aligned citations.",
         "caveats": [],
-        "generated_at": "2026-05-05T09:16:45.993450+00:00"
+        "generated_at": "2026-05-05T09:42:26.892898+00:00"
       },
       "fallback_events": []
     },
     {
-      "query_id": "query_3af61ecbcfb7",
+      "query_id": "query_244646571c6a",
       "parsed_query": {
         "raw_query": "What is the rateLimit in v2?",
         "intent": "lookup",
@@ -173,7 +173,7 @@
       "conflict_alerts": [],
       "conflict_flag": false,
       "migration_report": {
-        "query_id": "query_3af61ecbcfb7",
+        "query_id": "query_244646571c6a",
         "verdict": "SAFE",
         "from_version": null,
         "to_version": "v2",
@@ -201,12 +201,12 @@
         ],
         "synthesis_text": "Retrieved evidence supports this migration guidance with version-aligned citations.",
         "caveats": [],
-        "generated_at": "2026-05-05T09:16:45.993874+00:00"
+        "generated_at": "2026-05-05T09:42:26.893343+00:00"
       },
       "fallback_events": []
     },
     {
-      "query_id": "query_5b8eed227480",
+      "query_id": "query_74888a3d1536",
       "parsed_query": {
         "raw_query": "What is the rateLimit in v3?",
         "intent": "lookup",
@@ -258,7 +258,7 @@
       "conflict_alerts": [],
       "conflict_flag": false,
       "migration_report": {
-        "query_id": "query_5b8eed227480",
+        "query_id": "query_74888a3d1536",
         "verdict": "SAFE",
         "from_version": null,
         "to_version": "v3",
@@ -286,12 +286,12 @@
         ],
         "synthesis_text": "Retrieved evidence supports this migration guidance with version-aligned citations.",
         "caveats": [],
-        "generated_at": "2026-05-05T09:16:45.994021+00:00"
+        "generated_at": "2026-05-05T09:42:26.893496+00:00"
       },
       "fallback_events": []
     },
     {
-      "query_id": "query_083699ebceb8",
+      "query_id": "query_892bb835d625",
       "parsed_query": {
         "raw_query": "Is logging safe to use in v3?",
         "intent": "lookup",
@@ -352,7 +352,7 @@
       ],
       "conflict_flag": true,
       "migration_report": {
-        "query_id": "query_083699ebceb8",
+        "query_id": "query_892bb835d625",
         "verdict": "RISKY",
         "from_version": null,
         "to_version": "v3",
@@ -382,7 +382,7 @@
         "caveats": [
           "logging has stale documentation below freshness threshold."
         ],
-        "generated_at": "2026-05-05T09:16:45.994165+00:00"
+        "generated_at": "2026-05-05T09:42:26.893646+00:00"
       },
       "fallback_events": []
     }

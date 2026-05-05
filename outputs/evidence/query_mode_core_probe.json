@@ -20,7 +20,7 @@
   "safe_count": 2,
   "results": [
     {
-      "query_id": "query_a96b316a472d",
+      "query_id": "query_031c6c794773",
       "parsed_query": {
         "raw_query": "How does authenticate work in v3?",
         "intent": "lookup",
@@ -97,7 +97,7 @@
       "conflict_alerts": [],
       "conflict_flag": false,
       "migration_report": {
-        "query_id": "query_a96b316a472d",
+        "query_id": "query_031c6c794773",
         "verdict": "SAFE",
         "from_version": null,
         "to_version": "v3",
@@ -133,12 +133,12 @@
         ],
         "synthesis_text": "Retrieved evidence supports this migration guidance with version-aligned citations.",
         "caveats": [],
-        "generated_at": "2026-05-05T09:12:23.550449+00:00"
+        "generated_at": "2026-05-05T09:42:26.751401+00:00"
       },
       "fallback_events": []
     },
     {
-      "query_id": "query_023b4e556b85",
+      "query_id": "query_52467aba9002",
       "parsed_query": {
         "raw_query": "What changed in authenticate from v2 to v3?",
         "intent": "migration",
@@ -253,7 +253,7 @@
       ],
       "conflict_flag": true,
       "migration_report": {
-        "query_id": "query_023b4e556b85",
+        "query_id": "query_52467aba9002",
         "verdict": "BLOCKED",
         "from_version": "v2",
         "to_version": "v3",
@@ -300,21 +300,21 @@
           "Synthesis suppressed because unresolved high/critical conflict or missing target-version coverage exists.",
           "authenticate has different behavior/change semantics across versions: ['v2', 'v3']."
         ],
-        "generated_at": "2026-05-05T09:12:23.550968+00:00"
+        "generated_at": "2026-05-05T09:42:26.751912+00:00"
       },
       "fallback_events": [
         {
-          "event_id": "fallback_f5344447ad79",
-          "query_id": "query_023b4e556b85",
+          "event_id": "fallback_e00f6e53fb2a",
+          "query_id": "query_52467aba9002",
           "reason": "blocked_verdict_or_unresolved_conflict",
           "fallback_path": "evidence_only_response",
           "outcome": "synthesis_suppressed",
-          "created_at": "2026-05-05T09:12:23.550982+00:00"
+          "created_at": "2026-05-05T09:42:26.751929+00:00"
         }
       ]
     },
     {
-      "query_id": "query_be77193add1e",
+      "query_id": "query_8edd6126a33b",
       "parsed_query": {
         "raw_query": "Is fetchUser safe to use in v3?",
         "intent": "lookup",
@@ -410,7 +410,7 @@
       ],
       "conflict_flag": true,
       "migration_report": {
-        "query_id": "query_be77193add1e",
+        "query_id": "query_8edd6126a33b",
         "verdict": "BLOCKED",
         "from_version": null,
         "to_version": "v3",
@@ -450,21 +450,21 @@
           "fetchUser is marked deprecated in one source but current in another.",
           "fetchUser has stale documentation below freshness threshold."
         ],
-        "generated_at": "2026-05-05T09:12:23.551243+00:00"
+        "generated_at": "2026-05-05T09:42:26.752195+00:00"
       },
       "fallback_events": [
         {
-          "event_id": "fallback_bb7bd7ca4031",
-          "query_id": "query_be77193add1e",
+          "event_id": "fallback_06e8fdd3dc53",
+          "query_id": "query_8edd6126a33b",
           "reason": "blocked_verdict_or_unresolved_conflict",
           "fallback_path": "evidence_only_response",
           "outcome": "synthesis_suppressed",
-          "created_at": "2026-05-05T09:12:23.551253+00:00"
+          "created_at": "2026-05-05T09:42:26.752206+00:00"
         }
       ]
     },
     {
-      "query_id": "query_3690e307e24a",
+      "query_id": "query_f52c3ecc5fd1",
       "parsed_query": {
         "raw_query": "What is the rateLimit in v2?",
         "intent": "lookup",
@@ -516,7 +516,7 @@
       "conflict_alerts": [],
       "conflict_flag": false,
       "migration_report": {
-        "query_id": "query_3690e307e24a",
+        "query_id": "query_f52c3ecc5fd1",
         "verdict": "SAFE",
         "from_version": null,
         "to_version": "v2",
@@ -544,12 +544,12 @@
         ],
         "synthesis_text": "Retrieved evidence supports this migration guidance with version-aligned citations.",
         "caveats": [],
-        "generated_at": "2026-05-05T09:12:23.551446+00:00"
+        "generated_at": "2026-05-05T09:42:26.752405+00:00"
       },
       "fallback_events": []
     },
     {
-      "query_id": "query_6546c18f150e",
+      "query_id": "query_9aefdc5178b9",
       "parsed_query": {
         "raw_query": "Is logging safe to use in v3?",
         "intent": "lookup",
@@ -610,7 +610,7 @@
       ],
       "conflict_flag": true,
       "migration_report": {
-        "query_id": "query_6546c18f150e",
+        "query_id": "query_9aefdc5178b9",
         "verdict": "RISKY",
         "from_version": null,
         "to_version": "v3",
@@ -640,12 +640,12 @@
         "caveats": [
           "logging has stale documentation below freshness threshold."
         ],
-        "generated_at": "2026-05-05T09:12:23.551590+00:00"
+        "generated_at": "2026-05-05T09:42:26.752548+00:00"
       },
       "fallback_events": []
     },
     {
-      "query_id": "query_3bdac4bc5cd2",
+      "query_id": "query_9375faf2e28c",
       "parsed_query": {
         "raw_query": "How should I migrate fetchUser from v2 to v3?",
         "intent": "migration",
@@ -779,7 +779,7 @@
       ],
       "conflict_flag": true,
       "migration_report": {
-        "query_id": "query_3bdac4bc5cd2",
+        "query_id": "query_9375faf2e28c",
         "verdict": "BLOCKED",
         "from_version": "v2",
         "to_version": "v3",
@@ -828,16 +828,16 @@
           "fetchUser is marked deprecated in one source but current in another.",
           "fetchUser has stale documentation below freshness threshold."
         ],
-        "generated_at": "2026-05-05T09:12:23.551773+00:00"
+        "generated_at": "2026-05-05T09:42:26.752733+00:00"
       },
       "fallback_events": [
         {
-          "event_id": "fallback_2c640c0dfbae",
-          "query_id": "query_3bdac4bc5cd2",
+          "event_id": "fallback_0e243d10bf88",
+          "query_id": "query_9375faf2e28c",
           "reason": "blocked_verdict_or_unresolved_conflict",
           "fallback_path": "evidence_only_response",
           "outcome": "synthesis_suppressed",
-          "created_at": "2026-05-05T09:12:23.551783+00:00"
+          "created_at": "2026-05-05T09:42:26.752745+00:00"
         }
       ]
     }

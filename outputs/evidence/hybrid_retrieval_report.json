@@ -6,7 +6,7 @@
   "relative_improvement_pct": 14.1,
   "results": [
     {
-      "query_id": "query_16cdb419a67a",
+      "query_id": "query_22dc3c00cc0e",
       "parsed_query": {
         "raw_query": "How does authenticate work?",
         "intent": "lookup",
@@ -115,7 +115,7 @@
       ],
       "conflict_flag": true,
       "migration_report": {
-        "query_id": "query_16cdb419a67a",
+        "query_id": "query_22dc3c00cc0e",
         "verdict": "BLOCKED",
         "from_version": null,
         "to_version": null,
@@ -162,21 +162,21 @@
           "Synthesis suppressed because unresolved high/critical conflict or missing target-version coverage exists.",
           "authenticate has different behavior/change semantics across versions: ['v2', 'v3']."
         ],
-        "generated_at": "2026-05-05T09:16:45.994871+00:00"
+        "generated_at": "2026-05-05T09:42:26.897207+00:00"
       },
       "fallback_events": [
         {
-          "event_id": "fallback_48805188af68",
-          "query_id": "query_16cdb419a67a",
+          "event_id": "fallback_9d28572c8ac9",
+          "query_id": "query_22dc3c00cc0e",
           "reason": "blocked_verdict_or_unresolved_conflict",
           "fallback_path": "evidence_only_response",
           "outcome": "synthesis_suppressed",
-          "created_at": "2026-05-05T09:16:45.994883+00:00"
+          "created_at": "2026-05-05T09:42:26.897230+00:00"
         }
       ]
     },
     {
-      "query_id": "query_5021020f6cc0",
+      "query_id": "query_074778a61c80",
       "parsed_query": {
         "raw_query": "What changed in authenticate from v2 to v3?",
         "intent": "migration",
@@ -291,7 +291,7 @@
       ],
       "conflict_flag": true,
       "migration_report": {
-        "query_id": "query_5021020f6cc0",
+        "query_id": "query_074778a61c80",
         "verdict": "BLOCKED",
         "from_version": "v2",
         "to_version": "v3",
@@ -338,21 +338,21 @@
           "Synthesis suppressed because unresolved high/critical conflict or missing target-version coverage exists.",
           "authenticate has different behavior/change semantics across versions: ['v2', 'v3']."
         ],
-        "generated_at": "2026-05-05T09:16:45.995157+00:00"
+        "generated_at": "2026-05-05T09:42:26.897523+00:00"
       },
       "fallback_events": [
         {
-          "event_id": "fallback_ff5e9df67497",
-          "query_id": "query_5021020f6cc0",
+          "event_id": "fallback_fcb03f868939",
+          "query_id": "query_074778a61c80",
           "reason": "blocked_verdict_or_unresolved_conflict",
           "fallback_path": "evidence_only_response",
           "outcome": "synthesis_suppressed",
-          "created_at": "2026-05-05T09:16:45.995167+00:00"
+          "created_at": "2026-05-05T09:42:26.897534+00:00"
         }
       ]
     },
     {
-      "query_id": "query_065054bf7a53",
+      "query_id": "query_c24d95e9e282",
       "parsed_query": {
         "raw_query": "How should I migrate fetchUser from v2 to v3?",
         "intent": "migration",
@@ -486,7 +486,7 @@
       ],
       "conflict_flag": true,
       "migration_report": {
-        "query_id": "query_065054bf7a53",
+        "query_id": "query_c24d95e9e282",
         "verdict": "BLOCKED",
         "from_version": "v2",
         "to_version": "v3",
@@ -535,21 +535,21 @@
           "fetchUser is marked deprecated in one source but current in another.",
           "fetchUser has stale documentation below freshness threshold."
         ],
-        "generated_at": "2026-05-05T09:16:45.995436+00:00"
+        "generated_at": "2026-05-05T09:42:26.897906+00:00"
       },
       "fallback_events": [
         {
-          "event_id": "fallback_72c1899bc473",
-          "query_id": "query_065054bf7a53",
+          "event_id": "fallback_a78cc2dde876",
+          "query_id": "query_c24d95e9e282",
           "reason": "blocked_verdict_or_unresolved_conflict",
           "fallback_path": "evidence_only_response",
           "outcome": "synthesis_suppressed",
-          "created_at": "2026-05-05T09:16:45.995446+00:00"
+          "created_at": "2026-05-05T09:42:26.897943+00:00"
         }
       ]
     },
     {
-      "query_id": "query_4c4568782339",
+      "query_id": "query_ddb7a6767d1c",
       "parsed_query": {
         "raw_query": "Is fetchUser safe to use in v3?",
         "intent": "lookup",
@@ -645,7 +645,7 @@
       ],
       "conflict_flag": true,
       "migration_report": {
-        "query_id": "query_4c4568782339",
+        "query_id": "query_ddb7a6767d1c",
         "verdict": "BLOCKED",
         "from_version": null,
         "to_version": "v3",
@@ -685,16 +685,16 @@
           "fetchUser is marked deprecated in one source but current in another.",
           "fetchUser has stale documentation below freshness threshold."
         ],
-        "generated_at": "2026-05-05T09:16:45.995706+00:00"
+        "generated_at": "2026-05-05T09:42:26.898678+00:00"
       },
       "fallback_events": [
         {
-          "event_id": "fallback_3a9c5ced9328",
-          "query_id": "query_4c4568782339",
+          "event_id": "fallback_1ae642096bb0",
+          "query_id": "query_ddb7a6767d1c",
           "reason": "blocked_verdict_or_unresolved_conflict",
           "fallback_path": "evidence_only_response",
           "outcome": "synthesis_suppressed",
-          "created_at": "2026-05-05T09:16:45.995714+00:00"
+          "created_at": "2026-05-05T09:42:26.898702+00:00"
         }
       ]
     }

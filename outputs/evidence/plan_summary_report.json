@@ -1,7 +1,7 @@
 {
   "artifact": "EA-30 plan_summary_report",
-  "report_id": "plan_10dd35b5a501",
-  "goal_id": "goal_43d82aa6562a",
+  "report_id": "plan_12a243612057",
+  "goal_id": "goal_d27a4d044244",
   "total_tasks": 5,
   "safe_tasks": 1,
   "risky_tasks": 2,
@@ -38,7 +38,7 @@
     "skip_and_escalate": 2,
     "retry_with_related_version_evidence": 1
   },
-  "generated_at": "2026-05-05T09:25:03.197055+00:00",
+  "generated_at": "2026-05-05T09:42:27.131420+00:00",
   "status": "pass",
   "evidence_statement": "PlanSummaryReporter produced aggregate SAFE/RISKY/BLOCKED goal-level migration recommendation with staged action logic."
 }

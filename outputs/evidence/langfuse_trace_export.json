@@ -4,7 +4,7 @@
   "spans": [
     {
       "span_id": "span_synth_001",
-      "query_id": "query_21ddd2cbeb7f",
+      "query_id": "query_64da3e85a176",
       "model": "simulated_llm_last_synthesizer",
       "tokens": 220,
       "latency_ms": 430,

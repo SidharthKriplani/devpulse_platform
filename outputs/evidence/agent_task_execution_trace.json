@@ -3,9 +3,9 @@
   "task_run_count": 6,
   "runs": [
     {
-      "run_id": "run_a4c442e4c0ee",
-      "task_id": "task_0fb473946f62",
-      "query_id": "query_56679807d9ec",
+      "run_id": "run_33e433b9d407",
+      "task_id": "task_875898091543",
+      "query_id": "query_918af35c18b8",
       "dependency_name": "auth-sdk",
       "migration_query": "What changed in authenticate from v2 to v3?",
       "route_taken": "MIGRATION",
@@ -21,12 +21,12 @@
       "synthesis_suppressed": true,
       "latency_ms": 420,
       "cost_usd": 0.0,
-      "created_at": "2026-05-05T09:25:03.195757+00:00"
+      "created_at": "2026-05-05T09:42:27.130150+00:00"
     },
     {
-      "run_id": "run_aaa3b68ad529",
-      "task_id": "task_88d5e1ff6833",
-      "query_id": "query_614fd119ddc1",
+      "run_id": "run_c25bedc50643",
+      "task_id": "task_fa4f9a2b6b0e",
+      "query_id": "query_49084c22cc0a",
       "dependency_name": "logging-lib",
       "migration_query": "Is logging safe to use in v3?",
       "route_taken": "SIMPLE",
@@ -42,12 +42,12 @@
       "synthesis_suppressed": false,
       "latency_ms": 420,
       "cost_usd": 0.0008,
-      "created_at": "2026-05-05T09:25:03.195954+00:00"
+      "created_at": "2026-05-05T09:42:27.130343+00:00"
     },
     {
-      "run_id": "run_1f1d88e73a6f",
-      "task_id": "task_1ae03d712e5d",
-      "query_id": "query_1f459b4e95f3",
+      "run_id": "run_33631d540d02",
+      "task_id": "task_281d89596343",
+      "query_id": "query_76a107e5d94c",
       "dependency_name": "profile-sdk",
       "migration_query": "How should I migrate fetchUser from v2 to v3?",
       "route_taken": "MIGRATION",
@@ -65,12 +65,12 @@
       "synthesis_suppressed": true,
       "latency_ms": 420,
       "cost_usd": 0.0,
-      "created_at": "2026-05-05T09:25:03.196276+00:00"
+      "created_at": "2026-05-05T09:42:27.130662+00:00"
     },
     {
-      "run_id": "run_c4e0b2d5d117",
-      "task_id": "task_9bda9e5273a7",
-      "query_id": "query_f04b2950290c",
+      "run_id": "run_6f8f118c87aa",
+      "task_id": "task_bcf1af57d16f",
+      "query_id": "query_22b74d42c3a4",
       "dependency_name": "unknown-dep",
       "migration_query": "How should I migrate unknown-dep from 0.1.0 to unknown target version?",
       "route_taken": "MIGRATION",
@@ -86,12 +86,12 @@
       "synthesis_suppressed": true,
       "latency_ms": 420,
       "cost_usd": 0.0,
-      "created_at": "2026-05-05T09:25:03.196583+00:00"
+      "created_at": "2026-05-05T09:42:27.130961+00:00"
     },
     {
-      "run_id": "run_21a4ec923418",
-      "task_id": "task_9bda9e5273a7",
-      "query_id": "query_88753d8a36b8",
+      "run_id": "run_070a097e8c32",
+      "task_id": "task_bcf1af57d16f",
+      "query_id": "query_21d68a9858df",
       "dependency_name": "unknown-dep",
       "migration_query": "How should I migrate unknown-dep from 0.1.0 to unknown target version?",
       "route_taken": "MIGRATION",
@@ -107,12 +107,12 @@
       "synthesis_suppressed": false,
       "latency_ms": 510,
       "cost_usd": 0.0008,
-      "created_at": "2026-05-05T09:25:03.196880+00:00"
+      "created_at": "2026-05-05T09:42:27.131251+00:00"
     },
     {
-      "run_id": "run_095ae286cf5f",
-      "task_id": "task_62bbaf334f78",
-      "query_id": "query_478ec23ac9db",
+      "run_id": "run_49e0d75da171",
+      "task_id": "task_e9225c767a4a",
+      "query_id": "query_92ed08c35f2d",
       "dependency_name": "analytics-sdk",
       "migration_query": "What is the rateLimit in v3?",
       "route_taken": "SIMPLE",
@@ -126,7 +126,7 @@
       "synthesis_suppressed": false,
       "latency_ms": 420,
       "cost_usd": 0.0008,
-      "created_at": "2026-05-05T09:25:03.197036+00:00"
+      "created_at": "2026-05-05T09:42:27.131401+00:00"
     }
   ],
   "query_mode_linkage": true,

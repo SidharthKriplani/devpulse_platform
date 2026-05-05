@@ -5,7 +5,7 @@
   "wrong_version_answer_rate": 0.0,
   "checked_queries": [
     {
-      "query_id": "query_12e5715e3a92",
+      "query_id": "query_4be81b66789c",
       "parsed_query": {
         "raw_query": "How does authenticate work in v3?",
         "intent": "lookup",
@@ -82,7 +82,7 @@
       "conflict_alerts": [],
       "conflict_flag": false,
       "migration_report": {
-        "query_id": "query_12e5715e3a92",
+        "query_id": "query_4be81b66789c",
         "verdict": "SAFE",
         "from_version": null,
         "to_version": "v3",
@@ -118,12 +118,12 @@
         ],
         "synthesis_text": "Retrieved evidence supports this migration guidance with version-aligned citations.",
         "caveats": [],
-        "generated_at": "2026-05-05T09:16:45.996680+00:00"
+        "generated_at": "2026-05-05T09:42:26.900737+00:00"
       },
       "fallback_events": []
     },
     {
-      "query_id": "query_20be03e715dc",
+      "query_id": "query_4aa37449197e",
       "parsed_query": {
         "raw_query": "What is the rateLimit in v2?",
         "intent": "lookup",
@@ -175,7 +175,7 @@
       "conflict_alerts": [],
       "conflict_flag": false,
       "migration_report": {
-        "query_id": "query_20be03e715dc",
+        "query_id": "query_4aa37449197e",
         "verdict": "SAFE",
         "from_version": null,
         "to_version": "v2",
@@ -203,7 +203,7 @@
         ],
         "synthesis_text": "Retrieved evidence supports this migration guidance with version-aligned citations.",
         "caveats": [],
-        "generated_at": "2026-05-05T09:16:45.996845+00:00"
+        "generated_at": "2026-05-05T09:42:26.900966+00:00"
       },
       "fallback_events": []
     }

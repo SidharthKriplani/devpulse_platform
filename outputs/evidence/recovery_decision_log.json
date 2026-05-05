@@ -3,40 +3,40 @@
   "recovery_count": 3,
   "recoveries": [
     {
-      "recovery_id": "recovery_6bc6b05f771d",
-      "task_id": "task_0fb473946f62",
-      "run_id": "run_a4c442e4c0ee",
+      "recovery_id": "recovery_7dfbdf17bb92",
+      "task_id": "task_875898091543",
+      "run_id": "run_33e433b9d407",
       "dependency_name": "auth-sdk",
       "recovery_action": "skip_and_escalate",
       "reason": "HIGH/CRITICAL conflict: do not retry or synthesize",
       "retry_number": 0,
       "outcome": "escalated",
       "capped_by_policy": false,
-      "created_at": "2026-05-05T09:25:03.195773+00:00"
+      "created_at": "2026-05-05T09:42:27.130167+00:00"
     },
     {
-      "recovery_id": "recovery_6170b92143d8",
-      "task_id": "task_1ae03d712e5d",
-      "run_id": "run_1f1d88e73a6f",
+      "recovery_id": "recovery_3a0d95502e40",
+      "task_id": "task_281d89596343",
+      "run_id": "run_33631d540d02",
       "dependency_name": "profile-sdk",
       "recovery_action": "skip_and_escalate",
       "reason": "HIGH/CRITICAL conflict: do not retry or synthesize",
       "retry_number": 0,
       "outcome": "escalated",
       "capped_by_policy": false,
-      "created_at": "2026-05-05T09:25:03.196288+00:00"
+      "created_at": "2026-05-05T09:42:27.130674+00:00"
     },
     {
-      "recovery_id": "recovery_9a69de24b0c1",
-      "task_id": "task_9bda9e5273a7",
-      "run_id": "run_c4e0b2d5d117",
+      "recovery_id": "recovery_9aded10a11a4",
+      "task_id": "task_bcf1af57d16f",
+      "run_id": "run_6f8f118c87aa",
       "dependency_name": "unknown-dep",
       "recovery_action": "retry_with_related_version_evidence",
       "reason": "missing or insufficient target-version evidence",
       "retry_number": 1,
       "outcome": "success",
       "capped_by_policy": false,
-      "created_at": "2026-05-05T09:25:03.196594+00:00"
+      "created_at": "2026-05-05T09:42:27.130971+00:00"
     }
   ],
   "bounded_retry_cap": 2,

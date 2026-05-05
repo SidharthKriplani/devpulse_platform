@@ -3,8 +3,8 @@
   "task_count": 5,
   "tasks": [
     {
-      "task_id": "task_0fb473946f62",
-      "goal_id": "goal_43d82aa6562a",
+      "task_id": "task_875898091543",
+      "goal_id": "goal_d27a4d044244",
       "dependency_name": "auth-sdk",
       "current_version": "2.4.1",
       "target_version": "3.0.0",
@@ -13,12 +13,12 @@
       "priority": 1,
       "reason_for_priority": "major version jump",
       "task_status": "escalated",
-      "created_at": "2026-05-05T09:25:03.195165+00:00",
-      "completed_at": "2026-05-05T09:25:03.195747+00:00"
+      "created_at": "2026-05-05T09:42:27.129570+00:00",
+      "completed_at": "2026-05-05T09:42:27.130140+00:00"
     },
     {
-      "task_id": "task_88d5e1ff6833",
-      "goal_id": "goal_43d82aa6562a",
+      "task_id": "task_fa4f9a2b6b0e",
+      "goal_id": "goal_d27a4d044244",
       "dependency_name": "logging-lib",
       "current_version": "0.9.0",
       "target_version": "1.0.0",
@@ -27,12 +27,12 @@
       "priority": 1,
       "reason_for_priority": "major version jump",
       "task_status": "risky",
-      "created_at": "2026-05-05T09:25:03.195189+00:00",
-      "completed_at": "2026-05-05T09:25:03.195946+00:00"
+      "created_at": "2026-05-05T09:42:27.129592+00:00",
+      "completed_at": "2026-05-05T09:42:27.130335+00:00"
     },
     {
-      "task_id": "task_1ae03d712e5d",
-      "goal_id": "goal_43d82aa6562a",
+      "task_id": "task_281d89596343",
+      "goal_id": "goal_d27a4d044244",
       "dependency_name": "profile-sdk",
       "current_version": "2.1.0",
       "target_version": "3.0.0",
@@ -41,12 +41,12 @@
       "priority": 1,
       "reason_for_priority": "major version jump",
       "task_status": "escalated",
-      "created_at": "2026-05-05T09:25:03.195197+00:00",
-      "completed_at": "2026-05-05T09:25:03.196269+00:00"
+      "created_at": "2026-05-05T09:42:27.129600+00:00",
+      "completed_at": "2026-05-05T09:42:27.130654+00:00"
     },
     {
-      "task_id": "task_9bda9e5273a7",
-      "goal_id": "goal_43d82aa6562a",
+      "task_id": "task_bcf1af57d16f",
+      "goal_id": "goal_d27a4d044244",
       "dependency_name": "unknown-dep",
       "current_version": "0.1.0",
       "target_version": null,
@@ -55,12 +55,12 @@
       "priority": 4,
       "reason_for_priority": "missing or ambiguous target version",
       "task_status": "risky",
-      "created_at": "2026-05-05T09:25:03.195206+00:00",
-      "completed_at": "2026-05-05T09:25:03.196872+00:00"
+      "created_at": "2026-05-05T09:42:27.129608+00:00",
+      "completed_at": "2026-05-05T09:42:27.131242+00:00"
     },
     {
-      "task_id": "task_62bbaf334f78",
-      "goal_id": "goal_43d82aa6562a",
+      "task_id": "task_e9225c767a4a",
+      "goal_id": "goal_d27a4d044244",
       "dependency_name": "analytics-sdk",
       "current_version": "1.2.0",
       "target_version": "1.2.3",
@@ -69,8 +69,8 @@
       "priority": 6,
       "reason_for_priority": "patch or low-risk update",
       "task_status": "safe",
-      "created_at": "2026-05-05T09:25:03.195180+00:00",
-      "completed_at": "2026-05-05T09:25:03.197027+00:00"
+      "created_at": "2026-05-05T09:42:27.129583+00:00",
+      "completed_at": "2026-05-05T09:42:27.131393+00:00"
     }
   ],
   "priority_order": [
