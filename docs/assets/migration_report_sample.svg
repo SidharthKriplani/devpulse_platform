@@ -113,8 +113,9 @@
   <text x="620" y="288" fill="#94a3b8" font-size="11" font-weight="600">Step 5.</text>
   <text x="676" y="288" fill="#94a3b8" font-size="11">Pin to 3.2.1 and tag rollback checkpoint</text>
 
-  <text x="620" y="324" fill="#64748b" font-size="10">Generated from grounded evidence only · 3 citations assembled · no hallucinated APIs</text>
-  <text x="620" y="342" fill="#64748b" font-size="10">Conflict check: CLEAR · Staleness check: CLEAR · Cross-source: CONSISTENT</text>
+  <text x="620" y="324" fill="#64748b" font-size="9">Generated from grounded evidence only</text>
+  <text x="620" y="337" fill="#64748b" font-size="9">3 citations assembled · no hallucinated APIs</text>
+  <text x="620" y="350" fill="#64748b" font-size="9">Conflict: CLEAR · Staleness: CLEAR · Cross-source: CONSISTENT</text>
 
   <!-- Audit and Latency panel -->
   <rect x="600" y="370" width="380" height="108" rx="10" fill="#1e293b" filter="url(#shadowSm)"/>
@@ -122,8 +123,8 @@
 
   <text x="620" y="420" fill="#94a3b8" font-size="10">LLM called: YES (grounded)   ·   Fallback: NOT triggered</text>
   <text x="620" y="438" fill="#94a3b8" font-size="10">Version filter: ACTIVE</text>
-  <text x="620" y="456" fill="#94a3b8" font-size="10">Retrieval: 2.1ms   ·   Conflict check: 12.4ms   ·   LLM synthesis: 324ms   ·   Total: 341ms</text>
-  <text x="620" y="470" fill="#94a3b8" font-size="10">wrong-version docs blocked: 7   ·   chunks considered: 10   ·   chunks cited: 3</text>
+  <text x="620" y="452" fill="#94a3b8" font-size="9">Retrieval: 2.1ms · Conflict check: 12.4ms · LLM synthesis: 324ms</text>
+  <text x="620" y="464" fill="#94a3b8" font-size="9">Total: 341ms · docs blocked: 7 · chunks considered: 10 · cited: 3</text>
 
   <!-- Bottom info bar -->
   <rect x="0" y="570" width="1000" height="50" fill="#0f172a"/>
