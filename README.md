@@ -252,7 +252,7 @@ docs/assets/              SVG architecture diagrams
 
 Full design rationale, architecture decisions, and expected interview questions with answers:
 
-**[docs/prd/DevPulse_Interview_Defense_v2.pdf](docs/prd/DevPulse_Interview_Defense_v2.pdf)**
+**[docs/defense/DevPulse_Interview_Defense_v2.pdf](docs/defense/DevPulse_Interview_Defense_v2.pdf)**
 
 Covers: LLM-Last principle rationale, version-safe retrieval hard-gate design, conflict detection architecture, wrong-version rate guarantee, hybrid RAG design choices, and production failure modes.
 
