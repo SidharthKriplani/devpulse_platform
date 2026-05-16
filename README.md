@@ -178,7 +178,7 @@ Key RAG hardening artifacts: retrieval ablation, reranker simulation, conflict c
 
 ---
 
-## Run Locally
+## Quick Start
 
 ```bash
 # Full PRD validation bundle
@@ -252,7 +252,7 @@ docs/assets/              SVG architecture diagrams
 
 Full design rationale, architecture decisions, and expected interview questions with answers:
 
-**[docs/defense/DevPulse_Interview_Defense.pdf](docs/defense/DevPulse_Interview_Defense.pdf)**
+**[docs/prd/DevPulse_Interview_Defense_v2.pdf](docs/prd/DevPulse_Interview_Defense_v2.pdf)**
 
 Covers: LLM-Last principle rationale, version-safe retrieval hard-gate design, conflict detection architecture, wrong-version rate guarantee, hybrid RAG design choices, and production failure modes.
 
