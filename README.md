@@ -28,6 +28,12 @@
 
 ---
 
+## Sample Output
+
+![Migration Report Sample](docs/assets/migration_report_sample.svg)
+
+---
+
 ## The Problem
 
 LLM migration assistants hallucinate deprecated APIs. The model does not know which version you are on.
@@ -242,10 +248,24 @@ docs/assets/              SVG architecture diagrams
 
 ---
 
+## Interview Defense
+
+Full design rationale, architecture decisions, and expected interview questions with answers:
+
+**[docs/defense/DevPulse_Interview_Defense.pdf](docs/defense/DevPulse_Interview_Defense.pdf)**
+
+Covers: LLM-Last principle rationale, version-safe retrieval hard-gate design, conflict detection architecture, wrong-version rate guarantee, hybrid RAG design choices, and production failure modes.
+
+---
+
 ## Part of Applied LLM Systems Portfolio
 
-This project is part of a portfolio of production-simulated applied ML and LLM systems:
+This project is part of a portfolio targeting Applied LLM Systems Engineer roles.
 
-- [**LendFlow**](https://github.com/SidharthKriplani/lendflow) — LangGraph agentic lending pipeline with RAG underwriting, compliance guardrails, FastAPI serving
-- [**AgentReliabilityLab**](https://github.com/SidharthKriplani/agentreliabilitylab) — LLM agent evaluation framework: hallucination detection, tool-call reliability, multi-step tracing
-- [**NexusSupply**](https://github.com/SidharthKriplani/nexussupply) — Supply chain intelligence with FinBERT ESG scoring, XGBoost financial health, graph propagation, LLM synthesis
+- [**NexusSupply**](https://github.com/SidharthKriplani/nexussupply) — Supplier Risk Intelligence Platform (LangGraph + FinBERT + XGBoost + Instructor + NetworkX)
+- [**LendFlow**](https://github.com/SidharthKriplani/lendflow) — AI-powered loan underwriting pipeline (LangGraph + RAG + FOIR rules engine)
+- [**AgentReliabilityLab**](https://github.com/SidharthKriplani/agentreliabilitylab) — Cyber threat triage agent (LangGraph + hybrid RAG + HITL + RAGAS eval)
+- [**RiskFrame Platform**](https://github.com/SidharthKriplani/riskframe_platform) — ML model lifecycle (XGBoost + LightGBM champion/challenger, Optuna HPO, drift monitoring)
+- [**DevPulse Platform**](https://github.com/SidharthKriplani/devpulse_platform) — Version-safe RAG migration intelligence (LLM-Last principle, conflict detection)
+- [**PulseRank Platform**](https://github.com/SidharthKriplani/pulserank_platform) — Marketplace ranking with IPS debiasing (position bias correction, delayed attribution)
+- [**MetaSignal Platform**](https://github.com/SidharthKriplani/metasignal_platform) — Experimentation intelligence (CUPED + guardrail-first + A/A calibration)
