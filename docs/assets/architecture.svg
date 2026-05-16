@@ -1,0 +1,150 @@
+<svg viewBox="0 0 1100 400" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.5"/>
+    </filter>
+    <filter id="shadowSm">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#475569"/>
+    </marker>
+    <marker id="arrow-violet" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#7c3aed"/>
+    </marker>
+    <marker id="arrow-amber" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#d97706"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1100" height="400" fill="url(#bg)"/>
+
+  <!-- Title -->
+  <text x="550" y="28" text-anchor="middle" fill="#94a3b8" font-size="13" font-weight="600" letter-spacing="1">DEVPULSE — VERSION-SAFE MIGRATION INTELLIGENCE PIPELINE</text>
+
+  <!-- NODE 1: User Query (slate) -->
+  <rect x="20" y="55" width="155" height="90" rx="12" fill="#334155" filter="url(#shadow)"/>
+  <text x="97" y="83" text-anchor="middle" fill="white" font-size="13" font-weight="600">User Query</text>
+  <text x="97" y="101" text-anchor="middle" fill="#94a3b8" font-size="10">Migration goal</text>
+  <text x="97" y="117" text-anchor="middle" fill="#94a3b8" font-size="10">"migrate requests</text>
+  <text x="97" y="133" text-anchor="middle" fill="#94a3b8" font-size="10">v2 → v3"</text>
+
+  <!-- Arrow 1 → 2 -->
+  <line x1="175" y1="100" x2="215" y2="100" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- NODE 2: Query Parser (slate) -->
+  <rect x="215" y="55" width="155" height="90" rx="12" fill="#334155" filter="url(#shadow)"/>
+  <text x="292" y="83" text-anchor="middle" fill="white" font-size="13" font-weight="600">Query Parser</text>
+  <text x="292" y="101" text-anchor="middle" fill="#94a3b8" font-size="10">Version extraction</text>
+  <text x="292" y="117" text-anchor="middle" fill="#94a3b8" font-size="10">Complexity routing</text>
+  <text x="292" y="133" text-anchor="middle" fill="#94a3b8" font-size="10">src/query/parser.py</text>
+
+  <!-- Arrow 2 → 3 -->
+  <line x1="370" y1="100" x2="410" y2="100" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- NODE 3: Version-Safe Retrieval (violet/RAG) -->
+  <rect x="410" y="40" width="180" height="120" rx="12" fill="#7c3aed" filter="url(#shadow)"/>
+  <!-- Hard gate label -->
+  <rect x="420" y="48" width="160" height="22" rx="6" fill="#4c1d95"/>
+  <text x="500" y="63" text-anchor="middle" fill="#e9d5ff" font-size="10" font-weight="700">VERSION FILTER HARD GATE</text>
+  <text x="500" y="80" text-anchor="middle" fill="white" font-size="12" font-weight="600">Version-Safe Retrieval</text>
+  <text x="500" y="97" text-anchor="middle" fill="#c4b5fd" font-size="10">Hard version filter</text>
+  <text x="500" y="113" text-anchor="middle" fill="#c4b5fd" font-size="10">wrong-version rate = 0.0</text>
+  <text x="500" y="129" text-anchor="middle" fill="#c4b5fd" font-size="10">Hybrid Recall@5 = 0.94</text>
+  <text x="500" y="147" text-anchor="middle" fill="#e9d5ff" font-size="10">BM25 + dense · reranker Recall = 0.97</text>
+
+  <!-- Arrow 3 → 4 -->
+  <line x1="590" y1="100" x2="630" y2="100" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- NODE 4: Conflict Detector (amber) -->
+  <rect x="630" y="55" width="155" height="90" rx="12" fill="#92400e" filter="url(#shadow)"/>
+  <text x="707" y="83" text-anchor="middle" fill="white" font-size="13" font-weight="600">Conflict Detector</text>
+  <text x="707" y="101" text-anchor="middle" fill="#fcd34d" font-size="10">Stale · contradictory</text>
+  <text x="707" y="117" text-anchor="middle" fill="#fcd34d" font-size="10">deprecated · cross-source</text>
+  <text x="707" y="133" text-anchor="middle" fill="#fbbf24" font-size="10">Macro F1 = 0.966</text>
+
+  <!-- Arrow 4 → 5 -->
+  <line x1="785" y1="100" x2="825" y2="100" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- NODE 5: LLM-Last Synthesis (red) -->
+  <rect x="825" y="40" width="180" height="120" rx="12" fill="#991b1b" filter="url(#shadow)"/>
+  <!-- LLM-Last label -->
+  <rect x="835" y="48" width="160" height="22" rx="6" fill="#7f1d1d"/>
+  <text x="915" y="63" text-anchor="middle" fill="#fecaca" font-size="10" font-weight="700">LLM-LAST PRINCIPLE</text>
+  <text x="915" y="80" text-anchor="middle" fill="white" font-size="12" font-weight="600">LLM Synthesis</text>
+  <text x="915" y="97" text-anchor="middle" fill="#fca5a5" font-size="10">Only when evidence grounded</text>
+  <text x="915" y="113" text-anchor="middle" fill="#fca5a5" font-size="10">Citation assembly</text>
+  <text x="915" y="129" text-anchor="middle" fill="#fca5a5" font-size="10">Fallback audit</text>
+  <text x="915" y="147" text-anchor="middle" fill="#fecaca" font-size="10">LLM called: YES (grounded only)</text>
+
+  <!-- Arrow 5 → 6 -->
+  <line x1="1005" y1="100" x2="1030" y2="100" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- NODE 6: Migration Report (blue) -->
+  <rect x="1030" y="55" width="60" height="90" rx="12" fill="#1d4ed8" filter="url(#shadow)"/>
+  <text x="1060" y="85" text-anchor="middle" fill="white" font-size="11" font-weight="600">Report</text>
+  <text x="1060" y="103" text-anchor="middle" fill="#93c5fd" font-size="10">SAFE</text>
+  <text x="1060" y="118" text-anchor="middle" fill="#93c5fd" font-size="10">RISKY</text>
+  <text x="1060" y="133" text-anchor="middle" fill="#fca5a5" font-size="10">BLOCKED</text>
+
+  <!-- SECOND ROW: Extended pipeline -->
+  <!-- Goal Mode section -->
+  <rect x="20" y="205" width="940" height="4" rx="2" fill="#1e293b"/>
+  <text x="30" y="225" fill="#64748b" font-size="11" font-weight="600" letter-spacing="1">EXTENDED PIPELINE — GOAL MODE + REPO-AWARE</text>
+
+  <!-- Goal Mode Node -->
+  <rect x="20" y="238" width="200" height="80" rx="12" fill="#065f46" filter="url(#shadowSm)"/>
+  <text x="120" y="264" text-anchor="middle" fill="white" font-size="12" font-weight="600">Goal Mode</text>
+  <text x="120" y="282" text-anchor="middle" fill="#6ee7b7" font-size="10">GoalParser · DependencyDeltaDetector</text>
+  <text x="120" y="298" text-anchor="middle" fill="#6ee7b7" font-size="10">TaskPlanner → TaskExecutor</text>
+  <text x="120" y="314" text-anchor="middle" fill="#6ee7b7" font-size="10">RecoveryDecider · bounded retry</text>
+
+  <!-- Arrow Goal → Repo -->
+  <line x1="220" y1="278" x2="258" y2="278" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Repo-Aware Node -->
+  <rect x="258" y="238" width="200" height="80" rx="12" fill="#334155" filter="url(#shadowSm)"/>
+  <text x="358" y="264" text-anchor="middle" fill="white" font-size="12" font-weight="600">Repo-Aware Analysis</text>
+  <text x="358" y="282" text-anchor="middle" fill="#94a3b8" font-size="10">10 risky callsites detected</text>
+  <text x="358" y="298" text-anchor="middle" fill="#94a3b8" font-size="10">dependency usage mapping</text>
+  <text x="358" y="314" text-anchor="middle" fill="#fca5a5" font-size="10">DO_NOT_APPLY_WITHOUT_REVIEW</text>
+
+  <!-- Arrow Repo → Patch -->
+  <line x1="458" y1="278" x2="496" y2="278" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Patch + PR Node -->
+  <rect x="496" y="238" width="200" height="80" rx="12" fill="#334155" filter="url(#shadowSm)"/>
+  <text x="596" y="264" text-anchor="middle" fill="white" font-size="12" font-weight="600">Patch + PR Simulation</text>
+  <text x="596" y="282" text-anchor="middle" fill="#94a3b8" font-size="10">Patch diff · test simulation</text>
+  <text x="596" y="298" text-anchor="middle" fill="#94a3b8" font-size="10">failure triage · rollback plan</text>
+  <text x="596" y="314" text-anchor="middle" fill="#94a3b8" font-size="10">reviewer checklist · PR body</text>
+
+  <!-- Arrow Patch → Eval -->
+  <line x1="696" y1="278" x2="734" y2="278" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Eval Node (gray) -->
+  <rect x="734" y="238" width="200" height="80" rx="12" fill="#374151" filter="url(#shadowSm)"/>
+  <text x="834" y="264" text-anchor="middle" fill="white" font-size="12" font-weight="600">Backtest + Eval</text>
+  <text x="834" y="282" text-anchor="middle" fill="#d1d5db" font-size="10">37-day backtest · 2,479 queries</text>
+  <text x="834" y="298" text-anchor="middle" fill="#d1d5db" font-size="10">RAG eval hardening</text>
+  <text x="834" y="314" text-anchor="middle" fill="#d1d5db" font-size="10">70 evidence artifacts</text>
+
+  <!-- Connection from Report (top) down to Goal Mode -->
+  <path d="M1060 145 L1060 200 L120 200 L120 236" stroke="#475569" stroke-width="1.5" stroke-dasharray="5,3" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- Bottom info bar -->
+  <rect x="0" y="342" width="1100" height="58" fill="#0f172a"/>
+  <line x1="0" y1="342" x2="1100" y2="342" stroke="#1e293b" stroke-width="1.5"/>
+  <text x="30" y="367" fill="#64748b" font-size="11" font-weight="600">KEY METRICS</text>
+  <text x="30" y="387" fill="#94a3b8" font-size="10">Hybrid Recall@5: 0.94</text>
+  <text x="190" y="387" fill="#94a3b8" font-size="10">Conflict Macro F1: 0.966</text>
+  <text x="370" y="387" fill="#86efac" font-size="10">Wrong-Version Rate: 0.0</text>
+  <text x="540" y="387" fill="#94a3b8" font-size="10">37-day backtest · 2,479 queries</text>
+  <text x="740" y="387" fill="#94a3b8" font-size="10">Reranker Recall@5: 0.97</text>
+  <text x="900" y="387" fill="#94a3b8" font-size="10">70 evidence artifacts</text>
+</svg>

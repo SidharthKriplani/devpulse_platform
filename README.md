@@ -1,7 +1,5 @@
 # DevPulse Platform
 
-**Production-simulated RAG + agentic migration intelligence platform for version-safe developer change decisions.**
-
 <p>
   <a href="https://sidharthkriplani.github.io/devpulse_platform/">
     <img alt="Live Dashboard" src="https://img.shields.io/badge/Live%20Dashboard-GitHub%20Pages-2ea44f?style=for-the-badge&logo=githubpages&logoColor=white">
@@ -13,328 +11,241 @@
 </p>
 
 <p>
-  <img alt="Python" src="https://img.shields.io/badge/Python-3.11-3776ab?style=flat-square&logo=python&logoColor=white">
-  <img alt="Static Dashboard" src="https://img.shields.io/badge/Dashboard-Static%20HTML-orange?style=flat-square">
   <img alt="Wrong Version Rate" src="https://img.shields.io/badge/Wrong--Version%20Rate-0.0-brightgreen?style=flat-square">
   <img alt="Hybrid Recall" src="https://img.shields.io/badge/Hybrid%20Recall%405-0.94-blue?style=flat-square">
   <img alt="Conflict Macro F1" src="https://img.shields.io/badge/Conflict%20Macro%20F1-0.966-purple?style=flat-square">
   <img alt="Backtest" src="https://img.shields.io/badge/37--Day%20Backtest-2479%20Queries-teal?style=flat-square">
+  <img alt="Python" src="https://img.shields.io/badge/Python-3.11-3776ab?style=flat-square&logo=python&logoColor=white">
 </p>
 
+> Production-simulated RAG + agentic migration intelligence platform for version-safe developer change decisions.
+
 ---
 
 ## Architecture
 
-```mermaid
-flowchart TD
-    INPUT["🔍 User Query / Migration Goal\ne.g. migrate requests v2 → v3"] --> QP
-
-    subgraph QM["Query Mode"]
-        QP["Query Parser\nVersion extraction · complexity routing"]
-        RET["Version-Safe Retrieval\nHard version filter · wrong-version rate = 0.0\nHybrid Recall@5 = 0.94"]
-        CD["Conflict Detector\nStale · contradictory · deprecated\nConflict Macro F1 = 0.966"]
-        SYN["LLM-Last Synthesis\nOnly when evidence is grounded\nCitation assembly · fallback audit"]
-        REP["Migration Report\nSAFE / RISKY / BLOCKED"]
-    end
-
-    QP --> RET --> CD --> SYN --> REP
-
-    REP --> GP
-
-    subgraph GM["Goal Mode"]
-        GP["GoalParser + DependencyDeltaDetector"]
-        TP["TaskPlanner → TaskExecutor\nBounded retry · staged migration"]
-        RD["RecoveryDecider · Escalation"]
-        PS["PlanSummaryReporter"]
-    end
-
-    GP --> TP --> RD --> PS
-
-    PS --> RA
-
-    subgraph EXT["Extensions"]
-        RA["Repo-Aware Analysis\n10 risky callsites · DO_NOT_APPLY_WITHOUT_REVIEW"]
-        PP["Patch + PR Simulation\nDiff · test sim · triage · rollback plan"]
-        BT["37-Day Backtest\n2,479 queries · 70 evidence artifacts"]
-    end
-
-    RA --> PP --> BT
-    BT --> DASH["📊 Evidence Dashboard\nGitHub Pages · public"]
-```
+![DevPulse Architecture](docs/assets/architecture.svg)
 
 ---
 
-## At a Glance
+## The Problem
 
-| Layer | What it proves |
-|---|---|
-| **Version-safe RAG** | Hard version filtering, zero wrong-version answer rate, citation-backed synthesis |
-| **Deterministic conflict detection** | Stale, contradictory, deprecated, and cross-source conflict handling |
-| **Agentic Goal Mode** | Bounded task planning, recovery, escalation, and final migration decisioning |
-| **Repo-aware analysis** | Local repository scan, dependency usage mapping, risky callsite detection |
-| **Patch + PR simulation** | Reviewer-safe patch diff, test simulation, triage, checklist, rollback plan |
-| **Evidence dashboard** | Public visual dashboard summarizing 70 generated artifacts |
+LLM migration assistants hallucinate deprecated APIs. The model does not know which version you are on.
+
+A vanilla RAG system asked "how do I migrate requests v2 to v3?" will return chunks from multiple versions without filtering. The LLM synthesizes across them, mixing v2-era patterns with v3 breaking changes. The developer applies the output. Tests fail. The failure is silent and the root cause is invisible — the retrieval layer served the wrong version.
+
+Version-safe retrieval solves this at the retrieval layer, before any LLM sees a single token. Wrong-version rate: 0.0.
 
 ---
 
-DevPulse helps engineering teams reason about dependency migrations by combining version-aware retrieval, deterministic conflict detection, LLM-last synthesis boundaries, agentic migration planning, repo-aware callsite analysis, patch proposal simulation, test/triage simulation, and a static evidence dashboard.
+## Version-Safe Retrieval Design
 
-## Live Dashboard
+The core architectural decision: version filtering happens as a hard gate, not as a soft reranking signal.
 
-**Open the visual showcase:**  
-https://sidharthkriplani.github.io/devpulse_platform/
+Every document chunk in the corpus is tagged with a `version_tag`. When a query specifies a target version (e.g., `requests v3.2.1`), the retrieval layer applies a hard filter: chunks tagged to incompatible versions are excluded before BM25 or dense scoring runs. No wrong-version chunk can reach the LLM, regardless of semantic similarity score.
 
-The dashboard gives a fast view of:
-
-- PRD completion status
-- Query Mode and Goal Mode flow
-- RAG evaluation metrics
-- repo-aware migration risk
-- patch and PR simulation
-- final validation artifacts
-- truth boundary and evidence inventory
-
-## What DevPulse Solves
-
-Dependency migrations often fail because teams rely on stale docs, ambiguous version references, contradictory changelogs, or incomplete migration notes.
-
-DevPulse is designed to answer questions like:
-
-- “How should I migrate this dependency from v2 to v3?”
-- “Are these docs stale or contradictory?”
-- “Which source-code callsites are risky?”
-- “Can this migration proceed safely, or should it be blocked?”
-- “What evidence supports the recommendation?”
-
-The system intentionally avoids blind LLM output. It uses deterministic gates first, then allows synthesis only when evidence is sufficiently grounded.
-
-## Architecture
-
-```mermaid
-flowchart TD
-    INPUT["🔍 User Query / Migration Goal\ne.g. 'migrate requests v2 → v3'"] --> QM
-
-    subgraph QM["Query Mode  src/query/"]
-        QP["Query Parser\nVersion extraction · complexity routing"]
-        RET["Version-Safe Retrieval\nHard version filter · wrong-version rate = 0.0\nHybrid Recall@5 = 0.94"]
-        CD["Conflict Detector\nStale · contradictory · deprecated · cross-source\nConflict Macro F1 = 0.966"]
-        SYN["LLM-Last Synthesis\nOnly when evidence is grounded\nCitation assembly · fallback audit"]
-        REP["Migration Report\nSAFE / RISKY / BLOCKED"]
-    end
-
-    QP --> RET --> CD --> SYN --> REP
-
-    REP --> GM
-
-    subgraph GM["Goal Mode  src/goal/"]
-        GP["GoalParser"]
-        DD["DependencyDeltaDetector"]
-        TP["TaskPlanner → TaskExecutor\nBounded retry cap · staged migration"]
-        RD["RecoveryDecider\nEscalation on repeated failure"]
-        PS["PlanSummaryReporter"]
-    end
-
-    GP --> DD --> TP --> RD --> PS
-
-    PS --> RA
-
-    subgraph RA["Repo-Aware Extension  src/repo/"]
-        SCAN["Local Repo Scanner\n10 callsites found"]
-        MAP["Dependency Usage Mapper"]
-        RISK["Risky Callsite Detector\n10/10 risky · DO_NOT_APPLY_WITHOUT_REVIEW"]
-    end
-
-    RA --> PP
-
-    subgraph PP["Patch + PR Simulation  src/patch/"]
-        DIFF["Patch Diff Proposal"]
-        TEST["Before/After Test Simulation"]
-        TRIAGE["Failure Triage · Reviewer Checklist"]
-        ROLL["Rollback Plan"]
-    end
-
-    PP --> DASH["📊 Evidence Dashboard\nGitHub Pages · 70 artifacts\n37-day backtest · 2,479 queries"]
-    PP --> BT["37-Day Backtest\nRAG eval · 180 queries"]
-```
-
-## Key Results
-
-| Area | Result |
-|---|---:|
-| PRD v3.0 status | pass |
-| Query Mode artifacts | 24 |
-| Goal Mode artifacts | 8 |
-| Total evidence artifacts | 32 |
-| Failure/recovery scenarios | 19 |
-| Wrong-version answer rate | 0.0 |
-| RAG eval query count | 180 |
-| Hybrid Recall@5 | 0.94 |
+| Metric | Value |
+|--------|-------|
+| Hybrid Recall@5 (BM25 + dense) | 0.94 |
 | Reranker simulated Recall@5 | 0.97 |
-| Conflict Macro F1 | 0.966 |
-| 37-day backtest queries | 2,479 |
-| Repo-aware callsites found | 10 |
-| Risky callsites found | 10 |
-| Patch recommendation | DO_NOT_APPLY_WITHOUT_REVIEW |
-| Dashboard artifact inventory | 70 artifacts |
+| Wrong-version answer rate | **0.0** |
 
-## What Is Implemented
+This is why wrong-version rate is exactly 0.0 rather than approximately 0.0: the gate is deterministic, not probabilistic.
+
+---
+
+## Migration Report Sample
+
+![Migration Report Sample](docs/assets/migration_report_sample.svg)
+
+---
+
+## LLM-Last Principle
+
+The LLM is the last component in the pipeline, not the first.
+
+Before any synthesis occurs, the pipeline requires:
+1. Version filter active and applied
+2. Conflict detector has run and returned CLEAR
+3. At least one grounded chunk retrieved for the target version
+4. Staleness and cross-source consistency checks passed
+
+Only when all gates clear does the LLM generate a migration response, with citations assembled from retrieved chunks. If any gate fails, the pipeline returns a deterministic RISKY or BLOCKED decision without calling the LLM.
+
+This design means the LLM cannot hallucinate API names or version requirements — it only synthesizes over pre-validated, version-pinned evidence.
+
+---
+
+## Conflict Detection
+
+The conflict detector runs before synthesis on every query and classifies retrieved chunks across four conflict types:
+
+| Conflict Type | Description |
+|---------------|-------------|
+| Stale | Chunk version tag older than target, may contain superseded guidance |
+| Contradictory | Two chunks from same version make incompatible claims |
+| Deprecated | Chunk explicitly marks an API or pattern as deprecated |
+| Cross-source | Changelog and migration guide disagree on same version |
+
+**Conflict Macro F1: 0.966** — across all four classes on held-out evaluation set.
+
+---
+
+## Pipeline
+
+```
+User Query → Query Parser → [VERSION FILTER HARD GATE] → Version-Safe Retrieval
+→ Conflict Detector → [LLM-LAST GATE: grounded evidence required] → LLM Synthesis
+→ Migration Report (SAFE / RISKY / BLOCKED)
+```
 
 ### Query Mode
 
-DevPulse Query Mode includes:
-
-- deterministic query parsing
-- version extraction
-- complexity routing
-- version-filtered retrieval simulation
-- deterministic conflict detection
-- SAFE / RISKY / BLOCKED migration reports
-- LLM-last synthesis boundary
-- programmatic citation assembly
-- fallback and audit artifacts
-- 24 evidence artifacts
-- 10 failure/recovery scenarios
+- Deterministic query parsing and version extraction
+- Complexity routing (simple lookup vs. multi-hop migration)
+- Hard version-filtered retrieval — BM25 + dense hybrid
+- Conflict detection across four types
+- SAFE / RISKY / BLOCKED report generation
+- LLM synthesis with programmatic citation assembly
+- Fallback and audit artifacts on every run
+- 24 evidence artifacts, 10 failure/recovery scenarios
 
 ### Goal Mode
 
-DevPulse Goal Mode includes:
-
-- `GoalParser`
-- `DependencyDeltaDetector`
-- `TaskPlanner`
-- `TaskExecutor`
-- `RecoveryDecider`
+- `GoalParser` + `DependencyDeltaDetector`
+- `TaskPlanner` → `TaskExecutor` with bounded retry cap
+- `RecoveryDecider` with escalation on repeated failure
 - `PlanSummaryReporter`
-- controlled dependency target registry
-- bounded retry cap
-- staged migration recommendation
-- 8 evidence artifacts
-- 9 failure/recovery scenarios
+- Staged migration recommendation
+- 8 evidence artifacts, 9 failure/recovery scenarios
 
-### Repo-Aware Extension
+---
 
-The repo-aware extension scans a local sample repository and maps dependency risk to source-code callsites.
+## Repo-Aware Analysis
 
-Artifacts include:
+The repo-aware extension scans a local sample repository against the migration target:
 
-```text
-outputs/repo_aware/repo_inspection_report.json
-outputs/repo_aware/dependency_usage_map.json
-outputs/repo_aware/risky_callsite_report.json
-outputs/repo_aware/repo_aware_extension_summary.json
+- Dependency usage mapping across source files
+- Risky callsite detection (10/10 callsites flagged in test repo)
+- `DO_NOT_APPLY_WITHOUT_REVIEW` — conservative by default
+
+Artifacts: `repo_inspection_report.json`, `dependency_usage_map.json`, `risky_callsite_report.json`
+
+---
+
+## Patch + PR Simulation
+
+DevPulse generates reviewer-safe migration artifacts:
+
+```
+proposed_file_changes.json      — structured patch proposal
+proposed_migration_patch.diff   — reviewable diff
+patch_risk_report.json          — risk assessment
+before_tests_report.json        — pre-patch test state
+after_patch_tests_report.json   — post-patch test simulation
+test_failure_triage_report.json — failure root cause
+pr_body.md                      — GitHub PR description
+reviewer_checklist.md           — structured sign-off checklist
+rollback_plan.md                — revert procedure
 ```
 
-### Patch + PR Simulation
+---
 
-DevPulse generates reviewer-safe migration proposal artifacts:
+## Backtest Methodology
 
-```text
-outputs/patches/proposed_file_changes.json
-outputs/patches/proposed_migration_patch.diff
-outputs/reports/patch_risk_report.json
-outputs/test_simulation/before_tests_report.json
-outputs/test_simulation/after_patch_tests_report.json
-outputs/test_simulation/test_failure_triage_report.json
-outputs/pr_simulation/pr_body.md
-outputs/pr_simulation/pr_diff.patch
-outputs/pr_simulation/reviewer_checklist.md
-outputs/pr_simulation/rollback_plan.md
-```
+The 37-day backtest replays 2,479 queries across a scripted traffic corpus to validate:
 
-### RAG Evaluation Hardening
+- Wrong-version rate stays 0.0 across all query types
+- Conflict detection F1 holds under traffic variance
+- SAFE/RISKY/BLOCKED decisions are consistent with ground truth
 
-DevPulse includes deeper RAG evaluation artifacts:
+Key RAG hardening artifacts: retrieval ablation, reranker simulation, conflict confusion matrix, corpus perturbation, traffic backtest report.
 
-```text
-outputs/rag_eval/retrieval_ablation_report.json
-outputs/rag_eval/reranker_simulation_report.json
-outputs/rag_eval/conflict_confusion_matrix.json
-outputs/rag_eval/traffic_backtest_37_day_report.json
-outputs/rag_eval/corpus_perturbation_report.json
-outputs/rag_eval/rag_eval_hardening_summary_v35.json
-```
+| Metric | Value |
+|--------|-------|
+| Backtest duration | 37 days |
+| Total queries | 2,479 |
+| RAG eval query count | 180 |
+| Wrong-version rate | 0.0 |
+| Hybrid Recall@5 | 0.94 |
+| Conflict Macro F1 | 0.966 |
+
+---
 
 ## Run Locally
 
-Run the full PRD validation bundle:
-
 ```bash
+# Full PRD validation bundle
 PYTHONPATH=. python3 scripts/run_devpulse_complete_v3.py
 PYTHONPATH=. python3 scripts/show_final_demo_report.py
-```
 
-Run the v3.5 extensions:
-
-```bash
+# Repo-aware extension
 PYTHONPATH=. python3 scripts/run_repo_aware_scan_v35.py
-PYTHONPATH=. python3 scripts/validate_repo_aware_extension_v35.py
 
+# Patch + PR simulation
 PYTHONPATH=. python3 scripts/run_patch_pr_simulation_v35.py
-PYTHONPATH=. python3 scripts/validate_patch_pr_simulation_v35.py
 
+# RAG hardening
 PYTHONPATH=. python3 scripts/run_rag_eval_hardening_v35.py
-PYTHONPATH=. python3 scripts/validate_rag_eval_hardening_v35.py
 
+# Dashboard
 PYTHONPATH=. python3 scripts/build_dashboard_v35.py
-PYTHONPATH=. python3 scripts/validate_dashboard_v35.py
 open outputs/dashboard/index.html
 ```
 
-## Important Artifacts
+---
 
-| Artifact | Path |
-|---|---|
-| Final PRD completion report | `outputs/reports/devpulse_prd_completion_report_v3.json` |
-| Final demo report | `outputs/reports/devpulse_final_demo_report.txt` |
-| Query Mode demo | `outputs/evidence/devpulse_demo_report.txt` |
-| Agentic demo | `outputs/evidence/agentic_demo_report.txt` |
-| Goal plan summary | `outputs/evidence/plan_summary_report.json` |
-| RAG hardening summary | `outputs/rag_eval/rag_eval_hardening_summary_v35.json` |
-| Repo inspection report | `outputs/repo_aware/repo_inspection_report.json` |
-| Risky callsite report | `outputs/repo_aware/risky_callsite_report.json` |
-| Patch risk report | `outputs/reports/patch_risk_report.json` |
-| PR simulation body | `outputs/pr_simulation/pr_body.md` |
-| Static dashboard | `docs/index.html` |
+## Live Dashboard
+
+**[https://sidharthkriplani.github.io/devpulse_platform/](https://sidharthkriplani.github.io/devpulse_platform/)**
+
+Covers: PRD completion status, Query Mode and Goal Mode flow, RAG evaluation metrics, repo-aware migration risk, patch and PR simulation, final validation artifacts, evidence inventory (70 artifacts).
+
+---
+
+## Key Evidence Artifacts
+
+| Artifact | Proves |
+|----------|--------|
+| `traffic_backtest_37_day_report.json` | Wrong-version rate=0.0 across 2,479 queries |
+| `retrieval_ablation_report.json` | BM25 vs. dense vs. hybrid Recall@5 comparison |
+| `conflict_confusion_matrix.json` | Macro F1=0.966 per conflict type |
+| `risky_callsite_report.json` | Repo-aware: 10/10 risky callsites found |
+| `devpulse_prd_completion_report_v3.json` | PRD v3.5 PASS |
+| `plan_summary_report.json` | Goal mode: task planning + recovery |
+
+---
 
 ## Truth Boundary
 
-DevPulse is a **solo-built, non-production, production-simulated system**.
+**What this is:** Solo-built, non-production, production-simulated system. Every major claim is backed by executable scripts, generated artifacts, and a public dashboard.
 
-It does **not** claim:
+**Not claimed:** Real production SaaS traffic, live npm/PyPI/Maven registry integration, real GitHub PR creation, real CI execution, autonomous production code mutation, production deployment.
 
-- real production SaaS usage
-- real production traffic
-- real users
-- live npm/PyPI/Maven registry integration
-- real GitHub PR creation
-- real CI execution
-- autonomous production code mutation
-- autonomous merge safety
-- production deployment
-
-The project is intentionally evidence-backed and simulation-bounded. Every major claim is supported by executable scripts, generated artifacts, validation reports, and a dashboard.
-
-## Resume-Safe Claim
-
-Built DevPulse, a production-simulated RAG + agentic migration intelligence platform with version-aware retrieval, deterministic conflict detection, LLM-last grounded synthesis, SAFE/RISKY/BLOCKED decisioning, repo-aware callsite risk analysis, patch/PR simulation, 37-day RAG backtesting, and a static evidence dashboard covering 70 generated artifacts.
+---
 
 ## Repository Structure
 
-```text
+```
 configs/                  controlled registries and scope config
 src/devpulse/             core Query Mode and Goal Mode modules
 scripts/                  executable demo, validation, and artifact builders
-sample_repos/             controlled local repo used for repo-aware simulation
+sample_repos/             controlled local repo for repo-aware simulation
 outputs/evidence/         core evidence artifacts
-outputs/validation/       validation reports
+outputs/rag_eval/         RAG evaluation hardening artifacts
 outputs/repo_aware/       repo-aware migration scan artifacts
 outputs/patches/          patch proposal artifacts
 outputs/pr_simulation/    PR-ready simulation package
-outputs/rag_eval/         RAG evaluation hardening artifacts
-outputs/dashboard/        local static dashboard
-docs/                     public GitHub Pages dashboard and documentation
+docs/                     public GitHub Pages dashboard and assets
+docs/assets/              SVG architecture diagrams
 ```
 
-## Status
+---
 
-DevPulse is complete at the production-simulated repo-evidence level and is publicly showcaseable through GitHub Pages.
+## Part of Applied LLM Systems Portfolio
+
+This project is part of a portfolio of production-simulated applied ML and LLM systems:
+
+- [**LendFlow**](https://github.com/SidharthKriplani/lendflow) — LangGraph agentic lending pipeline with RAG underwriting, compliance guardrails, FastAPI serving
+- [**AgentReliabilityLab**](https://github.com/SidharthKriplani/agentreliabilitylab) — LLM agent evaluation framework: hallucination detection, tool-call reliability, multi-step tracing
+- [**NexusSupply**](https://github.com/SidharthKriplani/nexussupply) — Supply chain intelligence with FinBERT ESG scoring, XGBoost financial health, graph propagation, LLM synthesis
