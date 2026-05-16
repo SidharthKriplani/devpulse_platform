@@ -15,7 +15,9 @@ jobs:
         with:
           python-version: "3.11"
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: pip install -r requirements.txt pytest
+      - name: Run unit tests
+        run: PYTHONPATH=. pytest tests/test_query_mode.py -v
       - name: Validate evidence artifacts
         run: python scripts/validate_streaming_prd_v1.py
       - name: Run PRD validation suite

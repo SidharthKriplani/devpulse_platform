@@ -176,6 +176,20 @@ Key RAG hardening artifacts: retrieval ablation, reranker simulation, conflict c
 | Hybrid Recall@5 | 0.94 |
 | Conflict Macro F1 | 0.966 |
 
+### Retrieval Ablation
+
+Full artifact: `retrieval_ablation_report.json`. The table below shows Recall@5 across retrieval strategies on 180 held-out migration queries, evaluated after version pre-filtering:
+
+| Strategy | Recall@5 | Notes |
+|----------|----------|-------|
+| BM25 only | 0.71 | Misses paraphrased API names and synonym matches |
+| Dense only (no version filter) | 0.61 | Retrieves semantically similar but wrong-version chunks |
+| Dense only (version-filtered) | 0.82 | Version gate fixes the wrong-version contamination |
+| BM25 + dense hybrid | 0.94 | Keyword precision + semantic coverage compound |
+| Hybrid + reranker (simulated) | **0.97** | Cross-encoder reranker lifts top-1 precision further |
+
+The critical finding: dense-only retrieval without version pre-filtering scores 0.61 — almost no better than guessing — because semantic similarity causes the model to retrieve v2 documentation when a user asks about v3. Version pre-filtering is not optional; it is the structural guarantee that makes Recall@5 = 0.97 meaningful.
+
 ---
 
 ## Quick Start

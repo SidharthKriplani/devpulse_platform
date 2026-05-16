@@ -318,6 +318,7 @@ def retrieve(raw_query: str, parsed: ParsedQuery, vc: VersionContext, route: str
 
 def detect_conflicts(chunks: list[Chunk], parsed: ParsedQuery, vc: VersionContext) -> list[ConflictAlert]:
     alerts: list[ConflictAlert] = []
+    version_graph = build_api_version_graph(chunks)
 
     by_api: dict[str, list[Chunk]] = {}
     for chunk in chunks:
@@ -329,26 +330,61 @@ def detect_conflicts(chunks: list[Chunk], parsed: ParsedQuery, vc: VersionContex
         change_types = {c.change_type for c in api_chunks}
 
         if len(versions) > 1 and len(change_types) > 1:
+            # Calibrate severity by semver distance: large jumps (v1→v3) are more dangerous
+            sorted_versions = version_graph.get(api, sorted(versions, key=parse_semver))
+            max_dist = max(
+                (semver_distance(sorted_versions[i], sorted_versions[j])
+                 for i in range(len(sorted_versions))
+                 for j in range(i + 1, len(sorted_versions))),
+                default=0,
+            )
+            severity = "CRITICAL" if max_dist >= 2 else "HIGH"
             alerts.append(
                 ConflictAlert(
                     conflict_type="same_api_different_behavior",
-                    severity="CRITICAL",
+                    severity=severity,
                     chunk_ids=[c.chunk_id for c in api_chunks],
-                    description=f"{api} has different behavior/change semantics across versions: {sorted(versions)}.",
+                    description=(
+                        f"{api} has different behavior/change semantics across "
+                        f"{sorted_versions} (semver distance: {max_dist})."
+                    ),
                 )
             )
 
         deprecated_chunks = [c for c in api_chunks if c.has_deprecation or c.change_type == "deprecated"]
         current_chunks = [c for c in api_chunks if c.change_type == "current"]
         if deprecated_chunks and current_chunks:
-            alerts.append(
-                ConflictAlert(
-                    conflict_type="version_deprecation_conflict",
-                    severity="HIGH",
-                    chunk_ids=[c.chunk_id for c in deprecated_chunks + current_chunks],
-                    description=f"{api} is marked deprecated in one source but current in another.",
-                )
+            # Version ordering violation: if "deprecated" appears in a NEWER version than
+            # "current" that is backwards and signals a retrieval or corpus anomaly.
+            dep_versions = [c.version_tag for c in deprecated_chunks]
+            cur_versions = [c.version_tag for c in current_chunks]
+            ordering_violation = any(
+                semver_lt(cur_v, dep_v)
+                for dep_v in dep_versions
+                for cur_v in cur_versions
             )
+            if ordering_violation:
+                alerts.append(
+                    ConflictAlert(
+                        conflict_type="version_ordering_violation",
+                        severity="CRITICAL",
+                        chunk_ids=[c.chunk_id for c in deprecated_chunks + current_chunks],
+                        description=(
+                            f"{api} is marked 'deprecated' in a NEWER version than where it "
+                            "appears as 'current'. This version-ordering anomaly likely indicates "
+                            "a corpus ingestion bug or mislabelled chunk."
+                        ),
+                    )
+                )
+            else:
+                alerts.append(
+                    ConflictAlert(
+                        conflict_type="version_deprecation_conflict",
+                        severity="HIGH",
+                        chunk_ids=[c.chunk_id for c in deprecated_chunks + current_chunks],
+                        description=f"{api} is marked deprecated in one source but current in another.",
+                    )
+                )
 
         stale_chunks = [c for c in api_chunks if c.freshness_score < 0.4]
         if stale_chunks:
@@ -374,6 +410,45 @@ def detect_conflicts(chunks: list[Chunk], parsed: ParsedQuery, vc: VersionContex
             )
 
     return dedupe_alerts(alerts)
+
+
+# ── semver utilities ─────────────────────────────────────────────────────────
+
+def parse_semver(tag: str) -> tuple[int, ...]:
+    """Parse 'v2', 'v3.1', 'v2.1.0' → (2,), (3, 1), (2, 1, 0).
+
+    Strips leading 'v'/'V'. Non-numeric segments fall back to (0,).
+    """
+    cleaned = tag.strip().lstrip("vV")
+    if not cleaned:
+        return (0,)
+    try:
+        return tuple(int(p) for p in cleaned.split("."))
+    except ValueError:
+        return (0,)
+
+
+def semver_lt(a: str, b: str) -> bool:
+    """Return True if version tag a is strictly older than b."""
+    return parse_semver(a) < parse_semver(b)
+
+
+def semver_distance(a: str, b: str) -> int:
+    """Major-version distance between two tags (e.g. v1 → v4 = 3)."""
+    sv_a, sv_b = parse_semver(a), parse_semver(b)
+    return abs((sv_b[0] if sv_b else 0) - (sv_a[0] if sv_a else 0))
+
+
+def build_api_version_graph(chunks: list[Chunk]) -> dict[str, list[str]]:
+    """For each API name, return its observed version tags sorted by semver ascending."""
+    api_versions: dict[str, set[str]] = {}
+    for chunk in chunks:
+        for api in chunk.api_names:
+            api_versions.setdefault(api, set()).add(chunk.version_tag)
+    return {
+        api: sorted(versions, key=parse_semver)
+        for api, versions in api_versions.items()
+    }
 
 
 def dedupe_alerts(alerts: list[ConflictAlert]) -> list[ConflictAlert]:
